@@ -28,7 +28,7 @@ pybtex==0.26.1
 Pygments==2.21.0
 pykwalify==1.8.0
 pyparsing==3.3.2
-pypdf==6.10.2
+pypdf==6.16.1
 pyrsistent==0.20.0
 pytest==9.1.0
 python-dateutil==2.9.0.post0
@@ -37,7 +37,7 @@ requests==2.34.2
 ruamel.yaml==0.19.1
 scikit-learn==1.8.0
 scipy==1.18.0
-setuptools==80.10.2
+setuptools==83.0.0
 six==1.17.0
 threadpoolctl==3.6.0
 tzdata==2026.3

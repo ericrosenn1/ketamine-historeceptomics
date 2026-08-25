@@ -27,19 +27,26 @@ machine-readable record is
 ## Executable-code review
 
 A Python 3.12 normalized-AST comparison removed module, class, and function
-docstrings and ignored comments and source locations. Twenty-eight production
-files were exactly executable-AST-equivalent. Sixteen files had intentional,
+docstrings and ignored comments and source locations. Twenty-seven production
+files were exactly executable-AST-equivalent. Seventeen files had intentional,
 reviewed executable differences: three public metadata/audit tools, the package
 version, the four public orchestration and authority-routing modules, and eight
 recovered upstream producers whose workstation defaults were replaced by
-explicit external-input guards. One public documentation-audit tool is new, and
-one source-era local-provenance sanitizer was removed.
+explicit external-input guards. The query-freeze output permission was hardened
+from world-readable to owner-readable without changing file content. One public
+documentation-audit tool is new, and one source-era local-provenance sanitizer
+was removed.
 
 The orchestration change also adds an invented-fixture Smoke assertion for HR
 multiplication and missingness. No activity selection, expression
 standardization, HR formula, GESD threshold, call set, pairwise metric,
 multivariate algorithm, seed, tolerance, target/tissue/compound identity, or
 accepted reference coordinate was altered.
+
+The patched `pypdf` and `setuptools` pins affect PDF inspection and package
+construction, not the numerical stack. Validation under those exact versions
+reproduced all scientific machine-readable Verify outputs byte-for-byte;
+rendered PNG and TIFF files were also byte-identical.
 
 ## Numerical validation
 

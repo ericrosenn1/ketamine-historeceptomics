@@ -14,6 +14,10 @@ First public publication-facing release.
   public security policy, contribution guidance, issue forms, and secure CI.
 - Added file-level redistribution, public-exposure, documentation, and
   scientific-equivalence audits.
+- Hardened generated freeze-file permissions to owner-readable while retaining
+  identical file bytes and scientific results.
+- Updated the PDF-validation and packaging dependencies to patched `pypdf`
+  6.16.1 and `setuptools` 83.0.0 releases.
 - Preserved accepted selected activities, HR values, fingerprint calls,
   pairwise metrics, multivariate results, fixed-reference coordinates,
   missingness, identities, and governed configuration.

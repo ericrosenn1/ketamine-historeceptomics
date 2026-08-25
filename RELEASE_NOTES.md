@@ -58,6 +58,10 @@ claim raw-public-database-to-result reconstruction.
 - deterministic release manifests and file-level redistribution decisions;
 - public CI, CodeQL, dependency review, Dependabot, issue forms, contribution
   guidance, and private vulnerability-reporting instructions;
+- owner-readable permissions for generated query-freeze outputs, with no
+  change to their bytes or numerical content;
+- patched `pypdf` and `setuptools` dependency pins used for PDF validation and
+  package construction;
 - clean-clone, exposure, code-documentation, and scientific-equivalence audits.
 
 ### Interpretation limits
