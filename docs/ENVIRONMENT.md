@@ -30,7 +30,7 @@ they are not minimum requirements.
 | joblib | 1.5.3 |
 | Pillow | 12.3.0 |
 | psutil | 7.2.2 |
-| pypdf | 6.10.2 |
+| pypdf | 6.16.1 |
 | PyYAML | 6.0.3 |
 | pytest | 9.1.0 |
 

@@ -234,7 +234,7 @@ def freeze_query(paths: dict[str, Path], output_dir: Path) -> dict[str, Any]:
     Side Effects
     ------------
     Writes query tables and manifests and attempts to mark output files
-    read-only with mode ``0o444``.
+    owner-readable with mode ``0o400``.
     """
     output_dir.mkdir(parents=True, exist_ok=True)
     full = pd.read_parquet(paths["pooled_full_hr"])
@@ -315,9 +315,10 @@ def freeze_query(paths: dict[str, Path], output_dir: Path) -> dict[str, Any]:
     for file in output_dir.iterdir():
         if file.is_file():
             try:
-                # Read-only marking is a best-effort freeze aid; content hashes
-                # and contract checks remain the portable authority.
-                os.chmod(file, 0o444)
+                # Owner-readable marking avoids exposing frozen outputs to
+                # other local accounts. Content hashes and contract checks
+                # remain the portable authority.
+                os.chmod(file, 0o400)
             except OSError:
                 pass
     return {
