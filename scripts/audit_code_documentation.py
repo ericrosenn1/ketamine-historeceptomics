@@ -33,7 +33,20 @@ REPORT_PATHS = {
     "audits/CODE_DOCUMENTATION_AUDIT.md",
     "audits/CODE_DOCUMENTATION_AUDIT.tsv",
 }
-SKIP_PARTS = {".git", ".venv", "__pycache__", "build", "dist", "local", "runs"}
+SKIP_PARTS = {
+    ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "build",
+    "clean_clone_validation",
+    "dist",
+    "local",
+    "release_artifacts",
+    "runs",
+}
 PYTHON_ROOTS = ("src", "scripts", "tests")
 MARKER_SUFFIXES = {
     ".cff",

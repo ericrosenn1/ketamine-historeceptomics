@@ -1,7 +1,7 @@
 category	path	item	status	detail
 citation_bibtex	CITATION.bib	document	PASS	26 unique entries parsed by Pybtex
 citation_cff	CITATION.cff	document	PASS	CFF 1.2 schema, v0.1.1 fields, single software author, and ORCID checksum valid
-class_docstring	scripts/audit_code_documentation.py	Check:66	PASS	Documented
+class_docstring	scripts/audit_code_documentation.py	Check:79	PASS	Documented
 class_docstring	scripts/audit_repository.py	Finding:135	PASS	Documented
 class_docstring	scripts/build_release_manifests.py	GitBlob:41	PASS	Documented
 class_docstring	scripts/compare_executable_ast.py	DocstringStripper:44	PASS	Documented
@@ -81,7 +81,6 @@ development_metadata	.github/pull_request_template.md	file	PASS	No findings
 development_metadata	.github/workflows/ci.yml	file	PASS	No findings
 development_metadata	.github/workflows/codeql.yml	file	PASS	No findings
 development_metadata	.github/workflows/dependency-review.yml	file	PASS	No findings
-development_metadata	.pytest_cache/README.md	file	PASS	No findings
 development_metadata	ANALYSIS_REPRODUCIBILITY_MATRIX.csv	file	PASS	No findings
 development_metadata	CHANGELOG.md	file	PASS	No findings
 development_metadata	CITATION.cff	file	PASS	No findings
@@ -260,25 +259,25 @@ development_metadata	tests/test_pooled_authority_counts.py	file	PASS	No findings
 development_metadata	tests/test_portable_release_outputs.py	file	PASS	No findings
 development_metadata	tests/test_resource_limits.py	file	PASS	No findings
 development_metadata	tests/test_target_mapping.py	file	PASS	No findings
-function_docstring	scripts/audit_code_documentation.py	audit_citations:402	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_descriptors:265	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_links:363	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_markers:325	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_powershell:214	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_python:141	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_test_descriptors:313	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	descriptor_paths:253	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	function_is_nontrivial:113	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	main:514	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	module_doc_contract:123	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	normalize_link_target:352	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	parse_args:76	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	python_files:98	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	relative:92	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	render_markdown:466	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	render_tsv:455	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	valid_orcid:386	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	write_or_check:498	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_citations:415	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_descriptors:278	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_links:376	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_markers:338	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_powershell:227	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_python:154	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_test_descriptors:326	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	descriptor_paths:266	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	function_is_nontrivial:126	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	main:527	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	module_doc_contract:136	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	normalize_link_target:365	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	parse_args:89	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	python_files:111	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	relative:105	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	render_markdown:479	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	render_tsv:468	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	valid_orcid:399	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	write_or_check:511	PASS	Documented
 function_docstring	scripts/audit_repository.py	included:170	PASS	Documented
 function_docstring	scripts/audit_repository.py	line_numbers:181	PASS	Documented
 function_docstring	scripts/audit_repository.py	main:374	PASS	Documented
@@ -1017,7 +1016,6 @@ unresolved_marker	.github/pull_request_template.md	file	PASS	No findings
 unresolved_marker	.github/workflows/ci.yml	file	PASS	No findings
 unresolved_marker	.github/workflows/codeql.yml	file	PASS	No findings
 unresolved_marker	.github/workflows/dependency-review.yml	file	PASS	No findings
-unresolved_marker	.pytest_cache/README.md	file	PASS	No findings
 unresolved_marker	ANALYSIS_REPRODUCIBILITY_MATRIX.csv	file	PASS	No findings
 unresolved_marker	CHANGELOG.md	file	PASS	No findings
 unresolved_marker	CITATION.cff	file	PASS	No findings
