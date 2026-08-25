@@ -1,0 +1,193 @@
+# Scientific meaning: Binds each accepted analysis ID to its roster,
+# representation, missingness rule, method, and retained reference output.
+# Units: GESD alpha values and candidate_fraction are dimensionless fractions;
+# sd_ddof, requested_components, and random_seed are integer counts/controls;
+# repository paths are relative POSIX-style paths.
+# Field/value constraints: Analysis IDs and categorical method labels are stable;
+# alpha values lie in (0, 1), component counts are positive, and NA remains NA.
+# Consumer: Verify/Full orchestration, model registries, governance tests, and
+# publication-facing provenance/readback audits.
+# Scientific-change impact: A value change can alter the tested roster, model,
+# missingness handling, fingerprint calls, coordinates, or reference routing.
+# Modification caution: Treat value edits as scientific changes requiring human
+# review, regenerated numerical evidence, and updated audits; never tune in place.
+# SPDX-License-Identifier: MIT
+
+schema_version: "1.0"
+config_version: "0.1.0"
+effective_date: "2026-08-24"
+authority:
+  model_status: results/reference/FINAL_MODEL_STATUS.csv
+  multivariate_audit: results/reference/FINAL_MULTIVARIATE_AUDIT.csv
+  feature_contract: data/frozen/metadata/feature_dictionary.parquet
+governed_defaults:
+  random_seed: 20260813
+  requested_components: 2
+  missingness: preserve_observed_NA
+  force_unestimable_components: false
+  clustering_linkage: average
+  continuous_distance: matched_coordinate_RMS
+  sparse_call_encoding: "1=called, 0=tested noncall, NA=not tested"
+  fingerprint:
+    tail: one_sided_upper
+    sd_ddof: 1
+    candidate_fraction: 0.10
+    alpha_primary: 0.001
+    alpha_sensitivity: 0.0001
+
+analyses:
+  FAMILY_JOINT_CONTINUOUS_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: strict18_common_rhr
+    missing_value_rule: EM_SVD_OBSERVED_CELLS
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/family/FAMILY_JOINT_CONTINUOUS_PCA_SCORES.csv
+  FAMILY_COMPLETE_CASE_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: strict18_common_rhr
+    missing_value_rule: COMPLETE_CASE_FEATURES
+    normalization: CENTER_FEATURES
+    method: COMPLETE_CASE_SVD_PCA
+    output_coordinates: results/reference/family/FAMILY_COMPLETE_CASE_PCA_SCORES.csv
+  FAMILY_TARGET_LEVEL_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: target_mean_common_rhr
+    missing_value_rule: EM_SVD_OBSERVED_CELLS
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/family/FAMILY_TARGET_LEVEL_PCA_SCORES.csv
+  FAMILY_SHARED_TARGET_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: complete_case_target_mean_common_rhr
+    missing_value_rule: COMPLETE_CASE_TARGETS
+    normalization: CENTER_FEATURES
+    method: COMPLETE_CASE_SVD_PCA
+    output_coordinates: results/reference/family/FAMILY_SHARED_TARGET_PCA_SCORES.csv
+  FAMILY_SPARSE_ALPHA001_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: alpha001_binary_0_1_NA
+    missing_value_rule: SUPPORT_AWARE_EM_SVD
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/family/FAMILY_SPARSE_ALPHA001_PCA_SCORES.csv
+  FAMILY_SPARSE_ALPHA0001_PCA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: alpha0001_binary_0_1_NA
+    missing_value_rule: SUPPORT_AWARE_EM_SVD
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/family/FAMILY_SPARSE_ALPHA0001_PCA_SCORES.csv
+  FAMILY_RMS_PCOA:
+    roster: KETAMINE_FAMILY_10
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    method: PCOA
+    output_coordinates: results/reference/family/FAMILY_RMS_PCOA_COORDINATES.csv
+  FAMILY_WEIGHTED_MDS:
+    roster: KETAMINE_FAMILY_10
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    method: WEIGHTED_METRIC_MDS
+    output_coordinates: results/reference/family/FAMILY_WEIGHTED_MDS_COORDINATES.csv
+  FAMILY_AVERAGE_LINKAGE:
+    roster: KETAMINE_FAMILY_10
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    metric: precomputed_RMS
+    method: AVERAGE_LINKAGE_HIERARCHICAL_CLUSTERING
+    output_matrix: results/reference/family/FAMILY_AVERAGE_LINKAGE.csv
+  GLOBAL_JOINT_CONTINUOUS_PCA:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: strict18_common_rhr
+    missing_value_rule: EM_SVD_OBSERVED_CELLS
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/global/GLOBAL_JOINT_CONTINUOUS_PCA_SCORES.csv
+  GLOBAL_TARGET_LEVEL_PCA:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: target_mean_common_rhr
+    missing_value_rule: EM_SVD_OBSERVED_CELLS
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/global/GLOBAL_TARGET_LEVEL_PCA_SCORES.csv
+  GLOBAL_SPARSE_ALPHA001_PCA:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: alpha001_binary_0_1_NA
+    missing_value_rule: SUPPORT_AWARE_EM_SVD
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv
+  GLOBAL_SPARSE_ALPHA0001_PCA:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: alpha0001_binary_0_1_NA
+    missing_value_rule: SUPPORT_AWARE_EM_SVD
+    normalization: CENTER_FEATURES
+    method: EM_SVD_MISSINGNESS_AWARE_PCA
+    output_coordinates: results/reference/global/GLOBAL_SPARSE_ALPHA0001_PCA_SCORES.csv
+  GLOBAL_FIXED_REFERENCE_PCA:
+    roster: EXTERNAL_REFERENCE_25_PLUS_KETAMINE_FAMILY_QUERY_10
+    input_representation: strict18_common_rhr
+    missing_value_rule: FROZEN_REFERENCE_EM_SVD_WITH_WLS_QUERY_PROJECTION
+    normalization: FROZEN_REFERENCE_CENTER
+    method: FROZEN_REFERENCE_EM_SVD_PCA_WITH_WLS_QUERY_PROJECTION
+    reference_axes_refit_with_query: false
+    output_coordinates: results/reference/global/GLOBAL_FIXED_REFERENCE_PCA_SCORES.csv
+  GLOBAL_RMS_PCOA:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    method: PCOA
+    output_coordinates: results/reference/global/GLOBAL_RMS_PCOA_COORDINATES.csv
+  GLOBAL_WEIGHTED_MDS:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    method: WEIGHTED_METRIC_MDS
+    output_coordinates: results/reference/global/GLOBAL_WEIGHTED_MDS_COORDINATES.csv
+  GLOBAL_AVERAGE_LINKAGE:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: pairwise_rms
+    missing_value_rule: COMPLETE_FINITE_DISTANCE_SUBSET
+    normalization: none
+    metric: precomputed_RMS
+    method: AVERAGE_LINKAGE_HIERARCHICAL_CLUSTERING
+    output_matrix: results/reference/global/GLOBAL_AVERAGE_LINKAGE.csv
+  GLOBAL_ALPHA001_JACCARD:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: alpha001_call_sets
+    missing_value_rule: TESTED_SUPPORT_AWARE
+    normalization: none
+    metric: JACCARD
+    output_matrix: results/reference/global/GLOBAL_ALPHA001_CALL_JACCARD_MATRIX.csv
+  GLOBAL_ALPHA0001_JACCARD:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: alpha0001_call_sets
+    missing_value_rule: TESTED_SUPPORT_AWARE
+    normalization: none
+    metric: JACCARD
+    output_matrix: results/reference/global/GLOBAL_ALPHA0001_CALL_JACCARD_MATRIX.csv
+  GLOBAL_ALPHA001_SIGNED_SPARSE_COSINE:
+    roster: GLOBAL_NUMERICAL_35
+    input_representation: alpha001_signed_sparse_HR
+    missing_value_rule: TESTED_SUPPORT_AWARE
+    normalization: none
+    metric: SIGNED_SPARSE_COSINE
+    output_matrix: results/reference/global/GLOBAL_ALPHA001_SIGNED_SPARSE_COSINE_MATRIX.csv
+
+class_specific_template:
+  roster_authority: data/frozen/metadata/class_membership.csv
+  model_status_authority: results/reference/class/CLASS_STATUS.csv
+  methods:
+    - JOINT_CONTINUOUS_PCA
+    - FIXED_REFERENCE_PCA
+    - TARGET_LEVEL_PCA
+    - SPARSE_FINGERPRINT_PCA
+    - RMS_PCOA
+    - WEIGHTED_MDS
+    - AVERAGE_LINKAGE

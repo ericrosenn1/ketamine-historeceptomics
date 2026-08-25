@@ -1,0 +1,13 @@
+# Purpose: Configure CodeQL for original Python source and exclude generated or
+# non-code data. Consumer: .github/workflows/codeql.yml. Changing query suites
+# changes security coverage, not scientific results.
+name: ketamine-historeceptomics-codeql
+paths:
+  - src
+  - scripts
+paths-ignore:
+  - data
+  - results
+  - local
+queries:
+  - uses: security-extended

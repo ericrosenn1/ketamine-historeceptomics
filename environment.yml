@@ -1,0 +1,12 @@
+# Reproducibility environment: Python 3.12 plus the repository's exact pip lock.
+# This file installs software only; it does not encode scientific parameters.
+# SPDX-License-Identifier: MIT
+
+name: ketamine-historeceptomics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.10
+  - pip
+  - pip:
+      - -r requirements-lock.txt

@@ -1,0 +1,49 @@
+# Scientific meaning: Fixes the ordered 25-drug external comparator universe,
+# class labels, source lanes, and expected family/global analysis cardinalities.
+# Units: order and expected_* fields are integer counts; labels, classes, lanes,
+# and roster identifiers are categorical strings.
+# Field/value constraints: Orders are unique 1..25, drug labels are unique,
+# 25 external + 10 family = 35 profiles, and C(35, 2) = 595 unordered pairs.
+# Consumer: Verify/Full roster assembly, pairwise comparisons, class analyses,
+# nearest-reference summaries, multivariate models, and Figure 4.
+# Scientific-change impact: An edit changes the comparator universe, pair set,
+# class interpretation, rankings, and potentially multivariate coordinates.
+# Modification caution: Do not reorder, substitute, rename, or reclassify a drug
+# without authority-level identity/source review and complete downstream QA.
+# SPDX-License-Identifier: MIT
+
+schema_version: "1.0"
+config_version: "0.1.0"
+effective_date: "2026-08-24"
+roster_id: GLOBAL_EXTERNAL_REFERENCE_25
+authority: data/frozen/profiles/all_compound_profiles_strict18_long.csv
+expected_external_drugs: 25
+expected_family_profiles: 10
+expected_total_profiles: 35
+expected_unordered_pairs: 595
+reference_drugs:
+  - {order: 1, label: Bupropion, class: Antidepressant, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 2, label: Fluoxetine, class: Antidepressant, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 3, label: Duloxetine, class: Antidepressant, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 4, label: Venlafaxine, class: Antidepressant, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 5, label: Scopolamine, class: Cholinergic, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 6, label: Dextromethorphan, class: NMDA/dissociative, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 7, label: Morphine, class: Analgesic/opioid, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 8, label: Propofol, class: Anesthetic/sedative, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 9, label: Dexmedetomidine, class: Anesthetic/sedative, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 10, label: Lysergide (LSD), class: Serotonergic psychedelic, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 11, label: Psilocin, class: Serotonergic psychedelic, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 12, label: Clozapine, class: Antipsychotic, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 13, label: Chlorpromazine, class: Antipsychotic, source_lane: EXISTING_EXTERNAL_AUTHORITY}
+  - {order: 14, label: Sertraline, class: Antidepressant, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 15, label: Mirtazapine, class: Antidepressant, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 16, label: Aripiprazole, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 17, label: Haloperidol, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 18, label: Olanzapine, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 19, label: Risperidone, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 20, label: Quetiapine, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 21, label: Ziprasidone, class: Antipsychotic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 22, label: PCP, class: NMDA/dissociative, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 23, label: Valproate, class: Mood stabilizer/antiepileptic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 24, label: Lamotrigine, class: Mood stabilizer/antiepileptic, source_lane: NEW_CHEMBL_FULL76_REPAIR}
+  - {order: 25, label: Psilocybin, class: Serotonergic psychedelic, source_lane: NEW_CHEMBL_FULL76_REPAIR}

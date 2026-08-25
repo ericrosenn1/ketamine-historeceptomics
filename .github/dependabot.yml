@@ -1,0 +1,20 @@
+# Purpose: Request bounded updates for Python and immutable GitHub Actions pins.
+# Consumer: GitHub Dependabot. Changes affect dependencies or CI only and must
+# pass scientific regression and documentation gates before merge.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - ci

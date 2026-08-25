@@ -1,0 +1,45 @@
+{
+  "alpha_0p001_observed_calls": 19,
+  "alpha_0p001_expected_calls": 19,
+  "alpha_0p001_exact_source_callset_match": true,
+  "alpha_0p0001_observed_calls": 14,
+  "alpha_0p0001_expected_calls": 14,
+  "alpha_0p0001_exact_source_callset_match": true,
+  "alpha_0p0001_subset_alpha_0p001": true,
+  "csv_parquet_key_equality": true,
+  "csv_parquet_hr_equivalence_within_1e_minus_12": true,
+  "csv_parquet_max_abs_hr_delta": 7.105427357601002e-15,
+  "source_dimensions_58x77x4466": true,
+  "full_matrix_all_hr_finite": true,
+  "missing_coordinates_zero_filled": false,
+  "confirmed_racemate_profile_used": false,
+  "wholebody_0001_subset_001": true,
+  "call_count_reconciles_alpha_001": true,
+  "call_count_reconciles_alpha_0001": true,
+  "cns_reconciliation_all_hr_match": true,
+  "pdf_exists_nonempty": true,
+  "svg_exists_nonempty": true,
+  "png_exists_nonempty": true,
+  "tiff_exists_nonempty": true,
+  "pdf_header_valid": true,
+  "svg_header_valid": true,
+  "png_readable": true,
+  "png_size_px": [
+    8981,
+    8407
+  ],
+  "png_dpi": [
+    599.9988,
+    599.9988
+  ],
+  "tiff_readable": true,
+  "tiff_size_px": [
+    8981,
+    8407
+  ],
+  "tiff_dpi": [
+    "600.0",
+    "600.0"
+  ],
+  "overall_status": "PASS"
+}

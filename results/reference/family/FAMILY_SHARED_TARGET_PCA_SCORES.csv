@@ -1,0 +1,11 @@
+analysis_id,compound,representation,method,PC1,PC1_variance_fraction
+FAMILY_SHARED_TARGET_PCA,"Ketamine, pooled parent",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.12309053347366002,1.0
+FAMILY_SHARED_TARGET_PCA,"Ketamine, confirmed racemate",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,0.17573229611808458,1.0
+FAMILY_SHARED_TARGET_PCA,S-ketamine,complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,0.17346225077112776,1.0
+FAMILY_SHARED_TARGET_PCA,R-ketamine,complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,0.17346225077112776,1.0
+FAMILY_SHARED_TARGET_PCA,"Hydroxyketamine, unspecified isomer aggregate",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,0.17346225077112776,1.0
+FAMILY_SHARED_TARGET_PCA,"(2R,6R)-hydroxynorketamine",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.07692992595267266,1.0
+FAMILY_SHARED_TARGET_PCA,"(2S,6S)-hydroxynorketamine",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.1440820720082282,1.0
+FAMILY_SHARED_TARGET_PCA,"Hydroxynorketamine / HNK, generic identity",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.15475465542489486,1.0
+FAMILY_SHARED_TARGET_PCA,"Hydroxyketamine, generic E7 identity",complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.07468601917489491,1.0
+FAMILY_SHARED_TARGET_PCA,Norketamine,complete_case_target_mean_common_rhr,COMPLETE_CASE_SVD_PCA,-0.12257584239711708,1.0

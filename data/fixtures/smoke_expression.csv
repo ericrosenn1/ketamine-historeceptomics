@@ -1,0 +1,5 @@
+canonical_target_id,tissue_id,tissue_label,expression_z
+SMOKE_T1,SMOKE_X,Synthetic tissue X,-1.0
+SMOKE_T1,SMOKE_Y,Synthetic tissue Y,1.0
+SMOKE_T2,SMOKE_X,Synthetic tissue X,2.0
+SMOKE_T2,SMOKE_Y,Synthetic tissue Y,

@@ -1,0 +1,36 @@
+compound,included_in_complete_rms_distance_subset,supported_features,exclusion_reason
+"Ketamine, pooled parent",True,1026,
+"Ketamine, confirmed racemate",True,450,
+S-ketamine,True,774,
+R-ketamine,True,684,
+"Hydroxyketamine, unspecified isomer aggregate",True,576,
+Bupropion,False,36,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Fluoxetine,True,162,
+Duloxetine,True,54,
+Venlafaxine,True,54,
+Scopolamine,False,36,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Dextromethorphan,False,18,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Morphine,False,72,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Propofol,True,54,
+Dexmedetomidine,True,90,
+Lysergide (LSD),False,162,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Psilocin,False,54,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Clozapine,True,324,
+Chlorpromazine,True,396,
+Sertraline,True,396,
+Mirtazapine,False,234,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Aripiprazole,True,414,
+Haloperidol,True,378,
+Olanzapine,True,342,
+Risperidone,True,360,
+Quetiapine,False,324,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Ziprasidone,True,360,
+PCP,True,72,
+Valproate,True,126,
+Lamotrigine,False,36,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+Psilocybin,False,72,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+"(2R,6R)-hydroxynorketamine",False,37,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+"(2S,6S)-hydroxynorketamine",False,18,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+"Hydroxynorketamine / HNK, generic identity",False,109,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW
+"Hydroxyketamine, generic E7 identity",True,105,
+Norketamine,False,87,INCOMPLETE_PAIRWISE_RMS_DISTANCE_ROW

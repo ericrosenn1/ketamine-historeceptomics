@@ -1,0 +1,71 @@
+# Public package and test configuration for release 0.1.1 under the MIT License.
+# Scientific parameters remain in configs/governed_parameters.yaml.
+# SPDX-License-Identifier: MIT
+
+[build-system]
+requires = ["setuptools==80.10.2", "wheel==0.46.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ketamine-historeceptomics"
+version = "0.1.1"
+description = "Reproducible historeceptomic analysis of ketamine, its enantiomers, metabolites, and psychoactive reference drugs."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Eric Rosenn"},
+]
+requires-python = ">=3.12,<3.13"
+keywords = [
+  "ketamine",
+  "historeceptomics",
+  "pharmacology",
+  "transcriptomics",
+  "reproducible-research",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+  "joblib==1.5.3",
+  "matplotlib==3.11.1",
+  "numpy==2.5.1",
+  "openpyxl==3.1.5",
+  "pandas==3.0.5",
+  "pillow==12.3.0",
+  "psutil==7.2.2",
+  "pyarrow==24.0.0",
+  "pypdf==6.10.2",
+  "PyYAML==6.0.3",
+  "scikit-learn==1.8.0",
+  "scipy==1.18.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.0"]
+
+[project.scripts]
+cardozo-ketamine-hr = "cardozo_ketamine_hr.portable:main"
+
+[project.urls]
+Homepage = "https://github.com/ericrosenn1/ketamine-historeceptomics"
+Repository = "https://github.com/ericrosenn1/ketamine-historeceptomics"
+Issues = "https://github.com/ericrosenn1/ketamine-historeceptomics/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+pythonpath = ["src"]
+markers = [
+  "external_data: requires the manifest-valid 20-file authority tree supplied via CARDOZO_HR_EXTERNAL_INPUT_ROOT",
+]

@@ -1,0 +1,44 @@
+# Purpose: Perform GitHub CodeQL analysis of the Python source.
+# Consumer: GitHub Actions and the repository Security dashboard.
+# Triggers: pushes and pull requests to main, weekly schedule, manual dispatch.
+# Permissions: read contents and write only security-event results.
+# Jobs: initialize the Python database, autobuild, and upload findings. No cache
+# or artifact is published. Required security check: Analyze (python).
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '17 6 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze (python)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@37f2634a92ba38a0926ef79a0748ac8ae7d95ab2 # v4.37.8
+        with:
+          languages: python
+          config-file: ./.github/codeql/codeql-config.yml
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@37f2634a92ba38a0926ef79a0748ac8ae7d95ab2 # v4.37.8
+      - name: Analyze
+        uses: github/codeql-action/analyze@37f2634a92ba38a0926ef79a0748ac8ae7d95ab2 # v4.37.8
+        with:
+          category: /language:python

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite this software release. A manuscript citation may be added after its title and authorship are finalized."
+title: "Ketamine Historeceptomics"
+version: 0.1.1
+date-released: 2026-08-25
+type: software
+authors:
+  - family-names: "Rosenn"
+    given-names: "Eric"
+    orcid: "https://orcid.org/0009-0000-6084-8933"
+repository-code: "https://github.com/ericrosenn1/ketamine-historeceptomics"
+url: "https://github.com/ericrosenn1/ketamine-historeceptomics"
+license: MIT
+keywords:
+  - ketamine
+  - historeceptomics
+  - reproducibility
+  - multivariate analysis
+  - GESD
+abstract: "Reproducible software, synthetic Smoke fixtures, governed external-input contracts, and validated reference outputs for historeceptomic analysis of ketamine, its enantiomers, metabolites, and psychoactive reference drugs. Verify and Full require user-supplied governed inputs. The release preserves missingness, compound identity, censored activity bounds, fixed-reference coordinates, and accepted numerical regression targets."

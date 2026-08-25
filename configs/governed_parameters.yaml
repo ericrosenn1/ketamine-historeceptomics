@@ -1,0 +1,31 @@
+# Scientific meaning: Freezes fingerprint thresholds, multivariate controls,
+# missingness semantics, and bounded execution-resource ceilings.
+# Units: alpha/rmax/resource values are dimensionless fractions; sd_ddof,
+# requested_components, and random_seed are integer controls/counts.
+# Field/value constraints: 0 < alpha_sensitivity < alpha_primary < 1; fractions
+# lie in (0, 1]; requested_components is positive; preserve_na remains true.
+# Consumer: Fingerprint, multivariate, portable Verify/Full, resource management,
+# and numerical-governance tests.
+# Scientific-change impact: Scientific fields can change calls, estimability,
+# coordinates, clustering, or missingness meaning; resource fields affect runs.
+# Modification caution: Do not tune against outputs or convert NA to zero; any
+# change requires review and revalidation of every affected downstream artifact.
+# SPDX-License-Identifier: MIT
+
+fingerprint:
+  tail: one_sided_upper
+  alpha_primary: 0.001
+  alpha_sensitivity: 0.0001
+  sd_ddof: 1
+  rmax_fraction: 0.10
+multivariate:
+  requested_components: 2
+  force_unestimable_components: false
+  random_seed: 20260813
+missingness:
+  preserve_na: true
+  zero_only_for_tested_noncall: true
+resources:
+  cpu_ceiling_fraction: 0.80
+  ram_ceiling_fraction: 0.80
+  vram_ceiling_fraction: 0.80

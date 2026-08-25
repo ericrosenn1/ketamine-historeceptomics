@@ -1,0 +1,9 @@
+{
+  "alpha_0p001_observed_calls": 19,
+  "alpha_0p001_expected_calls": 19,
+  "alpha_0p001_exact_source_callset_match": true,
+  "alpha_0p0001_observed_calls": 14,
+  "alpha_0p0001_expected_calls": 14,
+  "alpha_0p0001_exact_source_callset_match": true,
+  "alpha_0p0001_subset_alpha_0p001": true
+}

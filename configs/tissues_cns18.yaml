@@ -1,0 +1,42 @@
+# Scientific meaning: Fixes the exact ordered 18-tissue human CNS panel used for
+# strict-CNS HR profiles and GESD fingerprint testing.
+# Units: order and expected_* fields are integer counts; tissue/profile IDs and
+# labels are categorical authority identifiers.
+# Field/value constraints: Exactly 18 unique tissue IDs/orders and 58 targets
+# produce 1,044 coordinates; source/display labels preserve their stated grain.
+# Consumer: Verify/Full filtering, strict-profile construction, fingerprints,
+# call-set regression, pairwise metrics, and provenance checks.
+# Scientific-change impact: Any panel edit changes the tested coordinate
+# universe, GESD distribution/calls, pairwise support, and downstream models.
+# Modification caution: Do not infer, relabel, reorder, add, or remove tissues
+# independently of the frozen authority and explicit scientific approval.
+# SPDX-License-Identifier: MIT
+
+schema_version: "1.0"
+config_version: "0.1.0"
+effective_date: "2026-08-24"
+panel_id: STRICT_CNS_HUMAN_18
+authority: data/frozen/core/pooled_strict18_hr.csv
+expected_tissues: 18
+expected_targets: 58
+expected_coordinates: 1044
+expression_profile_id: HUMAN_BIOGPS_GNF1H_GCRMA_77_TISSUE_DDOF1
+tissues:
+  - {order: 1, tissue_id: HSAMP_06645e2e8409a5b743985cdd, source_label: Wholebrain, display_label: Whole brain}
+  - {order: 2, tissue_id: HSAMP_0cb8b4d1db8c390eeeecca55, source_label: Pons, display_label: Pons}
+  - {order: 3, tissue_id: HSAMP_13a552b6ffc4aac3b85a50ca, source_label: Amygdala, display_label: Amygdala}
+  - {order: 4, tissue_id: HSAMP_192dff4b8df5862a227b1163, source_label: SubthalamicNucleus, display_label: Subthalamic nucleus}
+  - {order: 5, tissue_id: HSAMP_20b60708f05d03c76f9fe702, source_label: CerebellumPeduncles, display_label: Cerebellum peduncles}
+  - {order: 6, tissue_id: HSAMP_374f872ebf1bbba2be514f9f, source_label: GlobusPallidus, display_label: Globus pallidus}
+  - {order: 7, tissue_id: HSAMP_5c090f15f3e5194312a7e8ed, source_label: MedullaOblongata, display_label: Medulla oblongata}
+  - {order: 8, tissue_id: HSAMP_752ebc880edc13bb4e2b2de8, source_label: PrefrontalCortex, display_label: Prefrontal Cortex}
+  - {order: 9, tissue_id: HSAMP_7725bb8a75064c4d7246d9ba, source_label: OccipitalLobe, display_label: Occipital Lobe}
+  - {order: 10, tissue_id: HSAMP_8ed020260a1d25cf72324c8a, source_label: Hypothalamus, display_label: Hypothalamus}
+  - {order: 11, tissue_id: HSAMP_936b77a4b11b5c19027de438, source_label: Spinalcord, display_label: Spinal cord}
+  - {order: 12, tissue_id: HSAMP_9aa72e4fb1ff63e1792b1ec7, source_label: Cerebellum, display_label: Cerebellum}
+  - {order: 13, tissue_id: HSAMP_a32ce488a48b0df9b8c4c40a, source_label: Caudatenucleus, display_label: Caudate nucleus}
+  - {order: 14, tissue_id: HSAMP_d99ba5ea584363f8600ade55, source_label: CingulateCortex, display_label: Cingulate Cortex}
+  - {order: 15, tissue_id: HSAMP_e75262fc0acfda69d976a6d3, source_label: ParietalLobe, display_label: Parietal Lobe}
+  - {order: 16, tissue_id: HSAMP_eb2587e74e2d6457032d4ae7, source_label: TemporalLobe, display_label: Temporal Lobe}
+  - {order: 17, tissue_id: HSAMP_f43595f3557cf05e6a721aeb, source_label: Thalamus, display_label: Thalamus}
+  - {order: 18, tissue_id: HSAMP_ff841df7ecd9f2c8ea2660f5, source_label: OlfactoryBulb, display_label: Olfactory Bulb}

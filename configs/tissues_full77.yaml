@@ -1,0 +1,101 @@
+# Scientific meaning: Fixes the exact ordered 77-tissue human expression panel,
+# feature-contract identity, z-score convention, and strict-CNS membership.
+# Units: standardization_ddof and order are integer controls/counts; strict_cns
+# is Boolean; tissue/profile/contract IDs and labels are categorical.
+# Field/value constraints: Exactly 77 unique tissue IDs/orders are required;
+# ddof=1 governs z-scores, and strict_cns flags must reconcile to the CNS18 panel.
+# Consumer: Full-tissue HR construction, whole-body fingerprinting, CNS versus
+# peripheral reconciliation, Verify/Full routing, and contract audits.
+# Scientific-change impact: An edit changes expression coordinates, HR values,
+# tissue classification, call sets, or CNS/whole-body comparisons.
+# Modification caution: Never infer or reorder tissues, change ddof, or alter
+# CNS membership without a revised frozen authority and full scientific QA.
+# SPDX-License-Identifier: MIT
+
+schema_version: "1.0"
+config_version: "0.1.0"
+effective_date: "2026-08-24"
+panel_id: FULL_HUMAN_77_TISSUE_EXACT_PROTEIN
+authority: data/frozen/metadata/feature_dictionary.parquet
+feature_contract_version: KETAMINE_FAMILY_FEATURE_CONTRACT_1.0.0
+expression_profile_id: HUMAN_BIOGPS_GNF1H_GCRMA_77_TISSUE_DDOF1
+standardization_ddof: 1
+expected_tissues: 77
+tissues:
+  - {order: 1, tissue_id: HSAMP_06645e2e8409a5b743985cdd, source_label: Wholebrain, strict_cns: true}
+  - {order: 2, tissue_id: HSAMP_074d25bd19952e7b181f234f, source_label: "BDCA4+_DentriticCells", strict_cns: false}
+  - {order: 3, tissue_id: HSAMP_078c9db23c9bcd0f7378ace6, source_label: AtrioventricularNode, strict_cns: false}
+  - {order: 4, tissue_id: HSAMP_09904436c4f7d11ad19fba66, source_label: "CD56+_NKCells", strict_cns: false}
+  - {order: 5, tissue_id: HSAMP_0b0fc4618b75313eb6047ebf, source_label: "CD33+_Myeloid", strict_cns: false}
+  - {order: 6, tissue_id: HSAMP_0b28eaffa449df01cdfc160e, source_label: Tonsil, strict_cns: false}
+  - {order: 7, tissue_id: HSAMP_0cb8b4d1db8c390eeeecca55, source_label: Pons, strict_cns: true}
+  - {order: 8, tissue_id: HSAMP_0d33ff004301cd89c9d6d0b4, source_label: "CD19+_BCells(neg._sel.)", strict_cns: false}
+  - {order: 9, tissue_id: HSAMP_11ddccd4b35ca4ee231abd0f, source_label: Lymphnode, strict_cns: false}
+  - {order: 10, tissue_id: HSAMP_11ec8224da74ddf16b7267a7, source_label: Fetalliver, strict_cns: false}
+  - {order: 11, tissue_id: HSAMP_1241dd498a6e296467297ed8, source_label: small_intestine, strict_cns: false}
+  - {order: 12, tissue_id: HSAMP_13a552b6ffc4aac3b85a50ca, source_label: Amygdala, strict_cns: true}
+  - {order: 13, tissue_id: HSAMP_14b6f77a96f6c06a1db07bac, source_label: Placenta, strict_cns: false}
+  - {order: 14, tissue_id: HSAMP_18c90e10c36f311b95b771ab, source_label: Testis, strict_cns: false}
+  - {order: 15, tissue_id: HSAMP_192dff4b8df5862a227b1163, source_label: SubthalamicNucleus, strict_cns: true}
+  - {order: 16, tissue_id: HSAMP_1df1fcc3cb5ad1d75993f7ff, source_label: Kidney, strict_cns: false}
+  - {order: 17, tissue_id: HSAMP_20b60708f05d03c76f9fe702, source_label: CerebellumPeduncles, strict_cns: true}
+  - {order: 18, tissue_id: HSAMP_22d2b1c65f7cc72e29ac70dc, source_label: Thyroid, strict_cns: false}
+  - {order: 19, tissue_id: HSAMP_25f1e4f7aabfc0ddde2690cd, source_label: "CD34+", strict_cns: false}
+  - {order: 20, tissue_id: HSAMP_2a0070d014bc41cb1fb0e65f, source_label: Skin, strict_cns: false}
+  - {order: 21, tissue_id: HSAMP_330cedf9ff4c9d0ce27cce55, source_label: Trachea, strict_cns: false}
+  - {order: 22, tissue_id: HSAMP_374f872ebf1bbba2be514f9f, source_label: GlobusPallidus, strict_cns: true}
+  - {order: 23, tissue_id: HSAMP_3cb968a982080be1d7a5df98, source_label: Heart, strict_cns: false}
+  - {order: 24, tissue_id: HSAMP_40283978fc1c9022d16a6e8c, source_label: TestisGermCell, strict_cns: false}
+  - {order: 25, tissue_id: HSAMP_412f9dc575e234e5af754143, source_label: Adipocyte, strict_cns: false}
+  - {order: 26, tissue_id: HSAMP_43d58659d64b2339cc5012ff, source_label: Bonemarrow, strict_cns: false}
+  - {order: 27, tissue_id: HSAMP_4b07c74fb55c64ebb8d2ff82, source_label: SuperiorCervicalGanglion, strict_cns: false}
+  - {order: 28, tissue_id: HSAMP_4f28081637eefd38b52782ed, source_label: TestisSeminiferousTubule, strict_cns: false}
+  - {order: 29, tissue_id: HSAMP_5c090f15f3e5194312a7e8ed, source_label: MedullaOblongata, strict_cns: true}
+  - {order: 30, tissue_id: HSAMP_621d755b345dc16a5bf46bc8, source_label: Pancreas, strict_cns: false}
+  - {order: 31, tissue_id: HSAMP_70bdae49483e37d0af32b974, source_label: colon, strict_cns: false}
+  - {order: 32, tissue_id: HSAMP_72ec5590a1fb1e5ad33841aa, source_label: Uterus, strict_cns: false}
+  - {order: 33, tissue_id: HSAMP_752ebc880edc13bb4e2b2de8, source_label: PrefrontalCortex, strict_cns: true}
+  - {order: 34, tissue_id: HSAMP_7725bb8a75064c4d7246d9ba, source_label: OccipitalLobe, strict_cns: true}
+  - {order: 35, tissue_id: HSAMP_7e1d3d8ad4c5d2a2fce92cf6, source_label: PancreaticIslet, strict_cns: false}
+  - {order: 36, tissue_id: HSAMP_7f7cd76adc20a6dedc171647, source_label: "CD71+_EarlyErythroid", strict_cns: false}
+  - {order: 37, tissue_id: HSAMP_8ed020260a1d25cf72324c8a, source_label: Hypothalamus, strict_cns: true}
+  - {order: 38, tissue_id: HSAMP_936b77a4b11b5c19027de438, source_label: Spinalcord, strict_cns: true}
+  - {order: 39, tissue_id: HSAMP_9404c7bd98d0e7feaa36431f, source_label: "CD14+_Monocytes", strict_cns: false}
+  - {order: 40, tissue_id: HSAMP_989227972aa73b107faf10c9, source_label: Pituitary, strict_cns: false}
+  - {order: 41, tissue_id: HSAMP_9aa72e4fb1ff63e1792b1ec7, source_label: Cerebellum, strict_cns: true}
+  - {order: 42, tissue_id: HSAMP_9ffed0757332ba05821a2632, source_label: TrigeminalGanglion, strict_cns: false}
+  - {order: 43, tissue_id: HSAMP_a32ce488a48b0df9b8c4c40a, source_label: Caudatenucleus, strict_cns: true}
+  - {order: 44, tissue_id: HSAMP_a3dbcb40e3c3a7be35bf9230, source_label: FetalThyroid, strict_cns: false}
+  - {order: 45, tissue_id: HSAMP_a44a673a8c66e9d7f6f93e7b, source_label: retina, strict_cns: false}
+  - {order: 46, tissue_id: HSAMP_a62a3ee5c1c7f8d220c9e92d, source_label: TestisIntersitial, strict_cns: false}
+  - {order: 47, tissue_id: HSAMP_a9d2b89ceb6e17382b3ae7df, source_label: "CD105+_Endothelial", strict_cns: false}
+  - {order: 48, tissue_id: HSAMP_ac6343eebcc151828016a696, source_label: AdrenalCortex, strict_cns: false}
+  - {order: 49, tissue_id: HSAMP_b2715212d939ec804d6dba79, source_label: Tongue, strict_cns: false}
+  - {order: 50, tissue_id: HSAMP_b3c0c87bf5daaf7711ab7a66, source_label: Thymus, strict_cns: false}
+  - {order: 51, tissue_id: HSAMP_be8565309d37a6abc4f7ef44, source_label: WholeBlood, strict_cns: false}
+  - {order: 52, tissue_id: HSAMP_be8709f7adee370cc5d6b96c, source_label: Salivarygland, strict_cns: false}
+  - {order: 53, tissue_id: HSAMP_bf87ca52db24d641ce183aec, source_label: BronchialEpithelialCells, strict_cns: false}
+  - {order: 54, tissue_id: HSAMP_c276ea602882c40db43299c3, source_label: DorsalRootGanglion, strict_cns: false}
+  - {order: 55, tissue_id: HSAMP_c78d332dd32515db8896b790, source_label: Fetallung, strict_cns: false}
+  - {order: 56, tissue_id: HSAMP_ce1e58ef9350bd70694c4462, source_label: CiliaryGanglion, strict_cns: false}
+  - {order: 57, tissue_id: HSAMP_d08c7b739fee1f2f2d6cdf05, source_label: Lung, strict_cns: false}
+  - {order: 58, tissue_id: HSAMP_d50cd1019a1afaeeb809acfd, source_label: "CD4+_Tcells", strict_cns: false}
+  - {order: 59, tissue_id: HSAMP_d68ff3639f1f2fae451d6f7d, source_label: Ovary, strict_cns: false}
+  - {order: 60, tissue_id: HSAMP_d6f71e88b96034e48dbc8b6c, source_label: Fetalbrain, strict_cns: false}
+  - {order: 61, tissue_id: HSAMP_d8b33bdb33e294cfc7bc25d0, source_label: Prostate, strict_cns: false}
+  - {order: 62, tissue_id: HSAMP_d99ba5ea584363f8600ade55, source_label: CingulateCortex, strict_cns: true}
+  - {order: 63, tissue_id: HSAMP_de79842831587fed1fe7bdd5, source_label: pineal_day, strict_cns: false}
+  - {order: 64, tissue_id: HSAMP_e317b8e8e378ff41f27f0b1f, source_label: CardiacMyocytes, strict_cns: false}
+  - {order: 65, tissue_id: HSAMP_e75262fc0acfda69d976a6d3, source_label: ParietalLobe, strict_cns: true}
+  - {order: 66, tissue_id: HSAMP_e7877e56c99f68550c426ab4, source_label: UterusCorpus, strict_cns: false}
+  - {order: 67, tissue_id: HSAMP_eb2587e74e2d6457032d4ae7, source_label: TemporalLobe, strict_cns: true}
+  - {order: 68, tissue_id: HSAMP_ebaf48a9725795ea8b3a5e45, source_label: Liver, strict_cns: false}
+  - {order: 69, tissue_id: HSAMP_ec0052d02b5a01f9362c5f08, source_label: SmoothMuscle, strict_cns: false}
+  - {order: 70, tissue_id: HSAMP_f30c534da958a753ac20c6d5, source_label: Appendix, strict_cns: false}
+  - {order: 71, tissue_id: HSAMP_f427b866c0e9e1ced89a7d76, source_label: "CD8+_Tcells", strict_cns: false}
+  - {order: 72, tissue_id: HSAMP_f43595f3557cf05e6a721aeb, source_label: Thalamus, strict_cns: true}
+  - {order: 73, tissue_id: HSAMP_f4d0d5e31f4c7d8b77ed7fd8, source_label: SkeletalMuscle, strict_cns: false}
+  - {order: 74, tissue_id: HSAMP_f6bf01322409665203ad3bed, source_label: Adrenalgland, strict_cns: false}
+  - {order: 75, tissue_id: HSAMP_fd1f36df3601e6abab507b3e, source_label: TestisLeydigCell, strict_cns: false}
+  - {order: 76, tissue_id: HSAMP_ff4d2e73208c3cba5aacd6dc, source_label: pineal_night, strict_cns: false}
+  - {order: 77, tissue_id: HSAMP_ff841df7ecd9f2c8ea2660f5, source_label: OlfactoryBulb, strict_cns: true}

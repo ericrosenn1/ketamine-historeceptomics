@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "validated_source_sha256": "8b607b308a365d4ba5564720f4f533d13628c54ac4c6af703287f7dc2d1c681c",
+  "frozen_score_sha256": "79cccb4dfa80c0ffb6f135ae31d5462939eb193a3d95b96af5c4a922775749c0",
+  "checks": [
+    {
+      "check": "points_each_candidate",
+      "observed": {
+        "A_RIGHTLEGEND_BRIGHT": 26,
+        "B_RIGHTLEGEND_BRIGHT_COMPACT": 26
+      },
+      "expected": 26,
+      "status": "PASS"
+    },
+    {
+      "check": "external_drugs",
+      "observed": 25,
+      "expected": 25,
+      "status": "PASS"
+    },
+    {
+      "check": "ketamine",
+      "observed": 1,
+      "expected": 1,
+      "status": "PASS"
+    },
+    {
+      "check": "coordinate_max_abs_delta",
+      "observed": "0",
+      "expected": "0",
+      "status": "PASS"
+    },
+    {
+      "check": "PCA_refit_or_jitter",
+      "observed": false,
+      "expected": false,
+      "status": "PASS"
+    },
+    {
+      "check": "axis_text",
+      "observed": "PC1 (77.8%); PC2 (19.7%)",
+      "expected": "unchanged",
+      "status": "PASS"
+    },
+    {
+      "check": "palette_exact_match",
+      "observed": {
+        "Antidepressant": "#159BD3",
+        "Antipsychotic": "#F06A00",
+        "Serotonergic psychedelic": "#D94B9B",
+        "Anesthetic/sedative": "#16A58C",
+        "NMDA/dissociative": "#E9A900",
+        "Analgesic/opioid": "#666666",
+        "Mood stabilizer/antiepileptic": "#55B7DF",
+        "Cholinergic": "#A8644F",
+        "Ketamine": "#202020"
+      },
+      "expected": {
+        "Antidepressant": "#159BD3",
+        "Antipsychotic": "#F06A00",
+        "Serotonergic psychedelic": "#D94B9B",
+        "Anesthetic/sedative": "#16A58C",
+        "NMDA/dissociative": "#E9A900",
+        "Analgesic/opioid": "#666666",
+        "Mood stabilizer/antiepileptic": "#55B7DF",
+        "Cholinergic": "#A8644F",
+        "Ketamine": "#202020"
+      },
+      "status": "PASS"
+    },
+    {
+      "check": "ketamine_dark_charcoal",
+      "observed": "#202020",
+      "expected": "#202020",
+      "status": "PASS"
+    },
+    {
+      "check": "legend_outside_right_all",
+      "observed": true,
+      "expected": true,
+      "status": "PASS"
+    },
+    {
+      "check": "legend_below_any",
+      "observed": false,
+      "expected": false,
+      "status": "PASS"
+    },
+    {
+      "check": "leader_lines",
+      "observed": 0,
+      "expected": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "protected_snapshots_unchanged",
+      "observed": true,
+      "expected": true,
+      "status": "PASS"
+    }
+  ]
+}

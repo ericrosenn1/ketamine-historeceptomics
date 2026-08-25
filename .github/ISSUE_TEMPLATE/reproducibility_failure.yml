@@ -1,0 +1,46 @@
+name: Reproducibility failure
+description: Report a failed Smoke/Verify/Full gate or a scientific-output mismatch.
+title: "[Reproducibility]: "
+labels: [reproducibility]
+body:
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Execution lane
+      options: [Smoke, Verify with external inputs, Full with external inputs, clean-clone validation]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Release or commit
+    validations:
+      required: true
+  - type: textarea
+    id: hashes
+    attributes:
+      label: Sanitized input and manifest hashes
+      description: Never attach restricted inputs themselves.
+    validations:
+      required: true
+  - type: textarea
+    id: mismatch
+    attributes:
+      label: Failing check or mismatch
+      description: Include table, field, expected/observed value, tolerance, and missingness state.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command and environment
+      render: shell
+    validations:
+      required: true
+  - type: checkboxes
+    id: sanitation
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I removed credentials, private paths, and restricted data from this report.
+          required: true

@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a bounded improvement without silently changing scientific assumptions.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Use case
+      description: Describe the problem and who benefits.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Potential impact
+      options:
+        - label: This may change scientific outputs or interpretation.
+        - label: This may change data redistribution status.
+        - label: This may change computation-affecting configuration.

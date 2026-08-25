@@ -1,0 +1,85 @@
+class_id,class_label,drug,notes,numeric_profile_expected,status_only
+ANALGESICS,Analgesic context,Dextromethorphan,,True,False
+ANALGESICS,Analgesic context,Morphine,,True,False
+ANESTHETIC_SEDATIVE,Anesthetic and sedative context,Dexmedetomidine,,True,False
+ANESTHETIC_SEDATIVE,Anesthetic and sedative context,Propofol,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Bupropion,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Dextromethorphan,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Duloxetine,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Fluoxetine,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Mirtazapine,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Scopolamine,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Sertraline,,True,False
+ANTIDEPRESSANTS_BROAD,Broad antidepressant and rapid-acting antidepressant context,Venlafaxine,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Aripiprazole,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Chlorpromazine,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Clozapine,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Haloperidol,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Olanzapine,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Quetiapine,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Risperidone,,True,False
+ANTIPSYCHOTICS_BROAD,Broad antipsychotic reference set,Ziprasidone,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Aripiprazole,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Clozapine,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Olanzapine,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Quetiapine,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Risperidone,,True,False
+ATYPICAL_ANTIPSYCHOTICS,Atypical antipsychotics,Ziprasidone,,True,False
+DISSOCIATIVE_NMDA_CONTEXT,Dissociative and NMDA-channel context,Dextromethorphan,,True,False
+DISSOCIATIVE_NMDA_CONTEXT,Dissociative and NMDA-channel context,MK-801,,False,True
+DISSOCIATIVE_NMDA_CONTEXT,Dissociative and NMDA-channel context,PCP,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Aripiprazole,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Bupropion,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Chlorpromazine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Clozapine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Dexmedetomidine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Dextromethorphan,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Duloxetine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Fluoxetine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Haloperidol,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Lamotrigine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Lysergide (LSD),,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Mirtazapine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Morphine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Olanzapine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,PCP,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Propofol,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Psilocin,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Psilocybin,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Quetiapine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Risperidone,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Scopolamine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Sertraline,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Valproate,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Venlafaxine,,True,False
+GLOBAL_ALL_COMPARATORS,All numerical comparators,Ziprasidone,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Bupropion,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Chlorpromazine,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Clozapine,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Duloxetine,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Fluoxetine,,True,False
+HISTORICAL_HISTORECEPTOMIC_CONTROLS,Historical historeceptomic controls,Venlafaxine,,True,False
+MONOAMINERGIC_ANTIDEPRESSANTS,Monoaminergic antidepressants,Bupropion,,True,False
+MONOAMINERGIC_ANTIDEPRESSANTS,Monoaminergic antidepressants,Duloxetine,,True,False
+MONOAMINERGIC_ANTIDEPRESSANTS,Monoaminergic antidepressants,Fluoxetine,,True,False
+MONOAMINERGIC_ANTIDEPRESSANTS,Monoaminergic antidepressants,Sertraline,,True,False
+MONOAMINERGIC_ANTIDEPRESSANTS,Monoaminergic antidepressants,Venlafaxine,,True,False
+MOOD_STABILIZERS,Mood stabilizer context,Lamotrigine,,True,False
+MOOD_STABILIZERS,Mood stabilizer context,Lithium,,False,True
+MOOD_STABILIZERS,Mood stabilizer context,Valproate,,True,False
+PSYCHEDELIC_SEROTONERGIC,Serotonergic psychedelic context,Lysergide (LSD),,True,False
+PSYCHEDELIC_SEROTONERGIC,Serotonergic psychedelic context,Psilocin,,True,False
+PSYCHEDELIC_SEROTONERGIC,Serotonergic psychedelic context,Psilocybin,,True,False
+RAPID_ACTING_ANTIDEPRESSANT_CONTEXT,Rapid-acting antidepressant context,Dextromethorphan,,True,False
+RAPID_ACTING_ANTIDEPRESSANT_CONTEXT,Rapid-acting antidepressant context,Scopolamine,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Chlorpromazine,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Clozapine,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Lysergide (LSD),,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Mirtazapine,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Olanzapine,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Psilocin,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Psilocybin,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Risperidone,,True,False
+SEROTONERGIC_PSYCHOACTIVE_CONTEXT,Serotonergic psychoactive context,Ziprasidone,,True,False
+TYPICAL_ANTIPSYCHOTICS,Typical antipsychotics,Chlorpromazine,,True,False
+TYPICAL_ANTIPSYCHOTICS,Typical antipsychotics,Haloperidol,,True,False

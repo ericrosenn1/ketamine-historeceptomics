@@ -1,0 +1,133 @@
+# Scientific meaning: Defines governed compound identities, stereochemical
+# grain, numerical eligibility, source lanes, aliases, and anti-merging rules.
+# Units: Identity fields are categorical strings and eligibility/policy fields
+# are booleans; this file contains no measured numerical units.
+# Field/value constraints: canonical_id values are unique, aliases do not confer
+# permission to merge identities, and ambiguous aliases require source review.
+# Consumer: Identity resolution, family completion, query freeze, roster
+# construction, pairwise analysis, and release/governance validation.
+# Scientific-change impact: An edit can change profile attribution, eligibility,
+# family/global rosters, pair counts, and biological interpretation.
+# Modification caution: Never collapse stereoisomers, racemate, pooled parent,
+# or generic aggregates without explicit source evidence and scientific review.
+# SPDX-License-Identifier: MIT
+
+schema_version: "1.0"
+config_version: "0.1.0"
+effective_date: "2026-08-24"
+authority:
+  family_profiles: data/frozen/profiles/all_compound_profiles_strict18_long.csv
+  metabolite_identity_accounting: data/frozen/e7/identity_accounting.csv
+policy:
+  case_sensitive: false
+  normalize_unicode: NFKC
+  collapse_whitespace: true
+  punctuation_is_identity_bearing: true
+  unspecified_ketamine_is_not_racemate: true
+  racemate_activity_may_not_be_assigned_to_an_enantiomer: true
+  identity_records_may_not_be_merged_across_canonical_ids: true
+  ambiguous_records_require_source_review: true
+
+compounds:
+  - canonical_id: ketamine_unspecified
+    label: Ketamine, stereochemistry unspecified
+    identity_grain: STEREOCHEMISTRY_UNSPECIFIED
+    release_role: SOURCE_IDENTITY_ONLY
+    numerical_profile_eligible: false
+    aliases: [ketamine, ketamine stereochemistry unspecified]
+
+  - canonical_id: POOLED_PARENT_KETAMINE
+    label: Ketamine, pooled parent
+    identity_grain: GOVERNED_ANALYSIS_PROFILE
+    release_role: PRIMARY_PARENT_QUERY
+    numerical_profile_eligible: true
+    aliases: [pooled parent ketamine, "Ketamine, pooled parent"]
+
+  - canonical_id: ketamine_racemic
+    label: Ketamine, confirmed racemate
+    identity_grain: CONFIRMED_RACEMATE
+    release_role: IDENTITY_CONTROL
+    numerical_profile_eligible: true
+    aliases: [racemic ketamine, "Ketamine, confirmed racemate", "(R,S)-ketamine", RS-ketamine]
+
+  - canonical_id: esketamine
+    label: S-ketamine
+    identity_grain: ISOLATED_ENANTIOMER
+    release_role: ENANTIOMER
+    numerical_profile_eligible: true
+    aliases: [S-ketamine, esketamine]
+
+  - canonical_id: arketamine
+    label: R-ketamine
+    identity_grain: ISOLATED_ENANTIOMER
+    release_role: ENANTIOMER
+    numerical_profile_eligible: true
+    aliases: [R-ketamine, arketamine]
+
+  - canonical_id: hydroxyketamine_unspecified_isomer_aggregate
+    label: Hydroxyketamine, unspecified isomer aggregate
+    identity_grain: UNSPECIFIED_ISOMER_AGGREGATE
+    release_role: KETAMINE_FAMILY_METABOLITE
+    numerical_profile_eligible: true
+    source_lane: FROZEN_KETAMINE_FAMILY_U1_HPF
+    aliases: ["Hydroxyketamine, unspecified isomer aggregate"]
+
+  - canonical_id: HNK_2R_6R
+    label: (2R,6R)-hydroxynorketamine
+    identity_grain: SPECIFIED_STEREOISOMER
+    release_role: E7_METABOLITE_QUERY
+    numerical_profile_eligible: true
+    aliases: ["(2R,6R)-hydroxynorketamine", "(2R,6R)-HNK"]
+
+  - canonical_id: HNK_2S_6S
+    label: (2S,6S)-hydroxynorketamine
+    identity_grain: SPECIFIED_STEREOISOMER
+    release_role: E7_METABOLITE_QUERY
+    numerical_profile_eligible: true
+    aliases: ["(2S,6S)-hydroxynorketamine", "(2S,6S)-HNK"]
+
+  - canonical_id: HNK_GENERIC
+    label: Hydroxynorketamine / HNK, generic identity
+    identity_grain: GENERIC_IDENTITY
+    release_role: E7_METABOLITE_QUERY
+    numerical_profile_eligible: true
+    aliases: [hydroxynorketamine, HNK, "Hydroxynorketamine / HNK, generic identity"]
+
+  - canonical_id: HYDROXYKETAMINE_GENERIC
+    label: Hydroxyketamine, generic E7 identity
+    identity_grain: GENERIC_IDENTITY
+    release_role: E7_METABOLITE_QUERY
+    numerical_profile_eligible: true
+    source_lane: E7
+    aliases: ["Hydroxyketamine, generic E7 identity", "hydroxyketamine (not parent ketamine; generic identity)"]
+
+  - canonical_id: NORKETAMINE
+    label: Norketamine
+    identity_grain: GENERIC_IDENTITY
+    release_role: E7_METABOLITE_QUERY
+    numerical_profile_eligible: true
+    aliases: [norketamine]
+
+  - canonical_id: DEHYDRONORKETAMINE
+    label: Dehydronorketamine
+    identity_grain: GENERIC_IDENTITY
+    release_role: REFERENCE_ONLY_STATUS
+    numerical_profile_eligible: false
+    aliases: [dehydronorketamine]
+
+  - canonical_id: HNK_2R_6S
+    label: (2R,6S)-hydroxynorketamine
+    identity_grain: SPECIFIED_STEREOISOMER
+    release_role: REFERENCE_ONLY_STATUS
+    numerical_profile_eligible: false
+    aliases: ["(2R,6S)-hydroxynorketamine", "(2R,6S)-HNK"]
+
+ambiguous_aliases:
+  hydroxyketamine:
+    candidate_ids:
+      - hydroxyketamine_unspecified_isomer_aggregate
+      - HYDROXYKETAMINE_GENERIC
+    reason: Bare source name does not identify the governed family-U1 aggregate versus the generic E7 lane.
+    lane_resolution:
+      FROZEN_KETAMINE_FAMILY_U1_HPF: hydroxyketamine_unspecified_isomer_aggregate
+      E7: HYDROXYKETAMINE_GENERIC

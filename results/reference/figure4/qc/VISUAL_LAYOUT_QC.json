@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "candidates": [
+    {
+      "label_count": 26,
+      "label_overlap_count": 0,
+      "label_overlaps": [],
+      "clipped_label_count": 0,
+      "clipped_labels": [],
+      "leader_line_count": 0,
+      "all_labels_right": true,
+      "legend_outside_right": true,
+      "legend_below_plot": false,
+      "legend_clipped": false,
+      "legend_columns": 1,
+      "status": "PASS",
+      "variant": "A_RIGHTLEGEND_BRIGHT",
+      "canvas_width_mm": 210,
+      "canvas_height_mm": 132,
+      "palette": {
+        "Antidepressant": "#159BD3",
+        "Antipsychotic": "#F06A00",
+        "Serotonergic psychedelic": "#D94B9B",
+        "Anesthetic/sedative": "#16A58C",
+        "NMDA/dissociative": "#E9A900",
+        "Analgesic/opioid": "#666666",
+        "Mood stabilizer/antiepileptic": "#55B7DF",
+        "Cholinergic": "#A8644F",
+        "Ketamine": "#202020"
+      },
+      "ketamine_marker": "dark charcoal circular marker with black border"
+    },
+    {
+      "label_count": 26,
+      "label_overlap_count": 0,
+      "label_overlaps": [],
+      "clipped_label_count": 0,
+      "clipped_labels": [],
+      "leader_line_count": 0,
+      "all_labels_right": true,
+      "legend_outside_right": true,
+      "legend_below_plot": false,
+      "legend_clipped": false,
+      "legend_columns": 1,
+      "status": "PASS",
+      "variant": "B_RIGHTLEGEND_BRIGHT_COMPACT",
+      "canvas_width_mm": 210,
+      "canvas_height_mm": 132,
+      "palette": {
+        "Antidepressant": "#159BD3",
+        "Antipsychotic": "#F06A00",
+        "Serotonergic psychedelic": "#D94B9B",
+        "Anesthetic/sedative": "#16A58C",
+        "NMDA/dissociative": "#E9A900",
+        "Analgesic/opioid": "#666666",
+        "Mood stabilizer/antiepileptic": "#55B7DF",
+        "Cholinergic": "#A8644F",
+        "Ketamine": "#202020"
+      },
+      "ketamine_marker": "dark charcoal circular marker with black border"
+    }
+  ]
+}

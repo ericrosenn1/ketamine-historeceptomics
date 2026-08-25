@@ -1,0 +1,23 @@
+name: Documentation issue
+description: Report an inaccurate, unclear, or broken documentation page.
+title: "[Docs]: "
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page and heading
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Release or commit
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and proposed correction
+    validations:
+      required: true

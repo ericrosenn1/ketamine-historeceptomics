@@ -1,0 +1,11 @@
+compound,included_in_complete_rms_distance_subset,supported_features,exclusion_reason
+"Ketamine, pooled parent",True,1026,
+"Ketamine, confirmed racemate",True,450,
+S-ketamine,True,774,
+R-ketamine,True,684,
+"Hydroxyketamine, unspecified isomer aggregate",True,576,
+"(2R,6R)-hydroxynorketamine",True,37,
+"(2S,6S)-hydroxynorketamine",True,18,
+"Hydroxynorketamine / HNK, generic identity",True,109,
+"Hydroxyketamine, generic E7 identity",True,105,
+Norketamine,True,87,

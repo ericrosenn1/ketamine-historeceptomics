@@ -1,0 +1,3 @@
+canonical_target_id,final_selected_pActivity_v4,final_activity_relation_operator_v4,final_activity_is_bounded_v4
+SMOKE_T1,7.0,=,False
+SMOKE_T2,5.0,>=,True

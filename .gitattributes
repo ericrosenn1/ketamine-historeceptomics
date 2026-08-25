@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.ps1 text eol=lf
+*.csv -text diff
+*.tsv -text diff
+*.parquet binary
+*.joblib binary
+*.png binary
+*.pdf binary
+*.tiff binary
+*.svg -text diff
+src/cardozo_ketamine_hr/upstream/*.py -text diff=python

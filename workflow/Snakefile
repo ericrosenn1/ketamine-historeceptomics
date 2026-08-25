@@ -1,0 +1,21 @@
+# REFERENCE_ONLY / NOT RELEASE VALIDATED: historical Smoke-to-Verify orchestration sketch.
+# Supported release execution uses launchers/*.ps1; Verify requires an explicit external input root.
+# SPDX-License-Identifier: MIT
+
+rule all:
+    input:
+        "results/snakemake_verify/task_state.json"
+
+rule smoke:
+    output:
+        "results/snakemake_smoke/task_state.json"
+    shell:
+        "python -m cardozo_ketamine_hr.portable --mode Smoke --output-dir results/snakemake_smoke"
+
+rule verify:
+    input:
+        rules.smoke.output
+    output:
+        "results/snakemake_verify/task_state.json"
+    shell:
+        "python -m cardozo_ketamine_hr.portable --mode Verify --output-dir results/snakemake_verify"

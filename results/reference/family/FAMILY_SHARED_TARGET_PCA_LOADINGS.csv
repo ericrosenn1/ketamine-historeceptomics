@@ -1,0 +1,2 @@
+analysis_id,feature_id,representation,target,tissue,PC1_loading
+FAMILY_SHARED_TARGET_PCA,OPRM1,complete_case_target_mean_common_rhr,OPRM1,TARGET_LEVEL_MEAN,1.0
