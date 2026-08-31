@@ -2,8 +2,8 @@
 
 Overall status: `PASS`
 
-- Checks evaluated: `1195`
-- Passing checks: `1195`
+- Checks evaluated: `1196`
+- Passing checks: `1196`
 - Failing checks: `0`
 
 ## Category summary
@@ -16,7 +16,7 @@ Overall status: `PASS`
 | `configuration_descriptor` | 52 | 52 |
 | `development_metadata` | 189 | 189 |
 | `function_docstring` | 442 | 442 |
-| `markdown_link` | 123 | 123 |
+| `markdown_link` | 124 | 124 |
 | `module_docstring` | 66 | 66 |
 | `powershell_failure_contract` | 6 | 6 |
 | `powershell_help` | 18 | 18 |
