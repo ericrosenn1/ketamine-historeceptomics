@@ -40,6 +40,10 @@ A tested non-call and an unsupported coordinate are not interchangeable. Zero
 is used only for a tested non-call in a binary fingerprint matrix; unsupported
 or untested coordinates stay missing.
 
+## Analysis workflow
+
+![Ketamine historeceptomics analysis workflow](docs/figures/ketamine_historeceptomics_workflow.png)
+
 ## Scientific scope
 
 ### Primary fingerprint analyses

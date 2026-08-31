@@ -70,6 +70,7 @@ PROHIBITED_SUFFIXES = {
     ".zip",
 }
 ALLOWED_BINARY_PATHS = {
+    "docs/figures/ketamine_historeceptomics_workflow.png",
     "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf",
     "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png",
 }
@@ -332,7 +333,7 @@ def render_report(files: list[Path], findings: list[Finding], total_bytes: int) 
         f"- Development-session metadata findings: `{categories.get('development_metadata', 0)}`",
         f"- Prohibited or unapproved file findings: `{categories.get('prohibited_file_type', 0) + categories.get('unapproved_binary_or_unknown_type', 0)}`",
         f"- Files at least 50 MiB: `{categories.get('large_file', 0)}`",
-        f"- Cleared binary files: `{len(ALLOWED_BINARY_PATHS)}` fixed-coordinate Figure 4 exports.",
+        f"- Cleared binary files: `{len(ALLOWED_BINARY_PATHS)}` approved public binary assets.",
         "",
         "## Scope and interpretation",
         "",

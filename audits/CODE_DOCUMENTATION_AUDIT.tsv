@@ -2,7 +2,7 @@ category	path	item	status	detail
 citation_bibtex	CITATION.bib	document	PASS	26 unique entries parsed by Pybtex
 citation_cff	CITATION.cff	document	PASS	CFF 1.2 schema, v0.1.1 fields, single software author, and ORCID checksum valid
 class_docstring	scripts/audit_code_documentation.py	Check:79	PASS	Documented
-class_docstring	scripts/audit_repository.py	Finding:135	PASS	Documented
+class_docstring	scripts/audit_repository.py	Finding:136	PASS	Documented
 class_docstring	scripts/build_release_manifests.py	GitBlob:41	PASS	Documented
 class_docstring	scripts/compare_executable_ast.py	DocstringStripper:44	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/activity.py	NormalizedActivity:52	PASS	Documented
@@ -278,14 +278,14 @@ function_docstring	scripts/audit_code_documentation.py	render_markdown:479	PASS	
 function_docstring	scripts/audit_code_documentation.py	render_tsv:468	PASS	Documented
 function_docstring	scripts/audit_code_documentation.py	valid_orcid:399	PASS	Documented
 function_docstring	scripts/audit_code_documentation.py	write_or_check:511	PASS	Documented
-function_docstring	scripts/audit_repository.py	included:170	PASS	Documented
-function_docstring	scripts/audit_repository.py	line_numbers:181	PASS	Documented
-function_docstring	scripts/audit_repository.py	main:374	PASS	Documented
-function_docstring	scripts/audit_repository.py	parse_args:146	PASS	Documented
-function_docstring	scripts/audit_repository.py	render_findings:296	PASS	Documented
-function_docstring	scripts/audit_repository.py	render_report:309	PASS	Documented
-function_docstring	scripts/audit_repository.py	scan:187	PASS	Documented
-function_docstring	scripts/audit_repository.py	write_or_check:358	PASS	Documented
+function_docstring	scripts/audit_repository.py	included:171	PASS	Documented
+function_docstring	scripts/audit_repository.py	line_numbers:182	PASS	Documented
+function_docstring	scripts/audit_repository.py	main:375	PASS	Documented
+function_docstring	scripts/audit_repository.py	parse_args:147	PASS	Documented
+function_docstring	scripts/audit_repository.py	render_findings:297	PASS	Documented
+function_docstring	scripts/audit_repository.py	render_report:310	PASS	Documented
+function_docstring	scripts/audit_repository.py	scan:188	PASS	Documented
+function_docstring	scripts/audit_repository.py	write_or_check:359	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	git:74	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	main:153	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	parse_args:50	PASS	Documented
@@ -721,42 +721,43 @@ markdown_link	PUBLIC_RELEASE_DECISIONS.md	data/fixtures/:44	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/DATA_SOURCES.md:68	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/FULL_MODE.md:70	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	results/reference/:80	PASS	Target exists
-markdown_link	README.md	CITATION.bib:235	PASS	Target exists
-markdown_link	README.md	CITATION.cff:234	PASS	Target exists
-markdown_link	README.md	CONTRIBUTING.md:273	PASS	Target exists
-markdown_link	README.md	DATA_LICENSE.md:187	PASS	Target exists
-markdown_link	README.md	DATA_LICENSE.md:200	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:144	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:192	PASS	Target exists
+markdown_link	README.md	CITATION.bib:239	PASS	Target exists
+markdown_link	README.md	CITATION.cff:238	PASS	Target exists
+markdown_link	README.md	CONTRIBUTING.md:277	PASS	Target exists
+markdown_link	README.md	DATA_LICENSE.md:191	PASS	Target exists
+markdown_link	README.md	DATA_LICENSE.md:204	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:148	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:196	PASS	Target exists
 markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:22	PASS	Target exists
-markdown_link	README.md	LICENSE:185	PASS	Target exists
-markdown_link	README.md	LICENSE:276	PASS	Target exists
-markdown_link	README.md	PUBLIC_RELEASE_DECISIONS.md:199	PASS	Target exists
-markdown_link	README.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:198	PASS	Target exists
-markdown_link	README.md	SECURITY.md:270	PASS	Target exists
-markdown_link	README.md	THIRD_PARTY_NOTICES.md:201	PASS	Target exists
-markdown_link	README.md	configs/reference_drugs.yaml:83	PASS	Target exists
-markdown_link	README.md	data/fixtures/:137	PASS	Target exists
-markdown_link	README.md	data/frozen/metadata/class_membership.csv:194	PASS	Target exists
-markdown_link	README.md	docs/CODE_ARCHITECTURE.md:211	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:153	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:209	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:243	PASS	Target exists
-markdown_link	README.md	docs/DEVELOPER_GUIDE.md:212	PASS	Target exists
-markdown_link	README.md	docs/ENVIRONMENT.md:213	PASS	Target exists
-markdown_link	README.md	docs/FULL_MODE.md:168	PASS	Target exists
-markdown_link	README.md	docs/METHODS.md:206	PASS	Target exists
-markdown_link	README.md	docs/PROVENANCE.md:208	PASS	Target exists
-markdown_link	README.md	docs/REFERENCES.md:210	PASS	Target exists
-markdown_link	README.md	docs/REFERENCES.md:242	PASS	Target exists
-markdown_link	README.md	docs/REPRODUCIBILITY.md:207	PASS	Target exists
-markdown_link	README.md	optional/README.md:214	PASS	Target exists
-markdown_link	README.md	results/reference/:107	PASS	Target exists
-markdown_link	README.md	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:102	PASS	Target exists
-markdown_link	README.md	results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf:105	PASS	Target exists
-markdown_link	README.md	results/reference/global/ALL_UNORDERED_DRUG_PAIR_METRICS_FINAL.csv:103	PASS	Target exists
-markdown_link	README.md	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv:104	PASS	Target exists
-markdown_link	README.md	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:101	PASS	Target exists
+markdown_link	README.md	LICENSE:189	PASS	Target exists
+markdown_link	README.md	LICENSE:280	PASS	Target exists
+markdown_link	README.md	PUBLIC_RELEASE_DECISIONS.md:203	PASS	Target exists
+markdown_link	README.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:202	PASS	Target exists
+markdown_link	README.md	SECURITY.md:274	PASS	Target exists
+markdown_link	README.md	THIRD_PARTY_NOTICES.md:205	PASS	Target exists
+markdown_link	README.md	configs/reference_drugs.yaml:87	PASS	Target exists
+markdown_link	README.md	data/fixtures/:141	PASS	Target exists
+markdown_link	README.md	data/frozen/metadata/class_membership.csv:198	PASS	Target exists
+markdown_link	README.md	docs/CODE_ARCHITECTURE.md:215	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:157	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:213	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:247	PASS	Target exists
+markdown_link	README.md	docs/DEVELOPER_GUIDE.md:216	PASS	Target exists
+markdown_link	README.md	docs/ENVIRONMENT.md:217	PASS	Target exists
+markdown_link	README.md	docs/FULL_MODE.md:172	PASS	Target exists
+markdown_link	README.md	docs/METHODS.md:210	PASS	Target exists
+markdown_link	README.md	docs/PROVENANCE.md:212	PASS	Target exists
+markdown_link	README.md	docs/REFERENCES.md:214	PASS	Target exists
+markdown_link	README.md	docs/REFERENCES.md:246	PASS	Target exists
+markdown_link	README.md	docs/REPRODUCIBILITY.md:211	PASS	Target exists
+markdown_link	README.md	docs/figures/ketamine_historeceptomics_workflow.png:45	PASS	Target exists
+markdown_link	README.md	optional/README.md:218	PASS	Target exists
+markdown_link	README.md	results/reference/:111	PASS	Target exists
+markdown_link	README.md	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:106	PASS	Target exists
+markdown_link	README.md	results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf:109	PASS	Target exists
+markdown_link	README.md	results/reference/global/ALL_UNORDERED_DRUG_PAIR_METRICS_FINAL.csv:107	PASS	Target exists
+markdown_link	README.md	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv:108	PASS	Target exists
+markdown_link	README.md	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:105	PASS	Target exists
 markdown_link	SECURITY.md	SUPPORT.md:21	PASS	Target exists
 markdown_link	SUPPORT.md	SECURITY.md:20	PASS	Target exists
 markdown_link	THIRD_PARTY_NOTICES.md	CITATION.bib:82	PASS	Target exists

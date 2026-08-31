@@ -2,8 +2,8 @@
 
 Overall status: `PASS`
 
-- Publishable files scanned: `200`
-- Publishable bytes scanned: `9119017`
+- Publishable files scanned: `201`
+- Publishable bytes scanned: `9808171`
 - Open findings: `0`
 - Secret-pattern findings: `0`
 - Email-address findings: `0`
@@ -16,7 +16,7 @@ Overall status: `PASS`
 - Development-session metadata findings: `0`
 - Prohibited or unapproved file findings: `0`
 - Files at least 50 MiB: `0`
-- Cleared binary files: `2` fixed-coordinate Figure 4 exports.
+- Cleared binary files: `3` approved public binary assets.
 
 ## Scope and interpretation
 
