@@ -245,8 +245,10 @@ scientific validity.
 
 For software metadata, keep `CITATION.cff`, the software entry in
 `CITATION.bib`, `pyproject.toml`, and the release version/date synchronized. Do
-not add an email, infer manuscript authors, or create a manuscript preferred
-citation before authorship is finalized.
+not add an email or invent publication metadata. The current manuscript working
+title and authors may be recorded in documentation, but do not convert that
+record into a preferred article citation without a supported publication
+identifier/status. Software authorship remains independently governed.
 
 For a method or source update:
 

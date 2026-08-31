@@ -15,6 +15,12 @@ The principal analyses compare sparse fingerprints. Continuous comparisons on
 the frozen common-RHR scale are exploratory and are kept separate throughout
 the code, results, and interpretation.
 
+This repository accompanies the current working manuscript,
+**_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**,
+by Eric Rosenn and Timothy Cardozo. No journal, DOI, publication date, or
+publication status is asserted here. Eric Rosenn remains the author of the
+software release; manuscript and software authorship are recorded separately.
+
 This public release includes the software, synthetic Smoke fixtures, 60
 byte-preserved reference-output files, and one cleared class-membership table.
 Twenty near-source numerical inputs are not redistributed. Smoke is fully
@@ -69,6 +75,26 @@ or untested coordinates stay missing.
 Continuous outputs are provided for reproduction and hypothesis generation.
 They are not presented as primary fingerprint comparisons.
 
+### Manuscript downstream interpretation
+
+The current manuscript also includes two literature-mapping analyses downstream
+of the computational fingerprint:
+
+- a CNS phenotype mapping over 400 predefined target-tissue-phenotype
+  combinations and a compound-to-pair-to-phenotype Sankey; and
+- a neuropsychiatric pathology mapping over 19 pooled-parent fingerprint pairs
+  and six disease groups (114 predefined combinations), with 20 relationships
+  retained after definitive source-level audit: MDD 3, bipolar disorder 3,
+  anxiety 2, SUD 5, AUD 7, and PTSD 0.
+
+These are manuscript analyses, but they are not executed by this repository's
+Smoke, Verify, or Full lanes. The public tree does not include a complete,
+redistribution-approved source-record, adjudication, input-manifest, and build
+contract for either mapping. Their inclusion in the manuscript therefore does
+not expand the public computational reproducibility claim. See
+[`optional/README.md`](optional/README.md) and the explicit rows in
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+
 ## Compounds represented
 
 The ketamine-family analysis contains pooled-parent ketamine, confirmed
@@ -99,6 +125,14 @@ PCP, valproate, lamotrigine, and psilocybin. The versioned roster is in
 | Ketamine-family comparison | 10 profiles; 45 unordered pairs |
 | External reference panel | 25 profiles |
 | Combined comparison | 35 profiles; 595 unordered pairs |
+| S-ketamine vs R-ketamine, α = 0.001 | 11 shared calls; 12-call union; Jaccard 0.92; overlap coefficient 1.00 |
+| Family fingerprint PCA, α = 0.001 | 17 variable features; PC1 68.2%; PC2 30.4% |
+| Global fingerprint PCA, α = 0.001 | 30 variable features; PC1 51.0%; PC2 44.5% |
+
+For pooled-parent ketamine against selected external drugs at α = 0.001, the
+retained pair authority reports: chlorpromazine, 8 shared calls (Jaccard 0.38,
+overlap 0.80); clozapine, 6 (0.29, 0.75); sertraline, 5 (0.25, 0.83);
+fluoxetine, 5 (0.25, 0.83); and olanzapine, 6 (0.23, 0.46).
 
 Representative retained outputs are:
 
@@ -239,13 +273,16 @@ To cite the software, cite **Eric Rosenn, _Ketamine Historeceptomics_, version
 the software entry in [`CITATION.bib`](CITATION.bib). The software author's
 ORCID is [0009-0000-6084-8933](https://orcid.org/0009-0000-6084-8933).
 
-Scientific manuscript title and authorship are not yet final and are not
-inferred here. The original historeceptomics and Cardozo-group publications
-provide the mathematical and scientific basis; they did not supply the source
-code in this repository. Cite the applicable method and source publications in
-[`docs/REFERENCES.md`](docs/REFERENCES.md) and database resources in
-[`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md). A manuscript citation may be
-added in a later release after title and authorship are finalized.
+The related manuscript currently has the working title
+**_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**
+and the author list **Eric Rosenn and Timothy Cardozo**. Because no DOI,
+journal, publication date, or publication status is asserted, the repository
+does not provide a fabricated article citation or make the manuscript the
+preferred citation for this software. The original historeceptomics and
+Cardozo-group publications provide the mathematical and scientific basis; they
+did not supply the source code in this repository. Cite applicable method and
+source publications in [`docs/REFERENCES.md`](docs/REFERENCES.md) and database
+resources in [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 
 ## Interpretation limits
 
@@ -265,8 +302,9 @@ added in a later release after title and authorship are finalized.
 - Nearest-reference and class-context outputs are roster- and metric-dependent
   descriptions, not class assignments.
 - The fixed Figure 4 axes and coordinates are not refit, moved, or jittered.
-- CRTP literature mapping, pathology integration, and manuscript production are
-  outside this repository's reproducible scope.
+- The manuscript's CNS phenotype mapping, Sankey, neuropsychiatric pathology
+  mapping/matrix, and manuscript production are documented but remain outside
+  this repository's executable reproducibility scope.
 
 ## Support and security
 

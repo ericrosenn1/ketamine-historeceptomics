@@ -9,9 +9,10 @@ official resource links below were checked on 2026-08-25.
 
 The method papers below explain scientific ideas or procedures on which this
 implementation builds. Citing them does **not** identify their authors as
-authors of this repository's source code, as authors of any future manuscript,
-or as endorsers of this release. Repository citation metadata is separate in
-[`CITATION.cff`](../CITATION.cff). No manuscript citation is supplied here.
+authors of this repository's source code or as endorsers of this release.
+Repository citation metadata is separate in
+[`CITATION.cff`](../CITATION.cff). Manuscript and software authorship are also
+separate.
 
 Likewise, citing a database documents provenance or an audited candidate
 source. It does not state that the database is redistributed. The exact public
@@ -24,7 +25,16 @@ data boundary is documented in [`DATA_SOURCES.md`](DATA_SOURCES.md),
 Rosenn E. *Ketamine Historeceptomics*. Version 0.1.1. 2026.
 [Repository](https://github.com/ericrosenn1/ketamine-historeceptomics).
 BibTeX: `rosenn2026ketaminehistoreceptomics`. This is the software citation;
-it does not assert or predict authorship of a scientific manuscript.
+it does not assign manuscript authorship.
+
+## Current manuscript status
+
+The related current working manuscript is **Eric Rosenn and Timothy Cardozo,
+_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**.
+This records the current scientific identity for repository alignment. No
+journal, DOI, publication date, volume, issue, article number, or publication
+status is asserted, so no fabricated article citation or BibTeX record is
+provided.
 
 ## Methodological basis
 

@@ -53,6 +53,14 @@ and racemate activity is never assigned to an isolated enantiomer.
 
 ## 2. Pharmacological activity
 
+The manuscript source inventory comprises ChEMBL, PubChem BioAssay, the NIMH
+PDSP Ki Database, IUPHAR/BPS Guide to PHARMACOLOGY, BindingDB, and primary
+literature. These names describe the historical candidate/provenance landscape;
+they do not imply that every resource supplied a selected retained value or
+that database exports are redistributed. The selected public execution boundary
+starts from governed, hash-validated activity inputs as described in
+[`PROVENANCE.md`](PROVENANCE.md) and [`DATA_SOURCES.md`](DATA_SOURCES.md).
+
 Eligible positive quantitative source values are converted to molar units and
 expressed as `pActivity = -log10(activity in mol/L)`. Original concentration
 relation operators are retained as provenance: an observation such as
@@ -88,8 +96,18 @@ remain distinct.
 
 ## 4. Tissue expression
 
-The expression panel contains 77 human tissues. Expression is standardized
-separately within each gene using the sample standard deviation (`ddof = 1`):
+The manuscript records the expression source as the human BioGPS GeneAtlas
+U133A/GNF1H GCRMA panel. Probe mappings incompatible with an exact gene were
+excluded, compatible probes were summarized within gene, and seven
+cancer/fetal/stem samples were excluded to form the governed 77-tissue panel.
+The public repository can verify the accepted standardized values and their
+downstream use, but it does not redistribute the raw atlas or recover a
+raw-download-to-expression-master producer. The manuscript-level probe and
+sample-processing description is therefore provenance, not a newly claimed
+public execution lane.
+
+Expression is standardized separately within each gene over the full 77-tissue
+panel using the sample standard deviation (`ddof = 1`):
 
 ```text
 expression_Z(gene, tissue)
@@ -103,6 +121,9 @@ targets are not imputed or filled with zero. The governed external input set
 contains the frozen standardized expression values needed for Verify; the raw
 BioGPS acquisition and the exact producer of the historical expression master
 are outside the public repository boundary.
+
+The strict-CNS panel is the configured 18-tissue subset of those 77-panel
+z-scores. It is not re-standardized within the CNS subset.
 
 ## 5. HR-score calculation
 
@@ -167,7 +188,13 @@ measures, two empty call sets have Jaccard similarity 1 by convention.
 
 Support-aware sparse PCA is calculated independently at α = 0.001 and
 α = 0.0001. These fingerprint-derived outputs are the principal multivariate
-results represented for manuscript use.
+results represented for manuscript use. A feature must be observed in at least
+two profiles and vary over its observed values. Retained features are
+mean-centered without variance scaling. Missing coordinates are initialized
+from feature means and updated by iterative rank-two SVD while observed cells
+remain fixed. The accepted implementation uses a 300-iteration maximum and
+retains iteration-limit point estimates with an explicit nonconvergence
+limitation rather than silently changing the model.
 
 ## 8. Ketamine-family and external-drug comparisons
 
@@ -235,7 +262,60 @@ were not tested remain missing. Zero is introduced only for a tested non-call
 in a binary fingerprint matrix. Pairwise common-RHR statistics are calculated
 only on matched observed coordinates, and their denominators are reported.
 
-## 11. Validation
+## 11. Manuscript literature mapping
+
+### CNS phenotype mapping
+
+The manuscript evaluates 400 prespecified combinations formed from 20 CNS
+target-tissue pairs and 20 phenotype definitions. Searches used PubMed/NCBI
+E-utilities and Europe PMC, with Crossref and OpenAlex for discovery and
+metadata reconciliation and PubMed Central or publisher/DOI records for source
+inspection where available. Queries combined target/receptor aliases,
+compatible anatomy terms, and phenotype-specific terms.
+
+A relationship was retained only when semantic review found a primary source
+jointly supporting the target, compatible anatomy, and requested phenotype.
+Mammalian evidence was eligible. Reviews could support discovery but did not
+replace a qualifying primary source. Initially unsupported cells received a
+second search with expanded terms. Retrieval failure or rate limiting was
+recorded as an access limitation, not as evidence of biological absence.
+
+The manuscript Sankey links compounds to α = 0.001 fingerprint target-tissue
+pairs and those pairs to retained phenotype relationships. Link width counts
+distinct compound-pair-phenotype paths; it is not an effect-size or
+evidence-strength scale.
+
+### Neuropsychiatric pathology mapping
+
+The pathology universe contains the 19 pooled-parent α = 0.001 CNS fingerprint
+pairs crossed with six disease groups: major depressive disorder, bipolar
+disorder, anxiety, post-traumatic stress disorder, substance use disorder, and
+alcohol use disorder (114 combinations). Search routes and semantic review
+followed the same general source systems while adding disease synonyms,
+disease-model terms, transcriptomic/proteomic/receptor-binding terms, and
+compatible subregional anatomy.
+
+Definitive source-level adjudication retained 20 relationships: 6 exact-direct,
+13 hierarchical-direct, and 1 orthogonal. Exact and hierarchical direct classes
+require joint target-anatomy-disease evidence in one qualifying source;
+orthogonal evidence requires separately supported target-disease and
+anatomy-disease legs under the governed rule. Incompatible exposure/behavior
+models, null target findings, unresolved broader anatomy, and inaccessible
+insufficient evidence were not accepted. The retained disease counts are MDD 3,
+bipolar disorder 3, anxiety 2, SUD 5, AUD 7, and PTSD 0.
+
+### Reproducibility boundary
+
+These literature mappings and their manuscript figures are documented
+scientific analyses but are not executed by Smoke, Verify, or Full. Their
+complete source records, final adjudication authorities, redistribution
+decisions, governed builders, and validation fixtures are absent from the
+public release. Their explicit statuses are recorded in
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](../ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+Selected continuous HR-score correspondences discussed with pathology remain
+secondary and must not be presented as fingerprint calls.
+
+## 12. Validation
 
 The implementation is tested at the identity, target, activity, expression,
 HR, fingerprint, pairwise, multivariate, fixed-reference, and resource-control

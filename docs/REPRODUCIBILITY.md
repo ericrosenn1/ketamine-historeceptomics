@@ -30,6 +30,27 @@ validation environment is in [`ENVIRONMENT.md`](ENVIRONMENT.md).
 No lane downloads scientific inputs. A missing file is an execution failure,
 not evidence of scientific absence.
 
+## Manuscript analysis boundary
+
+The current manuscript, **_Historeceptomic Profiling of Ketamine, Its
+Enantiomers, and Metabolites_** by Eric Rosenn and Timothy Cardozo, includes
+analyses on both sides of the public execution boundary:
+
+| Manuscript analysis | Public execution status |
+|---|---|
+| HR matrices and pooled-parent fingerprints | Verify/Full with governed external inputs |
+| Ketamine-family and external-drug fingerprint comparisons | Verify/Full with governed external inputs |
+| Fingerprint PCA | Verify/Full with governed external inputs |
+| CNS phenotype literature mapping and Sankey | Documented manuscript analysis; `BLOCKED` in this public release |
+| Neuropsychiatric pathology mapping and matrix | Documented manuscript analysis; `BLOCKED` in this public release |
+| Manuscript figure/table assembly outside retained Figure 4 | Not part of Smoke, Verify, or Full |
+
+`BLOCKED` here means that the public repository lacks a complete,
+redistribution-approved input/source/adjudication/build/validation contract. It
+does not mean the manuscript analysis was not performed, and it is not a
+scientific negative. See
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](../ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+
 ## Smoke
 
 Run the public self-contained lane:
@@ -235,7 +256,8 @@ manifest.
   estimates retain that limitation.
 - Historeceptomic representations are observational and do not establish
   mechanism, tissue exposure, clinical response, or causality.
-- Literature-effect mapping, pathology integration, and manuscript production
-  are outside this release.
+- The manuscript's 400-cell CNS phenotype mapping and Sankey, 114-cell
+  pathology mapping and matrix, and manuscript production are documented but
+  not executable in this release.
 
 See [`PROVENANCE.md`](PROVENANCE.md) for input lineage and public data scope.
