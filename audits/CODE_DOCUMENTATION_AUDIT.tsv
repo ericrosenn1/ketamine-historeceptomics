@@ -253,6 +253,7 @@ development_metadata	tests/test_governance_statuses.py	file	PASS	No findings
 development_metadata	tests/test_heatmap_call_count.py	file	PASS	No findings
 development_metadata	tests/test_hr_construction.py	file	PASS	No findings
 development_metadata	tests/test_identity_resolution.py	file	PASS	No findings
+development_metadata	tests/test_manuscript_alignment.py	file	PASS	No findings
 development_metadata	tests/test_multivariate_rank_handling.py	file	PASS	No findings
 development_metadata	tests/test_pairwise_metrics.py	file	PASS	No findings
 development_metadata	tests/test_pooled_authority_counts.py	file	PASS	No findings
@@ -721,43 +722,45 @@ markdown_link	PUBLIC_RELEASE_DECISIONS.md	data/fixtures/:44	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/DATA_SOURCES.md:68	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/FULL_MODE.md:70	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	results/reference/:80	PASS	Target exists
-markdown_link	README.md	CITATION.bib:239	PASS	Target exists
-markdown_link	README.md	CITATION.cff:238	PASS	Target exists
-markdown_link	README.md	CONTRIBUTING.md:277	PASS	Target exists
-markdown_link	README.md	DATA_LICENSE.md:191	PASS	Target exists
-markdown_link	README.md	DATA_LICENSE.md:204	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:148	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:196	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:22	PASS	Target exists
-markdown_link	README.md	LICENSE:189	PASS	Target exists
-markdown_link	README.md	LICENSE:280	PASS	Target exists
-markdown_link	README.md	PUBLIC_RELEASE_DECISIONS.md:203	PASS	Target exists
-markdown_link	README.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:202	PASS	Target exists
-markdown_link	README.md	SECURITY.md:274	PASS	Target exists
-markdown_link	README.md	THIRD_PARTY_NOTICES.md:205	PASS	Target exists
-markdown_link	README.md	configs/reference_drugs.yaml:87	PASS	Target exists
-markdown_link	README.md	data/fixtures/:141	PASS	Target exists
-markdown_link	README.md	data/frozen/metadata/class_membership.csv:198	PASS	Target exists
-markdown_link	README.md	docs/CODE_ARCHITECTURE.md:215	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:157	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:213	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:247	PASS	Target exists
-markdown_link	README.md	docs/DEVELOPER_GUIDE.md:216	PASS	Target exists
-markdown_link	README.md	docs/ENVIRONMENT.md:217	PASS	Target exists
-markdown_link	README.md	docs/FULL_MODE.md:172	PASS	Target exists
-markdown_link	README.md	docs/METHODS.md:210	PASS	Target exists
-markdown_link	README.md	docs/PROVENANCE.md:212	PASS	Target exists
-markdown_link	README.md	docs/REFERENCES.md:214	PASS	Target exists
-markdown_link	README.md	docs/REFERENCES.md:246	PASS	Target exists
-markdown_link	README.md	docs/REPRODUCIBILITY.md:211	PASS	Target exists
-markdown_link	README.md	docs/figures/ketamine_historeceptomics_workflow.png:45	PASS	Target exists
-markdown_link	README.md	optional/README.md:218	PASS	Target exists
-markdown_link	README.md	results/reference/:111	PASS	Target exists
-markdown_link	README.md	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:106	PASS	Target exists
-markdown_link	README.md	results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf:109	PASS	Target exists
-markdown_link	README.md	results/reference/global/ALL_UNORDERED_DRUG_PAIR_METRICS_FINAL.csv:107	PASS	Target exists
-markdown_link	README.md	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv:108	PASS	Target exists
-markdown_link	README.md	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:105	PASS	Target exists
+markdown_link	README.md	ANALYSIS_REPRODUCIBILITY_MATRIX.csv:108	PASS	Target exists
+markdown_link	README.md	CITATION.bib:285	PASS	Target exists
+markdown_link	README.md	CITATION.cff:284	PASS	Target exists
+markdown_link	README.md	CONTRIBUTING.md:327	PASS	Target exists
+markdown_link	README.md	DATA_LICENSE.md:237	PASS	Target exists
+markdown_link	README.md	DATA_LICENSE.md:250	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:194	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:242	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:28	PASS	Target exists
+markdown_link	README.md	LICENSE:235	PASS	Target exists
+markdown_link	README.md	LICENSE:330	PASS	Target exists
+markdown_link	README.md	PUBLIC_RELEASE_DECISIONS.md:249	PASS	Target exists
+markdown_link	README.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:248	PASS	Target exists
+markdown_link	README.md	SECURITY.md:324	PASS	Target exists
+markdown_link	README.md	THIRD_PARTY_NOTICES.md:251	PASS	Target exists
+markdown_link	README.md	configs/reference_drugs.yaml:125	PASS	Target exists
+markdown_link	README.md	data/fixtures/:187	PASS	Target exists
+markdown_link	README.md	data/frozen/metadata/class_membership.csv:244	PASS	Target exists
+markdown_link	README.md	docs/CODE_ARCHITECTURE.md:261	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:203	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:259	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:297	PASS	Target exists
+markdown_link	README.md	docs/DEVELOPER_GUIDE.md:262	PASS	Target exists
+markdown_link	README.md	docs/ENVIRONMENT.md:263	PASS	Target exists
+markdown_link	README.md	docs/FULL_MODE.md:218	PASS	Target exists
+markdown_link	README.md	docs/METHODS.md:256	PASS	Target exists
+markdown_link	README.md	docs/PROVENANCE.md:258	PASS	Target exists
+markdown_link	README.md	docs/REFERENCES.md:260	PASS	Target exists
+markdown_link	README.md	docs/REFERENCES.md:296	PASS	Target exists
+markdown_link	README.md	docs/REPRODUCIBILITY.md:257	PASS	Target exists
+markdown_link	README.md	docs/figures/ketamine_historeceptomics_workflow.png:63	PASS	Target exists
+markdown_link	README.md	optional/README.md:107	PASS	Target exists
+markdown_link	README.md	optional/README.md:264	PASS	Target exists
+markdown_link	README.md	results/reference/:157	PASS	Target exists
+markdown_link	README.md	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:152	PASS	Target exists
+markdown_link	README.md	results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf:155	PASS	Target exists
+markdown_link	README.md	results/reference/global/ALL_UNORDERED_DRUG_PAIR_METRICS_FINAL.csv:153	PASS	Target exists
+markdown_link	README.md	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv:154	PASS	Target exists
+markdown_link	README.md	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:151	PASS	Target exists
 markdown_link	SECURITY.md	SUPPORT.md:21	PASS	Target exists
 markdown_link	SUPPORT.md	SECURITY.md:20	PASS	Target exists
 markdown_link	THIRD_PARTY_NOTICES.md	CITATION.bib:82	PASS	Target exists
@@ -774,57 +777,63 @@ markdown_link	data/fixtures/README.md	../../CURRENT_ANALYSIS_AUTHORITY_MANIFEST.
 markdown_link	data/fixtures/README.md	../../docs/DATA_SOURCES.md:18	PASS	Target exists
 markdown_link	data/fixtures/README.md	../../docs/FULL_MODE.md:19	PASS	Target exists
 markdown_link	docs/CODE_ARCHITECTURE.md	../EXTERNAL_INPUT_MANIFEST.tsv:25	PASS	Target exists
-markdown_link	docs/CODE_ARCHITECTURE.md	DEVELOPER_GUIDE.md:245	PASS	Target exists
-markdown_link	docs/CODE_ARCHITECTURE.md	FULL_MODE.md:135	PASS	Target exists
-markdown_link	docs/DATA_SOURCES.md	../CITATION.bib:187	PASS	Target exists
+markdown_link	docs/CODE_ARCHITECTURE.md	DEVELOPER_GUIDE.md:251	PASS	Target exists
+markdown_link	docs/CODE_ARCHITECTURE.md	FULL_MODE.md:136	PASS	Target exists
+markdown_link	docs/DATA_SOURCES.md	../CITATION.bib:208	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	../DATA_MANIFEST.csv:28	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:27	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	FULL_MODE.md:64	PASS	Target exists
-markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:187	PASS	Target exists
+markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:208	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:84	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:92	PASS	Target exists
-markdown_link	docs/DEVELOPER_GUIDE.md	CODE_ARCHITECTURE.md:40	PASS	Target exists
+markdown_link	docs/DEVELOPER_GUIDE.md	CODE_ARCHITECTURE.md:41	PASS	Target exists
 markdown_link	docs/ENVIRONMENT.md	../requirements-lock.txt:37	PASS	Target exists
 markdown_link	docs/ENVIRONMENT.md	FULL_MODE.md:60	PASS	Target exists
 markdown_link	docs/ENVIRONMENT.md	REPRODUCIBILITY.md:59	PASS	Target exists
 markdown_link	docs/FULL_MODE.md	../EXTERNAL_INPUT_MANIFEST.tsv:23	PASS	Target exists
 markdown_link	docs/FULL_MODE.md	DATA_SOURCES.md:126	PASS	Target exists
-markdown_link	docs/METHODS.md	../EXTERNAL_INPUT_MANIFEST.tsv:25	PASS	Target exists
-markdown_link	docs/METHODS.md	../configs/compounds.yaml:38	PASS	Target exists
-markdown_link	docs/METHODS.md	../configs/reference_drugs.yaml:180	PASS	Target exists
-markdown_link	docs/METHODS.md	../configs/tissues_cns18.yaml:118	PASS	Target exists
-markdown_link	docs/METHODS.md	DATA_SOURCES.md:253	PASS	Target exists
-markdown_link	docs/METHODS.md	REFERENCES.md:254	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	../DATA_LICENSE.md:175	PASS	Target exists
+markdown_link	docs/METHODS.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:326	PASS	Target exists
+markdown_link	docs/METHODS.md	../EXTERNAL_INPUT_MANIFEST.tsv:26	PASS	Target exists
+markdown_link	docs/METHODS.md	../configs/compounds.yaml:39	PASS	Target exists
+markdown_link	docs/METHODS.md	../configs/reference_drugs.yaml:217	PASS	Target exists
+markdown_link	docs/METHODS.md	../configs/tissues_cns18.yaml:142	PASS	Target exists
+markdown_link	docs/METHODS.md	DATA_SOURCES.md:345	PASS	Target exists
+markdown_link	docs/METHODS.md	DATA_SOURCES.md:63	PASS	Target exists
+markdown_link	docs/METHODS.md	PROVENANCE.md:63	PASS	Target exists
+markdown_link	docs/METHODS.md	REFERENCES.md:346	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:165	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	../DATA_LICENSE.md:218	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../EXTERNAL_INPUT_MANIFEST.tsv:19	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:173	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:18	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	../THIRD_PARTY_NOTICES.md:176	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:216	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	../THIRD_PARTY_NOTICES.md:219	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../data/fixtures/:75	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../data/frozen/metadata/class_membership.csv:46	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../results/reference/:42	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	DATA_SOURCES.md:101	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	DATA_SOURCES.md:22	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	METHODS.md:177	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	METHODS.md:220	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	REFERENCES.md:102	PASS	Target exists
 markdown_link	docs/REFERENCES.md	../CITATION.bib:5	PASS	Target exists
 markdown_link	docs/REFERENCES.md	../CITATION.cff:14	PASS	Target exists
-markdown_link	docs/REFERENCES.md	../DATA_LICENSE.md:19	PASS	Target exists
-markdown_link	docs/REFERENCES.md	../THIRD_PARTY_NOTICES.md:20	PASS	Target exists
-markdown_link	docs/REFERENCES.md	../requirements-lock.txt:142	PASS	Target exists
-markdown_link	docs/REFERENCES.md	DATA_SOURCES.md:18	PASS	Target exists
-markdown_link	docs/REFERENCES.md	METHODS.md:61	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../EXTERNAL_INPUT_MANIFEST.tsv:57	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:77	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_MANIFEST.tsv:216	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../SHA256SUMS.txt:217	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../data/fixtures/:42	PASS	Target exists
+markdown_link	docs/REFERENCES.md	../DATA_LICENSE.md:20	PASS	Target exists
+markdown_link	docs/REFERENCES.md	../THIRD_PARTY_NOTICES.md:21	PASS	Target exists
+markdown_link	docs/REFERENCES.md	../requirements-lock.txt:152	PASS	Target exists
+markdown_link	docs/REFERENCES.md	DATA_SOURCES.md:19	PASS	Target exists
+markdown_link	docs/REFERENCES.md	METHODS.md:71	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:52	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../EXTERNAL_INPUT_MANIFEST.tsv:78	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:98	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_MANIFEST.tsv:238	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../SHA256SUMS.txt:239	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../data/fixtures/:63	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	../requirements-lock.txt:7	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../results/reference/:105	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	DATA_SOURCES.md:76	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../results/reference/:126	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	DATA_SOURCES.md:97	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	ENVIRONMENT.md:20	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	FULL_MODE.md:144	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	PROVENANCE.md:241	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	FULL_MODE.md:165	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	PROVENANCE.md:264	PASS	Target exists
+markdown_link	optional/README.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:45	PASS	Target exists
 module_docstring	scripts/audit_code_documentation.py	module	PASS	Complete module contract
 module_docstring	scripts/audit_repository.py	module	PASS	Complete module contract
 module_docstring	scripts/build_release_manifests.py	module	PASS	Complete module contract
@@ -885,6 +894,7 @@ module_docstring	tests/test_governance_statuses.py	module	PASS	Test purpose is d
 module_docstring	tests/test_heatmap_call_count.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_hr_construction.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_identity_resolution.py	module	PASS	Test purpose is documented
+module_docstring	tests/test_manuscript_alignment.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_multivariate_rank_handling.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_pairwise_metrics.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_pooled_authority_counts.py	module	PASS	Test purpose is documented
@@ -981,6 +991,7 @@ spdx	tests/test_governance_statuses.py	module	PASS	MIT SPDX header present
 spdx	tests/test_heatmap_call_count.py	module	PASS	MIT SPDX header present
 spdx	tests/test_hr_construction.py	module	PASS	MIT SPDX header present
 spdx	tests/test_identity_resolution.py	module	PASS	MIT SPDX header present
+spdx	tests/test_manuscript_alignment.py	module	PASS	MIT SPDX header present
 spdx	tests/test_multivariate_rank_handling.py	module	PASS	MIT SPDX header present
 spdx	tests/test_pairwise_metrics.py	module	PASS	MIT SPDX header present
 spdx	tests/test_pooled_authority_counts.py	module	PASS	MIT SPDX header present
@@ -1000,6 +1011,7 @@ test_descriptor	tests/test_governance_statuses.py	module	PASS	Protected contract
 test_descriptor	tests/test_heatmap_call_count.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_hr_construction.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_identity_resolution.py	module	PASS	Protected contract documented
+test_descriptor	tests/test_manuscript_alignment.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_multivariate_rank_handling.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_pairwise_metrics.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_pooled_authority_counts.py	module	PASS	Protected contract documented
@@ -1189,6 +1201,7 @@ unresolved_marker	tests/test_governance_statuses.py	file	PASS	No findings
 unresolved_marker	tests/test_heatmap_call_count.py	file	PASS	No findings
 unresolved_marker	tests/test_hr_construction.py	file	PASS	No findings
 unresolved_marker	tests/test_identity_resolution.py	file	PASS	No findings
+unresolved_marker	tests/test_manuscript_alignment.py	file	PASS	No findings
 unresolved_marker	tests/test_multivariate_rank_handling.py	file	PASS	No findings
 unresolved_marker	tests/test_pairwise_metrics.py	file	PASS	No findings
 unresolved_marker	tests/test_pooled_authority_counts.py	file	PASS	No findings

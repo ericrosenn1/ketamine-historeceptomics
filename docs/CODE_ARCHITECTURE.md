@@ -69,11 +69,11 @@ flowchart TD
     T[Exact-protein target contract] --> A
     E[77-tissue expression<br/>within-gene z score, ddof=1] --> H[HR = pActivity x expression z]
     A --> H
-    H --> W[58 x 77 whole-body HR]
-    W --> N[58 x 18 strict-CNS HR]
+    H --> W[58 x 77 whole-body<br/>HR-score matrix]
+    W --> N[58 x 18 strict-CNS<br/>HR-score matrix]
     W --> GW[Whole-body upper-tail GESD]
     N --> GN[Strict-CNS upper-tail GESD]
-    GN --> B[Binary call/support matrices]
+    GN --> B[Fingerprint-call/support matrices<br/>1, 0, or missing]
     B --> P[Primary fingerprint pairwise metrics]
     B --> SP[Primary support-aware sparse PCA]
     N --> C[Frozen common-RHR projection]
@@ -117,7 +117,8 @@ portable entry point. The path:
 1. checks all 20 external inputs against the external manifest;
 2. validates and reconstructs pooled full77/strict18 HR contracts;
 3. assembles the 30-profile base plus five additional metabolite profiles;
-4. rebuilds raw-HR, common-RHR, support, and two call matrices for 35 profiles;
+4. rebuilds raw-HR, common-RHR, support, and two fingerprint-call matrices for
+   35 profiles;
 5. computes 45 family and 595 global unordered pair rows;
 6. generates sparse primary and continuous exploratory models;
 7. generates class, nearest-reference, residual, whole-body, and fixed Figure 4
@@ -177,16 +178,21 @@ Expression rows identify target, tissue, tissue label, and within-target
 target and tissue identifiers, target grain, and expression-profile identity.
 Only compatible exact-protein mappings enter HR construction.
 
-### HR and profile matrices
+### HR-score and profile matrices
 
 Long-form HR rows contain canonical target/tissue keys and a numerical HR
-value. Profile matrices are `compound × feature_id` tables for:
+value. Those values form the numerical target × anatomy HR-score representation
+for a compound. Cross-compound profile matrices are `compound × feature_id`
+tables for:
 
 - `raw_hr`, where unsupported coordinates are missing;
 - `common_rhr`, the frozen projected continuous representation;
 - `support`, indicating tested/available coordinates;
 - `call_binary_alpha001` and `call_binary_alpha0001`, where `1` is called, `0`
   is a tested non-call, and unsupported coordinates remain missing.
+
+The `call_binary_*` tables are fingerprint-call matrices representing sparse
+fingerprint membership. They are not HR-score matrices.
 
 ### Fingerprint calls
 

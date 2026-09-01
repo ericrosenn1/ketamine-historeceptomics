@@ -2,8 +2,8 @@
 
 Overall status: `PASS`
 
-- Checks evaluated: `1196`
-- Passing checks: `1196`
+- Checks evaluated: `1209`
+- Passing checks: `1209`
 - Failing checks: `0`
 
 ## Category summary
@@ -14,15 +14,15 @@ Overall status: `PASS`
 | `citation_cff` | 1 | 1 |
 | `class_docstring` | 17 | 17 |
 | `configuration_descriptor` | 52 | 52 |
-| `development_metadata` | 189 | 189 |
+| `development_metadata` | 190 | 190 |
 | `function_docstring` | 442 | 442 |
-| `markdown_link` | 124 | 124 |
-| `module_docstring` | 66 | 66 |
+| `markdown_link` | 132 | 132 |
+| `module_docstring` | 67 | 67 |
 | `powershell_failure_contract` | 6 | 6 |
 | `powershell_help` | 18 | 18 |
-| `spdx` | 72 | 72 |
-| `test_descriptor` | 19 | 19 |
-| `unresolved_marker` | 189 | 189 |
+| `spdx` | 73 | 73 |
+| `test_descriptor` | 20 | 20 |
+| `unresolved_marker` | 190 | 190 |
 
 Tiny wrappers, self-explanatory test helpers, and unchanged third-party artifacts are permitted exceptions. All production modules and nontrivial callables remain in scope.
 

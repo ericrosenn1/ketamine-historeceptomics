@@ -30,6 +30,27 @@ validation environment is in [`ENVIRONMENT.md`](ENVIRONMENT.md).
 No lane downloads scientific inputs. A missing file is an execution failure,
 not evidence of scientific absence.
 
+## Manuscript analysis boundary
+
+The current manuscript, **_Historeceptomic Profiling of Ketamine, Its
+Enantiomers, and Metabolites_** by Eric Rosenn and Timothy Cardozo, includes
+analyses on both sides of the public execution boundary:
+
+| Manuscript analysis | Public execution status |
+|---|---|
+| HR-score matrices and derived pooled-parent fingerprints | Verify/Full with governed external inputs |
+| Ketamine-family and external-drug fingerprint comparisons | Verify/Full with governed external inputs |
+| Fingerprint PCA | Verify/Full with governed external inputs |
+| CNS phenotype literature mapping and Sankey | Documented manuscript analysis; `BLOCKED` in this public release |
+| Neuropsychiatric pathology mapping and matrix | Documented manuscript analysis; `BLOCKED` in this public release |
+| Manuscript figure/table assembly outside retained Figure 4 | Not part of Smoke, Verify, or Full |
+
+`BLOCKED` here means that the public repository lacks a complete,
+redistribution-approved input/source/adjudication/build/validation contract. It
+does not mean the manuscript analysis was not performed, and it is not a
+scientific negative. See
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](../ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+
 ## Smoke
 
 Run the public self-contained lane:
@@ -94,12 +115,12 @@ pwsh -NoProfile -File .\launchers\run_reproduction.ps1 `
   -OutputDir '.\results\runs\publication_verify'
 ```
 
-Verify checks the supplied pooled-parent activity, expression, HR, call,
-profile, feature-contract, prior-call, and metabolite inputs. It then rebuilds
-the family and global profile matrices, fingerprints, all 595 unordered pairs,
-primary sparse multivariate analyses, exploratory continuous analyses,
-class-context summaries, whole-body fingerprints, and the fixed-coordinate
-Figure 4 derivative.
+Verify checks the supplied pooled-parent activity, expression, HR-score
+matrices, call tables, profiles, feature contract, prior calls, and metabolite
+inputs. It then rebuilds the family and global profile matrices, fingerprints,
+fingerprint-call matrices, all 595 unordered pairs, primary sparse multivariate
+analyses, exploratory continuous analyses, class-context summaries, whole-body
+fingerprints, and the fixed-coordinate Figure 4 derivative.
 
 Regenerated artifacts are compared with the 60 accepted files under
 [`results/reference/`](../results/reference/). The required downstream ledger
@@ -153,9 +174,10 @@ ignored `results/runs/`. A normal completed run contains:
 - mode-specific regenerated tables and figures;
 - `MANIFEST.tsv`, with derivative file sizes and SHA-256 hashes.
 
-Verify writes HR matrices, GESD calls, aligned profile matrices, pairwise
-tables, multivariate scores and loadings, model-status tables, whole-body
-fingerprints, and Figure 4 derivatives. Full also writes
+Verify writes HR-score matrices, GESD calls, fingerprint-call matrices, aligned
+profile matrices, pairwise tables, multivariate scores and loadings,
+model-status tables, whole-body fingerprints, and Figure 4 derivatives. Full
+also writes
 `FULL_UPSTREAM_VALIDATION.csv`, the combined root ledger, and the downstream
 Verify tree under `verify_after_upstream_equivalence/`.
 
@@ -235,7 +257,8 @@ manifest.
   estimates retain that limitation.
 - Historeceptomic representations are observational and do not establish
   mechanism, tissue exposure, clinical response, or causality.
-- Literature-effect mapping, pathology integration, and manuscript production
-  are outside this release.
+- The manuscript's 400-cell CNS phenotype mapping and Sankey, 114-cell
+  pathology mapping and matrix, and manuscript production are documented but
+  not executable in this release.
 
 See [`PROVENANCE.md`](PROVENANCE.md) for input lineage and public data scope.

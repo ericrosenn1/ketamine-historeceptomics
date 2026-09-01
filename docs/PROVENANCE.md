@@ -110,19 +110,61 @@ governed identities + activity observations
   -> species/endpoint/censoring selection
   -> selected target pActivity
   + standardized 77-tissue expression
-  -> whole-body target × tissue HR
-  -> strict-CNS subset
-  -> upper-tail GESD fingerprints
+  -> whole-body target × tissue HR-score matrix
+  -> strict-CNS subset of that HR-score matrix
+  -> upper-tail GESD selection
+  -> sparse historeceptomic fingerprints
   -> family/global sparse comparisons (primary)
   -> frozen common-RHR comparisons (exploratory)
   -> multivariate/class/fixed-reference derivatives
   -> accepted reference outputs
 ```
 
+The current manuscript then uses selected computational outputs in a separate
+interpretation layer:
+
+```text
+accepted fingerprint coordinates
+  -> CNS target-tissue-phenotype literature search and semantic adjudication
+  -> compound-pair-phenotype Sankey
+
+accepted pooled-parent alpha=0.001 CNS fingerprint coordinates
+  -> six-disease literature search and definitive source-level adjudication
+  -> pathology matrix
+
+computational core + literature mappings
+  -> manuscript figures, tables, and narrative interpretation
+```
+
+The first block is represented by the governed public computational contracts.
+The interpretation block is present in the current manuscript,
+**_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**
+by Eric Rosenn and Timothy Cardozo, but is not added to the public execution
+claim merely by being named here.
+
 Full reconstructs the recovered pooled-parent stages before the downstream
 comparison. Verify begins from the external 20-file governed snapshot. Both
 routes compare their represented outputs against the same retained reference
 contracts.
+
+## Downstream interpretation audit
+
+The manuscript-alignment audit located current derivative summaries for the
+400-cell CNS phenotype review and 114-cell pathology review, along with
+historical private Sankey/pathology figure packages. Those materials were not
+promoted to this repository because the inspected set did not provide one
+current, portable, redistribution-approved contract containing all qualifying
+source records, governed search dictionaries, final adjudication authorities,
+builders, manifests, licensing decisions, and deterministic validation
+evidence.
+
+In particular, the historical pathology figure packages predate the definitive
+20-relationship source-level audit and therefore cannot be substituted for the
+current manuscript result. The public tree documents the current scientific
+scope while leaving both literature workflows `BLOCKED` in
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](../ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+No manuscript file, literature PDF, or private absolute source path is required
+by or committed to the public execution lanes.
 
 ## Compound identity safeguards
 
@@ -160,9 +202,10 @@ not silently substituted.
 
 Missing values are preserved. A target without compatible expression, a
 compound without support for a coordinate, and an untested coordinate do not
-become zero. Zero is used only for a tested non-call in a binary fingerprint
-matrix. Pairwise support counts and multivariate inputs preserve that
-distinction.
+become zero. Zero is used only for a tested non-call in a fingerprint-call
+matrix. That 0/1/missing membership representation is distinct from the
+numerical HR-score matrix. Pairwise support counts and multivariate inputs
+preserve that distinction.
 
 ## Hashes, terms, and scientific meaning
 

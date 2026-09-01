@@ -99,14 +99,35 @@ BioGPS portal papers, and gcRMA paper are listed in
   excludes those tables.
 - Historical transformation: an averaged gcRMA expression matrix was mapped
   from probe/gene records to compatible exact-protein targets, reduced to a
-  governed 77-tissue panel, and standardized within each gene using sample
-  standard deviation (`ddof = 1`). That tissue selection, target mapping, and
-  standardization are project transformations, not claims about the source
-  atlas.
+  governed 77-tissue panel after seven cancer/fetal/stem samples were excluded,
+  and standardized within each gene using sample standard deviation
+  (`ddof = 1`). That tissue selection, target mapping, and standardization are
+  project transformations, not claims about the source atlas. The manuscript
+  records compatible-probe aggregation, but the public release does not recover
+  or claim a raw-download-to-expression-master producer.
 
 The resulting 58-target × 77-tissue expression table, its 18-tissue strict-CNS
 subset, the target–tissue feature dictionary, and all near-source HR/profile
 inputs are absent from the public release.
+
+### Manuscript literature-mapping resources
+
+The manuscript's CNS phenotype and neuropsychiatric pathology mappings used
+[PubMed/NCBI](https://pubmed.ncbi.nlm.nih.gov/), [Europe
+PMC](https://europepmc.org/), PubMed Central, [Crossref](https://www.crossref.org/),
+[OpenAlex](https://openalex.org/), and publisher/DOI records. PubMed/Europe PMC
+and publisher records supported source inspection; Crossref and OpenAlex also
+supported discovery and metadata reconciliation. Citation chaining from
+relevant reviews could identify candidates, but a review did not replace a
+qualifying primary source.
+
+These are external discovery and evidence systems, not redistributed database
+inputs. The public repository does not contain article text, PDFs, the complete
+query/cache tree, qualifying-source extracts, final adjudication packages, or
+the governed builders for the 400-cell phenotype map and 114-cell pathology
+map. Source-specific terms and article copyright continue to apply. A
+documented not-found or access-limited search result is not evidence of
+biological absence.
 
 ### Explicit absence findings
 

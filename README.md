@@ -8,12 +8,18 @@
 Ketamine Historeceptomics is a reproducible computational implementation that
 combines compound-target pharmacology with target expression across human
 tissues. It represents ketamine, its enantiomers and metabolites, and 25
-psychoactive reference drugs as numerical historeceptomic score matrices and
-sparse target-anatomy fingerprints.
+psychoactive reference drugs using numerical HR-score matrices and sparse
+target-anatomy historeceptomic fingerprints derived from those matrices.
 
 The principal analyses compare sparse fingerprints. Continuous comparisons on
 the frozen common-RHR scale are exploratory and are kept separate throughout
 the code, results, and interpretation.
+
+This repository accompanies the current working manuscript,
+**_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**,
+by Eric Rosenn and Timothy Cardozo. No journal, DOI, publication date, or
+publication status is asserted here. Eric Rosenn remains the author of the
+software release; manuscript and software authorship are recorded separately.
 
 This public release includes the software, synthetic Smoke fixtures, 60
 byte-preserved reference-output files, and one cleared class-membership table.
@@ -23,22 +29,34 @@ directory validated against [`EXTERNAL_INPUT_MANIFEST.tsv`](EXTERNAL_INPUT_MANIF
 
 ## Core concepts
 
-- **HR score:** selected target-level pharmacological activity, expressed as
-  pActivity, multiplied by the standardized expression of that target in one
-  tissue.
-- **HR-score matrix:** the target × anatomy matrix of supported HR scores for one
-  compound. Unsupported coordinates remain missing.
-- **Historeceptomic fingerprint:** the sparse set of target-anatomy coordinates
-  selected as upper-tail outliers by one-sided generalized extreme Studentized
-  deviate (GESD) testing.
+- **HR score:** the numerical value for one supported target-anatomy coordinate:
+  selected target-level pharmacological activity, expressed as pActivity,
+  multiplied by the standardized expression of that target in one tissue.
+- **HR-score matrix:** the full numerical target × anatomy matrix of supported
+  HR scores for one compound. Unsupported coordinates remain missing. This
+  matrix is not itself a historeceptomic fingerprint.
+- **Historeceptomic fingerprint (HR fingerprint):** the sparse set of
+  target-anatomy coordinates selected from the HR-score matrix as upper-tail
+  outliers by one-sided generalized extreme Studentized deviate (GESD) testing.
+- **Fingerprint-call matrix:** a compound × target-anatomy representation of
+  fingerprint membership at a specified α threshold: `1` means called, `0`
+  means tested but not called, and missing means unsupported or untested. It is
+  not an HR-score matrix.
 - **Fingerprint comparison:** call-set comparisons such as Jaccard similarity,
   overlap, and support-aware sparse multivariate analysis.
 - **Continuous comparison:** exploratory comparison of underlying numerical HR
   values after frozen common-RHR projection and matched-support restriction.
 
-A tested non-call and an unsupported coordinate are not interchangeable. Zero
-is used only for a tested non-call in a binary fingerprint matrix; unsupported
-or untested coordinates stay missing.
+```text
+pharmacological activity + standardized expression
+  -> HR-score matrix
+  -> one-sided GESD outlier selection
+  -> historeceptomic fingerprint
+```
+
+A tested non-call and an unsupported coordinate are not interchangeable in a
+fingerprint-call matrix. The matrix encodes fingerprint membership rather than
+numerical HR scores.
 
 ## Analysis workflow
 
@@ -49,7 +67,7 @@ or untested coordinates stay missing.
 ### Primary fingerprint analyses
 
 - pooled-parent ketamine strict-CNS and whole-body fingerprints;
-- 10 ketamine-family numerical profiles and all 45 unordered family pairs;
+- 10 ketamine-family compound profiles and all 45 unordered family pairs;
 - comparison with 25 psychoactive reference drugs, for 35 profiles and 595
   unordered global pairs;
 - call-set overlap, Jaccard similarity, nonshared-call subtraction, overlap
@@ -68,6 +86,26 @@ or untested coordinates stay missing.
 
 Continuous outputs are provided for reproduction and hypothesis generation.
 They are not presented as primary fingerprint comparisons.
+
+### Manuscript downstream interpretation
+
+The current manuscript also includes two literature-mapping analyses downstream
+of the computational fingerprint:
+
+- a CNS phenotype mapping over 400 predefined target-tissue-phenotype
+  combinations and a compound-to-pair-to-phenotype Sankey; and
+- a neuropsychiatric pathology mapping over 19 pooled-parent fingerprint pairs
+  and six disease groups (114 predefined combinations), with 20 relationships
+  retained after definitive source-level audit: MDD 3, bipolar disorder 3,
+  anxiety 2, SUD 5, AUD 7, and PTSD 0.
+
+These are manuscript analyses, but they are not executed by this repository's
+Smoke, Verify, or Full lanes. The public tree does not include a complete,
+redistribution-approved source-record, adjudication, input-manifest, and build
+contract for either mapping. Their inclusion in the manuscript therefore does
+not expand the public computational reproducibility claim. See
+[`optional/README.md`](optional/README.md) and the explicit rows in
+[`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
 
 ## Compounds represented
 
@@ -90,15 +128,23 @@ PCP, valproate, lamotrigine, and psilocybin. The versioned roster is in
 
 | Analysis | Accepted scope |
 |---|---:|
-| Strict-CNS pooled-parent HR matrix | 58 targets × 18 tissues = 1,044 coordinates |
+| Strict-CNS pooled-parent HR-score matrix | 58 targets × 18 tissues = 1,044 coordinates |
 | Strict-CNS primary fingerprint | 19 calls at α = 0.001 |
 | Strict-CNS sensitivity fingerprint | 14 calls at α = 0.0001 |
-| Whole-body pooled-parent HR matrix | 58 targets × 77 tissues = 4,466 coordinates |
+| Whole-body pooled-parent HR-score matrix | 58 targets × 77 tissues = 4,466 coordinates |
 | Whole-body primary fingerprint | 59 calls at α = 0.001 |
 | Whole-body sensitivity fingerprint | 38 calls at α = 0.0001 |
 | Ketamine-family comparison | 10 profiles; 45 unordered pairs |
 | External reference panel | 25 profiles |
 | Combined comparison | 35 profiles; 595 unordered pairs |
+| S-ketamine vs R-ketamine, α = 0.001 | 11 shared calls; 12-call union; Jaccard 0.92; overlap coefficient 1.00 |
+| Family fingerprint PCA, α = 0.001 | 17 variable features; PC1 68.2%; PC2 30.4% |
+| Global fingerprint PCA, α = 0.001 | 30 variable features; PC1 51.0%; PC2 44.5% |
+
+For pooled-parent ketamine against selected external drugs at α = 0.001, the
+retained pair authority reports: chlorpromazine, 8 shared calls (Jaccard 0.38,
+overlap 0.80); clozapine, 6 (0.29, 0.75); sertraline, 5 (0.25, 0.83);
+fluoxetine, 5 (0.25, 0.83); and olanzapine, 6 (0.23, 0.46).
 
 Representative retained outputs are:
 
@@ -239,13 +285,16 @@ To cite the software, cite **Eric Rosenn, _Ketamine Historeceptomics_, version
 the software entry in [`CITATION.bib`](CITATION.bib). The software author's
 ORCID is [0009-0000-6084-8933](https://orcid.org/0009-0000-6084-8933).
 
-Scientific manuscript title and authorship are not yet final and are not
-inferred here. The original historeceptomics and Cardozo-group publications
-provide the mathematical and scientific basis; they did not supply the source
-code in this repository. Cite the applicable method and source publications in
-[`docs/REFERENCES.md`](docs/REFERENCES.md) and database resources in
-[`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md). A manuscript citation may be
-added in a later release after title and authorship are finalized.
+The related manuscript currently has the working title
+**_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**
+and the author list **Eric Rosenn and Timothy Cardozo**. Because no DOI,
+journal, publication date, or publication status is asserted, the repository
+does not provide a fabricated article citation or make the manuscript the
+preferred citation for this software. The original historeceptomics and
+Cardozo-group publications provide the mathematical and scientific basis; they
+did not supply the source code in this repository. Cite applicable method and
+source publications in [`docs/REFERENCES.md`](docs/REFERENCES.md) and database
+resources in [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
 
 ## Interpretation limits
 
@@ -265,8 +314,9 @@ added in a later release after title and authorship are finalized.
 - Nearest-reference and class-context outputs are roster- and metric-dependent
   descriptions, not class assignments.
 - The fixed Figure 4 axes and coordinates are not refit, moved, or jittered.
-- CRTP literature mapping, pathology integration, and manuscript production are
-  outside this repository's reproducible scope.
+- The manuscript's CNS phenotype mapping, Sankey, neuropsychiatric pathology
+  mapping/matrix, and manuscript production are documented but remain outside
+  this repository's executable reproducibility scope.
 
 ## Support and security
 

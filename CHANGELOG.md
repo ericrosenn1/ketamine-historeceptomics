@@ -2,6 +2,23 @@
 
 All notable public changes are documented here.
 
+## [Unreleased]
+
+- Aligned repository documentation with the current working manuscript title,
+  authors, computational methods, manuscript-facing fingerprint/PCA results,
+  and literature-mapping scope.
+- Distinguished the publicly reproducible computational core from the
+  manuscript's CNS phenotype Sankey, neuropsychiatric pathology mapping, and
+  manuscript-production workflows, which remain outside the executable public
+  contract.
+- Added explicit reproducibility-matrix rows and deterministic regression tests
+  for manuscript-facing retained results and the finalized workflow image.
+- Clarified that an HR-score matrix is the continuous numerical input to GESD,
+  a historeceptomic fingerprint is the resulting sparse call set, and a
+  fingerprint-call matrix is a separate 1/0/missing membership representation.
+- Kept version 0.1.1 because computational behavior, governed inputs, accepted
+  numerical outputs, and public reproducibility scope did not change.
+
 ## [0.1.1] - 2026-08-25
 
 First public publication-facing release.
