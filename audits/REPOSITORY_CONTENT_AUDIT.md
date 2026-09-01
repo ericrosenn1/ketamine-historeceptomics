@@ -3,7 +3,7 @@
 Overall status: `PASS`
 
 - Publishable files scanned: `202`
-- Publishable bytes scanned: `9829300`
+- Publishable bytes scanned: `9832421`
 - Open findings: `0`
 - Secret-pattern findings: `0`
 - Email-address findings: `0`

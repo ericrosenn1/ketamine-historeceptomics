@@ -1,7 +1,8 @@
 # Analyses outside the current release
 
 Version 0.1.1 covers the ketamine historeceptomics computational core: governed
-activity/expression integration, HR-score matrices, GESD fingerprints,
+activity/expression integration, numerical HR-score matrices, sparse
+fingerprints derived from those matrices by GESD,
 ketamine-family and external-drug comparisons, sparse and continuous
 multivariate derivatives, whole-body fingerprints, and the fixed-coordinate
 Figure 4 output.

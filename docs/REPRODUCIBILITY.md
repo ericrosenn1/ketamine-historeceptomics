@@ -38,7 +38,7 @@ analyses on both sides of the public execution boundary:
 
 | Manuscript analysis | Public execution status |
 |---|---|
-| HR matrices and pooled-parent fingerprints | Verify/Full with governed external inputs |
+| HR-score matrices and derived pooled-parent fingerprints | Verify/Full with governed external inputs |
 | Ketamine-family and external-drug fingerprint comparisons | Verify/Full with governed external inputs |
 | Fingerprint PCA | Verify/Full with governed external inputs |
 | CNS phenotype literature mapping and Sankey | Documented manuscript analysis; `BLOCKED` in this public release |
@@ -115,12 +115,12 @@ pwsh -NoProfile -File .\launchers\run_reproduction.ps1 `
   -OutputDir '.\results\runs\publication_verify'
 ```
 
-Verify checks the supplied pooled-parent activity, expression, HR, call,
-profile, feature-contract, prior-call, and metabolite inputs. It then rebuilds
-the family and global profile matrices, fingerprints, all 595 unordered pairs,
-primary sparse multivariate analyses, exploratory continuous analyses,
-class-context summaries, whole-body fingerprints, and the fixed-coordinate
-Figure 4 derivative.
+Verify checks the supplied pooled-parent activity, expression, HR-score
+matrices, call tables, profiles, feature contract, prior calls, and metabolite
+inputs. It then rebuilds the family and global profile matrices, fingerprints,
+fingerprint-call matrices, all 595 unordered pairs, primary sparse multivariate
+analyses, exploratory continuous analyses, class-context summaries, whole-body
+fingerprints, and the fixed-coordinate Figure 4 derivative.
 
 Regenerated artifacts are compared with the 60 accepted files under
 [`results/reference/`](../results/reference/). The required downstream ledger
@@ -174,9 +174,10 @@ ignored `results/runs/`. A normal completed run contains:
 - mode-specific regenerated tables and figures;
 - `MANIFEST.tsv`, with derivative file sizes and SHA-256 hashes.
 
-Verify writes HR matrices, GESD calls, aligned profile matrices, pairwise
-tables, multivariate scores and loadings, model-status tables, whole-body
-fingerprints, and Figure 4 derivatives. Full also writes
+Verify writes HR-score matrices, GESD calls, fingerprint-call matrices, aligned
+profile matrices, pairwise tables, multivariate scores and loadings,
+model-status tables, whole-body fingerprints, and Figure 4 derivatives. Full
+also writes
 `FULL_UPSTREAM_VALIDATION.csv`, the combined root ledger, and the downstream
 Verify tree under `verify_after_upstream_equivalence/`.
 

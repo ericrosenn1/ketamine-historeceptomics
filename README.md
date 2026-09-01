@@ -8,8 +8,8 @@
 Ketamine Historeceptomics is a reproducible computational implementation that
 combines compound-target pharmacology with target expression across human
 tissues. It represents ketamine, its enantiomers and metabolites, and 25
-psychoactive reference drugs as numerical historeceptomic score matrices and
-sparse target-anatomy fingerprints.
+psychoactive reference drugs using numerical HR-score matrices and sparse
+target-anatomy historeceptomic fingerprints derived from those matrices.
 
 The principal analyses compare sparse fingerprints. Continuous comparisons on
 the frozen common-RHR scale are exploratory and are kept separate throughout
@@ -29,22 +29,34 @@ directory validated against [`EXTERNAL_INPUT_MANIFEST.tsv`](EXTERNAL_INPUT_MANIF
 
 ## Core concepts
 
-- **HR score:** selected target-level pharmacological activity, expressed as
-  pActivity, multiplied by the standardized expression of that target in one
-  tissue.
-- **HR-score matrix:** the target × anatomy matrix of supported HR scores for one
-  compound. Unsupported coordinates remain missing.
-- **Historeceptomic fingerprint:** the sparse set of target-anatomy coordinates
-  selected as upper-tail outliers by one-sided generalized extreme Studentized
-  deviate (GESD) testing.
+- **HR score:** the numerical value for one supported target-anatomy coordinate:
+  selected target-level pharmacological activity, expressed as pActivity,
+  multiplied by the standardized expression of that target in one tissue.
+- **HR-score matrix:** the full numerical target × anatomy matrix of supported
+  HR scores for one compound. Unsupported coordinates remain missing. This
+  matrix is not itself a historeceptomic fingerprint.
+- **Historeceptomic fingerprint (HR fingerprint):** the sparse set of
+  target-anatomy coordinates selected from the HR-score matrix as upper-tail
+  outliers by one-sided generalized extreme Studentized deviate (GESD) testing.
+- **Fingerprint-call matrix:** a compound × target-anatomy representation of
+  fingerprint membership at a specified α threshold: `1` means called, `0`
+  means tested but not called, and missing means unsupported or untested. It is
+  not an HR-score matrix.
 - **Fingerprint comparison:** call-set comparisons such as Jaccard similarity,
   overlap, and support-aware sparse multivariate analysis.
 - **Continuous comparison:** exploratory comparison of underlying numerical HR
   values after frozen common-RHR projection and matched-support restriction.
 
-A tested non-call and an unsupported coordinate are not interchangeable. Zero
-is used only for a tested non-call in a binary fingerprint matrix; unsupported
-or untested coordinates stay missing.
+```text
+pharmacological activity + standardized expression
+  -> HR-score matrix
+  -> one-sided GESD outlier selection
+  -> historeceptomic fingerprint
+```
+
+A tested non-call and an unsupported coordinate are not interchangeable in a
+fingerprint-call matrix. The matrix encodes fingerprint membership rather than
+numerical HR scores.
 
 ## Analysis workflow
 
@@ -55,7 +67,7 @@ or untested coordinates stay missing.
 ### Primary fingerprint analyses
 
 - pooled-parent ketamine strict-CNS and whole-body fingerprints;
-- 10 ketamine-family numerical profiles and all 45 unordered family pairs;
+- 10 ketamine-family compound profiles and all 45 unordered family pairs;
 - comparison with 25 psychoactive reference drugs, for 35 profiles and 595
   unordered global pairs;
 - call-set overlap, Jaccard similarity, nonshared-call subtraction, overlap
@@ -116,10 +128,10 @@ PCP, valproate, lamotrigine, and psilocybin. The versioned roster is in
 
 | Analysis | Accepted scope |
 |---|---:|
-| Strict-CNS pooled-parent HR matrix | 58 targets × 18 tissues = 1,044 coordinates |
+| Strict-CNS pooled-parent HR-score matrix | 58 targets × 18 tissues = 1,044 coordinates |
 | Strict-CNS primary fingerprint | 19 calls at α = 0.001 |
 | Strict-CNS sensitivity fingerprint | 14 calls at α = 0.0001 |
-| Whole-body pooled-parent HR matrix | 58 targets × 77 tissues = 4,466 coordinates |
+| Whole-body pooled-parent HR-score matrix | 58 targets × 77 tissues = 4,466 coordinates |
 | Whole-body primary fingerprint | 59 calls at α = 0.001 |
 | Whole-body sensitivity fingerprint | 38 calls at α = 0.0001 |
 | Ketamine-family comparison | 10 profiles; 45 unordered pairs |

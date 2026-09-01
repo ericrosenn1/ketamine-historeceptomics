@@ -110,9 +110,10 @@ governed identities + activity observations
   -> species/endpoint/censoring selection
   -> selected target pActivity
   + standardized 77-tissue expression
-  -> whole-body target × tissue HR
-  -> strict-CNS subset
-  -> upper-tail GESD fingerprints
+  -> whole-body target × tissue HR-score matrix
+  -> strict-CNS subset of that HR-score matrix
+  -> upper-tail GESD selection
+  -> sparse historeceptomic fingerprints
   -> family/global sparse comparisons (primary)
   -> frozen common-RHR comparisons (exploratory)
   -> multivariate/class/fixed-reference derivatives
@@ -201,9 +202,10 @@ not silently substituted.
 
 Missing values are preserved. A target without compatible expression, a
 compound without support for a coordinate, and an untested coordinate do not
-become zero. Zero is used only for a tested non-call in a binary fingerprint
-matrix. Pairwise support counts and multivariate inputs preserve that
-distinction.
+become zero. Zero is used only for a tested non-call in a fingerprint-call
+matrix. That 0/1/missing membership representation is distinct from the
+numerical HR-score matrix. Pairwise support counts and multivariate inputs
+preserve that distinction.
 
 ## Hashes, terms, and scientific meaning
 

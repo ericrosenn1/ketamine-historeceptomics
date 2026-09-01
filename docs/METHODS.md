@@ -6,8 +6,9 @@ Historeceptomics in this study combines selected compound-target pharmacology
 with tissue-specific target expression. The resulting HR-score matrix describes
 the numerical target × anatomy representation available for a compound. A
 historeceptomic fingerprint is the sparse subset of target-anatomy pairs called
-as upper-tail HR outliers by generalized extreme Studentized deviate (GESD)
-testing.
+from that matrix as upper-tail HR outliers by generalized extreme Studentized
+deviate (GESD) testing. The HR-score matrix is therefore the numerical input to
+fingerprint construction, not the fingerprint itself.
 
 Fingerprint-derived analyses are the principal manuscript-facing analyses.
 Analyses of continuous HR values are retained as exploratory secondary
@@ -134,8 +135,10 @@ HR(target, tissue)
   = selected pActivity(target) × expression_Z(target, tissue)
 ```
 
-The full-body matrix contains 58 targets × 77 tissues = 4,466 finite
-coordinates. The strict-CNS matrix is the exact 18-tissue subset defined in
+This calculation produces the full numerical HR-score matrix for a compound;
+unsupported coordinates remain missing. The whole-body HR-score matrix
+contains 58 targets × 77 tissues = 4,466 finite coordinates. The strict-CNS
+HR-score matrix is the exact 18-tissue subset defined in
 [`configs/tissues_cns18.yaml`](../configs/tissues_cns18.yaml), giving 58 × 18 =
 1,044 finite coordinates.
 
@@ -147,7 +150,8 @@ upstream so that exact and censored inputs are not conflated.
 ## 6. Historeceptomic fingerprint construction
 
 Fingerprints are constructed with a one-sided upper-tail Rosner-style GESD
-procedure applied to finite, signed HR values. At each step:
+procedure applied to the finite, signed values in an HR-score matrix. At each
+step:
 
 1. calculate the mean and sample standard deviation of the active values;
 2. identify the largest standardized upper deviation;
@@ -161,10 +165,12 @@ The maximum number of candidates is:
 r_max = floor(0.10 × number of finite tested coordinates)
 ```
 
-The primary threshold is α = 0.001. The stricter sensitivity threshold is
-α = 0.0001. Source order deterministically resolves exact ties. The
-strict-CNS pooled-parent fingerprints contain 19 primary and 14 sensitivity
-calls. Whole-body testing contains 59 primary and 38 sensitivity calls.
+The resulting historeceptomic fingerprint is the sparse set of selected
+target-anatomy coordinates. The primary threshold is α = 0.001. The stricter
+sensitivity threshold is α = 0.0001. Source order deterministically resolves
+exact ties. The strict-CNS pooled-parent fingerprints contain 19 primary and 14
+sensitivity calls. Whole-body testing contains 59 primary and 38 sensitivity
+calls.
 
 Because the strict-CNS and whole-body tests use different candidate universes,
 their membership differences are descriptive and are not interpreted as
@@ -172,33 +178,37 @@ biological gain or loss.
 
 ## 7. Sparse fingerprint comparisons
 
-For each compound, binary fingerprint matrices encode:
+For cross-compound analysis at each α threshold, fingerprint membership is
+encoded in a compound × target-anatomy fingerprint-call matrix:
 
 - `1`: a called target-anatomy pair;
 - `0`: a tested target-anatomy pair that was not called;
 - missing: a coordinate that was not supported or tested for that compound.
 
-Pairwise sparse comparisons report call counts, intersection and union sizes,
-Jaccard similarity, overlap coefficient, target and tissue overlap, and signed
-sparse cosine similarity. A jointly tested Jaccard measure is also reported to
+The fingerprint-call matrix represents sparse call membership; it is not the
+numerical HR-score matrix. Pairwise sparse comparisons operate on these
+fingerprint calls and report call counts, intersection and union sizes, Jaccard
+similarity, overlap coefficient, target and tissue overlap, and signed sparse
+cosine similarity. A jointly tested Jaccard measure is also reported to
 separate call-set similarity from unequal feature support. Ordinary call-set
 Jaccard uses every called coordinate in either profile; jointly tested Jaccard
 first restricts both call sets to coordinates tested in both profiles. For both
 measures, two empty call sets have Jaccard similarity 1 by convention.
 
-Support-aware sparse PCA is calculated independently at α = 0.001 and
-α = 0.0001. These fingerprint-derived outputs are the principal multivariate
-results represented for manuscript use. A feature must be observed in at least
-two profiles and vary over its observed values. Retained features are
-mean-centered without variance scaling. Missing coordinates are initialized
-from feature means and updated by iterative rank-two SVD while observed cells
-remain fixed. The accepted implementation uses a 300-iteration maximum and
-retains iteration-limit point estimates with an explicit nonconvergence
-limitation rather than silently changing the model.
+Support-aware sparse fingerprint PCA is calculated from the 0/1/missing
+fingerprint-call matrix independently at α = 0.001 and α = 0.0001. These
+fingerprint-derived outputs are the principal multivariate results represented
+for manuscript use. A feature must be observed in at least two profiles and
+vary over its observed values. Retained features are mean-centered without
+variance scaling. Missing coordinates are initialized from feature means and
+updated by iterative rank-two SVD while observed cells remain fixed. The
+accepted implementation uses a 300-iteration maximum and retains
+iteration-limit point estimates with an explicit nonconvergence limitation
+rather than silently changing the model.
 
 ## 8. Ketamine-family and external-drug comparisons
 
-The ketamine-family set contains 10 numerical profiles: pooled-parent ketamine,
+The ketamine-family set contains 10 compound profiles: pooled-parent ketamine,
 confirmed racemate, S-ketamine, R-ketamine, one unspecified-isomer
 hydroxyketamine aggregate, and five additional metabolite profiles. The family
 analysis contains all 45 unordered pairs.
@@ -233,8 +243,9 @@ signed and absolute differences, root-mean-square and Euclidean distances,
 cosine similarity, Pearson and Spearman correlations when estimable, and
 feature-support overlap. The recorded overlap gate requires at least 20 matched
 features spanning at least two targets. Pairs below that gate remain in the
-output with their denominators and limitation state. Continuous comparisons
-remain explicitly separate from fingerprint comparisons.
+output with their denominators and limitation state. These analyses operate on
+numerical HR-derived values rather than fingerprint calls and are not
+fingerprint analyses.
 
 Exploratory multivariate outputs include missingness-aware EM-SVD PCA,
 complete-case PCA, target-level variants, PCoA, weighted metric MDS, and
@@ -259,8 +270,9 @@ excluded profiles are named in the subset audit.
 Missingness is preserved at each stage. Unsupported pharmacological targets,
 targets without compatible expression, and compound-feature combinations that
 were not tested remain missing. Zero is introduced only for a tested non-call
-in a binary fingerprint matrix. Pairwise common-RHR statistics are calculated
-only on matched observed coordinates, and their denominators are reported.
+in a fingerprint-call matrix. This call matrix is distinct from the numerical
+HR-score matrix. Pairwise common-RHR statistics are calculated only on matched
+observed coordinates, and their denominators are reported.
 
 ## 11. Manuscript literature mapping
 

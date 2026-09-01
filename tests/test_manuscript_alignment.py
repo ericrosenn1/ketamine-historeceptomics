@@ -38,6 +38,25 @@ def test_manuscript_identity_and_workflow_figure_are_fixed(governed_paths):
     assert hashlib.sha256(workflow.read_bytes()).hexdigest().upper() == WORKFLOW_SHA256
 
 
+def test_reader_facing_hr_and_fingerprint_objects_are_distinct(governed_paths):
+    readme = " ".join(
+        (governed_paths["project_root"] / "README.md")
+        .read_text(encoding="utf-8")
+        .lower()
+        .split()
+    )
+
+    assert "full numerical target × anatomy matrix" in readme
+    assert "matrix is not itself a historeceptomic fingerprint" in readme
+    assert "selected from the hr-score matrix" in readme
+    assert "one-sided generalized extreme studentized deviate (gesd)" in readme
+    assert "fingerprint-call matrix" in readme
+    assert "`1` means called" in readme
+    assert "`0` means tested but not called" in readme
+    assert "missing means unsupported or untested" in readme
+    assert "it is not an hr-score matrix" in readme
+
+
 def test_family_pair_and_sparse_pca_match_manuscript(governed_paths):
     root = governed_paths["project_root"] / "results" / "reference"
     pairs = pd.read_csv(root / "family" / "KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv")

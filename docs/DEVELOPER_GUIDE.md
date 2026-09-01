@@ -23,8 +23,9 @@ review as code changes.
   accepted coordinates, and scientific thresholds as protected contracts.
 - Keep generated runs under `results/runs/` or an explicitly chosen derivative
   directory. Never overwrite retained references during normal execution.
-- Preserve missingness. Use zero only for a tested non-call in a binary
-  fingerprint matrix.
+- Preserve missingness. Use zero only for a tested non-call in a
+  fingerprint-call matrix; never treat that membership matrix as an HR-score
+  matrix.
 - Preserve source identity, compound stereochemistry, target grain, tissue
   identity, concentration relation operators, and censored boundaries.
 - Resolve inputs by explicit path, role, manifest, and hash. Do not use newest
