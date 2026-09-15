@@ -16,6 +16,13 @@ All notable public changes are documented here.
 - Clarified that an HR-score matrix is the continuous numerical input to GESD,
   a historeceptomic fingerprint is the resulting sparse call set, and a
   fingerprint-call matrix is a separate 1/0/missing membership representation.
+- Added strict GitHub Pages documentation, whole-package coverage measurement,
+  an exact-lock package build/install check, and public OpenSSF Scorecard
+  reporting with immutable action pins and least-privilege permissions.
+- Added a curated set of live workflow, release, citation, environment, and
+  repository-metadata badges backed by actual GitHub or OpenSSF state.
+- Kept Codecov upload gated pending the provider's required GitHub OAuth
+  repository connection; no Codecov badge is asserted.
 - Kept version 0.1.1 because computational behavior, governed inputs, accepted
   numerical outputs, and public reproducibility scope did not change.
 
