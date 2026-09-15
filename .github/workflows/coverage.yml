@@ -2,6 +2,7 @@
 # Consumer: GitHub Actions, Codecov, and maintainers reviewing public test coverage.
 # Change impact: affects coverage reporting only; scientific computation is unchanged.
 # Authentication: Codecov upload uses GitHub OIDC; no repository secret is required.
+# Environment: matches the repository's supported Windows public-validation lane.
 name: Coverage
 
 on:
@@ -20,7 +21,7 @@ concurrency:
 jobs:
   coverage:
     name: coverage
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     timeout-minutes: 45
     permissions:
       contents: read
