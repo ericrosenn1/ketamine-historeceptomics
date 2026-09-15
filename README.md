@@ -10,23 +10,15 @@
 
 [![Release](https://img.shields.io/github/v/release/ericrosenn1/ketamine-historeceptomics?display_name=tag)](https://github.com/ericrosenn1/ketamine-historeceptomics/releases/latest)
 [![Release Date](https://img.shields.io/github/release-date/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/releases)
-[![Release Downloads](https://img.shields.io/github/downloads/ericrosenn1/ketamine-historeceptomics/total)](https://github.com/ericrosenn1/ketamine-historeceptomics/releases)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/github/license/ericrosenn1/ketamine-historeceptomics)](LICENSE)
 [![CITATION.cff](https://img.shields.io/badge/citation-CITATION.cff-blue.svg)](CITATION.cff)
 
 [![Last Commit](https://img.shields.io/github/last-commit/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/commits/main)
-[![Contributors](https://img.shields.io/github/contributors/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/graphs/contributors)
 [![Open Issues](https://img.shields.io/github/issues/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/issues)
-[![Open Pull Requests](https://img.shields.io/github/issues-pr/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/pulls)
-[![Stars](https://img.shields.io/github/stars/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
-[![Forks](https://img.shields.io/github/forks/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/forks)
-[![Watchers](https://img.shields.io/github/watchers/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
 [![Repository Size](https://img.shields.io/github/repo-size/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
 [![Code Size](https://img.shields.io/github/languages/code-size/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
 [![Top Language](https://img.shields.io/github/languages/top/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
-[![Language Count](https://img.shields.io/github/languages/count/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
-[![Commit Activity](https://img.shields.io/github/commit-activity/y/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/pulse)
 
 Ketamine Historeceptomics is a reproducible computational implementation that
 combines compound-target pharmacology with target expression across human
