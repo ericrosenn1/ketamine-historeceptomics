@@ -42,7 +42,7 @@ dependencies = [
   "pypdf==6.16.1",
   "PyYAML==6.0.3",
   "scikit-learn==1.8.0",
-  "scipy==1.18.0",
+  "scipy==1.18.1",
 ]
 
 [project.optional-dependencies]
