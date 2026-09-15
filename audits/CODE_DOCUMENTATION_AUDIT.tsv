@@ -26,8 +26,16 @@ configuration_descriptor	.github/workflows/ci.yml	consumer	PASS	Consumer/change 
 configuration_descriptor	.github/workflows/ci.yml	purpose	PASS	Purpose documented
 configuration_descriptor	.github/workflows/codeql.yml	consumer	PASS	Consumer/change impact documented
 configuration_descriptor	.github/workflows/codeql.yml	purpose	PASS	Purpose documented
+configuration_descriptor	.github/workflows/coverage.yml	consumer	PASS	Consumer/change impact documented
+configuration_descriptor	.github/workflows/coverage.yml	purpose	PASS	Purpose documented
 configuration_descriptor	.github/workflows/dependency-review.yml	consumer	PASS	Consumer/change impact documented
 configuration_descriptor	.github/workflows/dependency-review.yml	purpose	PASS	Purpose documented
+configuration_descriptor	.github/workflows/docs.yml	consumer	PASS	Consumer/change impact documented
+configuration_descriptor	.github/workflows/docs.yml	purpose	PASS	Purpose documented
+configuration_descriptor	.github/workflows/package.yml	consumer	PASS	Consumer/change impact documented
+configuration_descriptor	.github/workflows/package.yml	purpose	PASS	Purpose documented
+configuration_descriptor	.github/workflows/scorecard.yml	consumer	PASS	Consumer/change impact documented
+configuration_descriptor	.github/workflows/scorecard.yml	purpose	PASS	Purpose documented
 configuration_descriptor	configs/analysis_registry.yaml	consumer	PASS	Consumer/change impact documented
 configuration_descriptor	configs/analysis_registry.yaml	field constraints	PASS	Documented
 configuration_descriptor	configs/analysis_registry.yaml	modification caution	PASS	Documented
@@ -80,7 +88,11 @@ development_metadata	.github/dependabot.yml	file	PASS	No findings
 development_metadata	.github/pull_request_template.md	file	PASS	No findings
 development_metadata	.github/workflows/ci.yml	file	PASS	No findings
 development_metadata	.github/workflows/codeql.yml	file	PASS	No findings
+development_metadata	.github/workflows/coverage.yml	file	PASS	No findings
 development_metadata	.github/workflows/dependency-review.yml	file	PASS	No findings
+development_metadata	.github/workflows/docs.yml	file	PASS	No findings
+development_metadata	.github/workflows/package.yml	file	PASS	No findings
+development_metadata	.github/workflows/scorecard.yml	file	PASS	No findings
 development_metadata	ANALYSIS_REPRODUCIBILITY_MATRIX.csv	file	PASS	No findings
 development_metadata	CHANGELOG.md	file	PASS	No findings
 development_metadata	CITATION.cff	file	PASS	No findings
@@ -138,9 +150,13 @@ development_metadata	launchers/Smoke.ps1	file	PASS	No findings
 development_metadata	launchers/Verify.ps1	file	PASS	No findings
 development_metadata	launchers/run_reproduction.ps1	file	PASS	No findings
 development_metadata	launchers/validate_release.ps1	file	PASS	No findings
+development_metadata	mkdocs.yml	file	PASS	No findings
 development_metadata	optional/README.md	file	PASS	No findings
 development_metadata	pyproject.toml	file	PASS	No findings
+development_metadata	requirements-coverage.txt	file	PASS	No findings
+development_metadata	requirements-docs.txt	file	PASS	No findings
 development_metadata	requirements-lock.txt	file	PASS	No findings
+development_metadata	requirements-package.txt	file	PASS	No findings
 development_metadata	requirements.txt	file	PASS	No findings
 development_metadata	results/reference/FINAL_MODEL_STATUS.csv	file	PASS	No findings
 development_metadata	results/reference/FINAL_MULTIVARIATE_AUDIT.csv	file	PASS	No findings
@@ -195,9 +211,11 @@ development_metadata	results/reference/global/GLOBAL_WEIGHTED_MDS_COORDINATES.cs
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p0001.csv	file	PASS	No findings
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv	file	PASS	No findings
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_SUMMARY_METRICS.csv	file	PASS	No findings
+development_metadata	scripts/audit_distribution.py	file	PASS	No findings
 development_metadata	scripts/build_release_manifests.py	file	PASS	No findings
 development_metadata	scripts/build_repository_metadata.py	file	PASS	No findings
 development_metadata	scripts/compare_executable_ast.py	file	PASS	No findings
+development_metadata	scripts/stage_docs.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/__init__.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/__main__.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/activity.py	file	PASS	No findings
@@ -279,6 +297,11 @@ function_docstring	scripts/audit_code_documentation.py	render_markdown:479	PASS	
 function_docstring	scripts/audit_code_documentation.py	render_tsv:468	PASS	Documented
 function_docstring	scripts/audit_code_documentation.py	valid_orcid:399	PASS	Documented
 function_docstring	scripts/audit_code_documentation.py	write_or_check:511	PASS	Documented
+function_docstring	scripts/audit_distribution.py	audit_member:61	PASS	Documented
+function_docstring	scripts/audit_distribution.py	audit_sdist:91	PASS	Documented
+function_docstring	scripts/audit_distribution.py	audit_wheel:77	PASS	Documented
+function_docstring	scripts/audit_distribution.py	main:106	PASS	Documented
+function_docstring	scripts/audit_distribution.py	sha256:51	PASS	Documented
 function_docstring	scripts/audit_repository.py	included:171	PASS	Documented
 function_docstring	scripts/audit_repository.py	line_numbers:182	PASS	Documented
 function_docstring	scripts/audit_repository.py	main:375	PASS	Documented
@@ -319,6 +342,9 @@ function_docstring	scripts/compare_executable_ast.py	visit_FunctionDef:72	PASS	D
 function_docstring	scripts/compare_executable_ast.py	visit_Module:60	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	write_json:165	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	write_tsv:172	PASS	Documented
+function_docstring	scripts/stage_docs.py	include:70	PASS	Documented
+function_docstring	scripts/stage_docs.py	main:77	PASS	Documented
+function_docstring	scripts/stage_docs.py	tracked_files:58	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/activity.py	normalize_activity:89	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/authority_discovery.py	discover:26	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/class_analysis.py	run_class_models:91	PASS	Documented
@@ -835,10 +861,12 @@ markdown_link	docs/REPRODUCIBILITY.md	FULL_MODE.md:165	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	PROVENANCE.md:264	PASS	Target exists
 markdown_link	optional/README.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:45	PASS	Target exists
 module_docstring	scripts/audit_code_documentation.py	module	PASS	Complete module contract
+module_docstring	scripts/audit_distribution.py	module	PASS	Complete module contract
 module_docstring	scripts/audit_repository.py	module	PASS	Complete module contract
 module_docstring	scripts/build_release_manifests.py	module	PASS	Complete module contract
 module_docstring	scripts/build_repository_metadata.py	module	PASS	Complete module contract
 module_docstring	scripts/compare_executable_ast.py	module	PASS	Complete module contract
+module_docstring	scripts/stage_docs.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/__init__.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/__main__.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/activity.py	module	PASS	Complete module contract
@@ -932,10 +960,12 @@ spdx	launchers/Verify.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/run_reproduction.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/validate_release.ps1	script	PASS	MIT SPDX header present
 spdx	scripts/audit_code_documentation.py	module	PASS	MIT SPDX header present
+spdx	scripts/audit_distribution.py	module	PASS	MIT SPDX header present
 spdx	scripts/audit_repository.py	module	PASS	MIT SPDX header present
 spdx	scripts/build_release_manifests.py	module	PASS	MIT SPDX header present
 spdx	scripts/build_repository_metadata.py	module	PASS	MIT SPDX header present
 spdx	scripts/compare_executable_ast.py	module	PASS	MIT SPDX header present
+spdx	scripts/stage_docs.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/__init__.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/__main__.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/activity.py	module	PASS	MIT SPDX header present
@@ -1028,7 +1058,11 @@ unresolved_marker	.github/dependabot.yml	file	PASS	No findings
 unresolved_marker	.github/pull_request_template.md	file	PASS	No findings
 unresolved_marker	.github/workflows/ci.yml	file	PASS	No findings
 unresolved_marker	.github/workflows/codeql.yml	file	PASS	No findings
+unresolved_marker	.github/workflows/coverage.yml	file	PASS	No findings
 unresolved_marker	.github/workflows/dependency-review.yml	file	PASS	No findings
+unresolved_marker	.github/workflows/docs.yml	file	PASS	No findings
+unresolved_marker	.github/workflows/package.yml	file	PASS	No findings
+unresolved_marker	.github/workflows/scorecard.yml	file	PASS	No findings
 unresolved_marker	ANALYSIS_REPRODUCIBILITY_MATRIX.csv	file	PASS	No findings
 unresolved_marker	CHANGELOG.md	file	PASS	No findings
 unresolved_marker	CITATION.cff	file	PASS	No findings
@@ -1086,9 +1120,13 @@ unresolved_marker	launchers/Smoke.ps1	file	PASS	No findings
 unresolved_marker	launchers/Verify.ps1	file	PASS	No findings
 unresolved_marker	launchers/run_reproduction.ps1	file	PASS	No findings
 unresolved_marker	launchers/validate_release.ps1	file	PASS	No findings
+unresolved_marker	mkdocs.yml	file	PASS	No findings
 unresolved_marker	optional/README.md	file	PASS	No findings
 unresolved_marker	pyproject.toml	file	PASS	No findings
+unresolved_marker	requirements-coverage.txt	file	PASS	No findings
+unresolved_marker	requirements-docs.txt	file	PASS	No findings
 unresolved_marker	requirements-lock.txt	file	PASS	No findings
+unresolved_marker	requirements-package.txt	file	PASS	No findings
 unresolved_marker	requirements.txt	file	PASS	No findings
 unresolved_marker	results/reference/FINAL_MODEL_STATUS.csv	file	PASS	No findings
 unresolved_marker	results/reference/FINAL_MULTIVARIATE_AUDIT.csv	file	PASS	No findings
@@ -1143,9 +1181,11 @@ unresolved_marker	results/reference/global/GLOBAL_WEIGHTED_MDS_COORDINATES.csv	f
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p0001.csv	file	PASS	No findings
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv	file	PASS	No findings
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_SUMMARY_METRICS.csv	file	PASS	No findings
+unresolved_marker	scripts/audit_distribution.py	file	PASS	No findings
 unresolved_marker	scripts/build_release_manifests.py	file	PASS	No findings
 unresolved_marker	scripts/build_repository_metadata.py	file	PASS	No findings
 unresolved_marker	scripts/compare_executable_ast.py	file	PASS	No findings
+unresolved_marker	scripts/stage_docs.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/__init__.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/__main__.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/activity.py	file	PASS	No findings

@@ -1,0 +1,68 @@
+# Purpose: Build the complete public documentation on every change and deploy main to Pages.
+# Consumer: GitHub Actions and readers of the public GitHub Pages documentation.
+# Change impact: affects documentation rendering and deployment, not source content.
+# Security: Pull requests receive read-only contents permission and never deploy.
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: docs-build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.10'
+          cache: pip
+          cache-dependency-path: requirements-docs.txt
+
+      - name: Install pinned documentation toolchain
+        run: python -m pip install -r requirements-docs.txt
+
+      - name: Stage tracked public documentation and linked evidence
+        run: python scripts/stage_docs.py
+
+      - name: Build documentation with warnings as errors
+        run: python -m mkdocs build --strict --site-dir "${{ runner.temp }}/site"
+
+      - name: Package Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    name: docs-deploy
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

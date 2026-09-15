@@ -1,0 +1,5 @@
+# Packaging-only tools; runtime dependencies remain in pyproject.toml.
+# SPDX-License-Identifier: MIT
+
+build==1.6.1
+twine==7.0.0

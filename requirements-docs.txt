@@ -1,0 +1,5 @@
+# Minimal pinned documentation toolchain for the public MkDocs site.
+# SPDX-License-Identifier: MIT
+
+mkdocs==1.6.1
+mkdocs-material==9.7.7

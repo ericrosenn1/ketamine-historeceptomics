@@ -1,0 +1,6 @@
+# Coverage-only additions to the exact public validation environment.
+# SPDX-License-Identifier: MIT
+
+-r requirements-lock.txt
+coverage==7.16.1
+pytest-cov==7.1.0

@@ -69,3 +69,10 @@ pythonpath = ["src"]
 markers = [
   "external_data: requires the manifest-valid 20-file authority tree supplied via CARDOZO_HR_EXTERNAL_INPUT_ROOT",
 ]
+
+[tool.coverage.run]
+source = ["cardozo_ketamine_hr"]
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
