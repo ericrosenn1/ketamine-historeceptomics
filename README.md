@@ -20,9 +20,9 @@
 [![Code Size](https://img.shields.io/github/languages/code-size/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
 [![Top Language](https://img.shields.io/github/languages/top/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
 
-Ketamine Historeceptomics is a computational pharmacology project that combines compound-target activity with human tissue expression to describe where pharmacological target relationships are most prominent. The analysis covers ketamine, its enantiomers and metabolites, together with 25 psychoactive reference drugs.
+Ketamine Historeceptomics is a computational pharmacology project that combines compound-target activity with human tissue expression to quantify target-anatomy relationships for ketamine and comparator drugs. The analysis covers ketamine, its enantiomers and metabolites, together with 25 psychoactive reference drugs.
 
-The repository accompanies the working manuscript **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_** by Eric Rosenn and Timothy Cardozo. It contains the analysis software, reproducibility tests, selected reference results, documentation, and public data needed to inspect and rerun the parts of the workflow that can be redistributed.
+The repository accompanies the working manuscript **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_** by Eric Rosenn and Timothy Cardozo. It contains the analysis software, reproducibility tests, selected reference results, documentation, and publicly distributable data and reference results for inspecting and reproducing the analysis.
 
 ## What the method measures
 
@@ -49,7 +49,7 @@ A **fingerprint-call matrix** encodes fingerprint membership across compounds an
 
 The project evaluates:
 
-- pooled-parent ketamine strict-CNS and whole-body fingerprints;
+- Ketamine strict-CNS and whole-body fingerprints;
 - ketamine-family profiles, including confirmed racemate, S-ketamine, R-ketamine, hydroxyketamine and hydroxynorketamine forms, and norketamine;
 - pairwise comparisons among 10 ketamine-family profiles;
 - comparison with 25 psychoactive reference drugs;
@@ -65,9 +65,9 @@ The fingerprint analyses are the principal comparisons. Continuous common-RHR an
 
 ## Compounds represented
 
-The ketamine-family analysis contains pooled-parent ketamine, confirmed racemate, S-ketamine (esketamine), R-ketamine (arketamine), an unspecified-isomer hydroxyketamine aggregate, (2R,6R)- and (2S,6S)-hydroxynorketamine, generic hydroxynorketamine/HNK, generic hydroxyketamine, and norketamine.
+The ketamine-family analysis contains Ketamine, confirmed racemate, S-ketamine (esketamine), R-ketamine (arketamine), an unspecified-isomer hydroxyketamine aggregate, (2R,6R)- and (2S,6S)-hydroxynorketamine, generic hydroxynorketamine/HNK, generic hydroxyketamine, and norketamine.
 
-Pooled-parent ketamine is an analysis profile distinct from confirmed racemate; stereochemical and aggregate identities remain separate.
+**Ketamine** refers to the pooled-parent ketamine analysis profile used throughout this repository; the confirmed racemate profile is retained separately.
 
 The reference panel contains bupropion, fluoxetine, duloxetine, venlafaxine, scopolamine, dextromethorphan, morphine, propofol, dexmedetomidine, lysergide (LSD), psilocin, clozapine, chlorpromazine, sertraline, mirtazapine, aripiprazole, haloperidol, olanzapine, risperidone, quetiapine, ziprasidone, PCP, valproate, lamotrigine, and psilocybin.
 
@@ -75,10 +75,10 @@ The reference panel contains bupropion, fluoxetine, duloxetine, venlafaxine, sco
 
 | Analysis | Accepted scope |
 |---|---:|
-| Strict-CNS pooled-parent HR-score matrix | 58 targets × 18 tissues = 1,044 coordinates |
+| Strict-CNS Ketamine HR-score matrix | 58 targets × 18 tissues = 1,044 coordinates |
 | Strict-CNS primary fingerprint | 19 calls at α = 0.001 |
 | Strict-CNS sensitivity fingerprint | 14 calls at α = 0.0001 |
-| Whole-body pooled-parent HR-score matrix | 58 targets × 77 tissues = 4,466 coordinates |
+| Whole-body Ketamine HR-score matrix | 58 targets × 77 tissues = 4,466 coordinates |
 | Whole-body primary fingerprint | 59 calls at α = 0.001 |
 | Whole-body sensitivity fingerprint | 38 calls at α = 0.0001 |
 | Ketamine-family comparison | 10 profiles; 45 unordered pairs |
@@ -88,7 +88,7 @@ The reference panel contains bupropion, fluoxetine, duloxetine, venlafaxine, sco
 | Family fingerprint PCA, α = 0.001 | 17 variable features; PC1 68.2%; PC2 30.4% |
 | Global fingerprint PCA, α = 0.001 | 30 variable features; PC1 51.0%; PC2 44.5% |
 
-For pooled-parent ketamine against selected external drugs at α = 0.001, retained pairwise results include chlorpromazine with 8 shared calls, clozapine with 6, sertraline with 5, fluoxetine with 5, and olanzapine with 6.
+For Ketamine against selected external drugs at α = 0.001, pairwise results include chlorpromazine with 8 shared calls, clozapine with 6, sertraline with 5, fluoxetine with 5, and olanzapine with 6.
 
 Representative outputs are available under [`results/reference/`](results/reference/).
 
