@@ -30,7 +30,7 @@ For each supported compound-target-tissue combination, the workflow calculates a
 
 **HR score = target-level pharmacological activity × standardized tissue expression**
 
-The complete collection of HR scores for a compound forms an **HR-score matrix**. A **historeceptomic fingerprint** is then defined by selecting target-anatomy coordinates that are upper-tail outliers by one-sided generalized extreme Studentized deviate (GESD) testing.
+The complete collection of numerical HR values at supported target-anatomy coordinates for a compound forms an **HR-score matrix**; unsupported coordinates remain missing. A **historeceptomic fingerprint** is then defined by selecting target-anatomy coordinates from that HR-score matrix that are upper-tail outliers by one-sided generalized extreme Studentized deviate (GESD) testing.
 
 The primary fingerprint threshold is **α = 0.001**. A more stringent **α = 0.0001** threshold is used as a sensitivity analysis.
 
@@ -42,6 +42,8 @@ pharmacological activity + standardized expression
 ```
 
 A fingerprint therefore represents the selected target-anatomy features of an HR profile. It is distinct from the complete numerical HR-score matrix.
+
+A **fingerprint-call matrix** encodes fingerprint membership across compounds and target-anatomy coordinates: `1` means called, `0` means tested but not called, and missing means unsupported or untested. It is not an HR-score matrix.
 
 ## Analysis overview
 
@@ -64,6 +66,8 @@ The fingerprint analyses are the principal comparisons. Continuous common-RHR an
 ## Compounds represented
 
 The ketamine-family analysis contains pooled-parent ketamine, confirmed racemate, S-ketamine (esketamine), R-ketamine (arketamine), an unspecified-isomer hydroxyketamine aggregate, (2R,6R)- and (2S,6S)-hydroxynorketamine, generic hydroxynorketamine/HNK, generic hydroxyketamine, and norketamine.
+
+Pooled-parent ketamine is an analysis profile distinct from confirmed racemate; stereochemical and aggregate identities remain separate.
 
 The reference panel contains bupropion, fluoxetine, duloxetine, venlafaxine, scopolamine, dextromethorphan, morphine, propofol, dexmedetomidine, lysergide (LSD), psilocin, clozapine, chlorpromazine, sertraline, mirtazapine, aripiprazole, haloperidol, olanzapine, risperidone, quetiapine, ziprasidone, PCP, valproate, lamotrigine, and psilocybin.
 
@@ -160,12 +164,12 @@ The related manuscript currently has the working title **_Historeceptomic Profil
 
 ## Interpretation notes
 
-- HR scores depend on the pharmacological activity and tissue-expression inputs used by the workflow.
+- HR scores depend on the pharmacological activity and tissue-expression inputs used by the workflow; they are not direct measures of tissue exposure, mechanism, therapeutic benefit, clinical response, or causality.
 - The configured α values are statistical outlier-selection thresholds, not biological-significance thresholds.
 - Strict-CNS and whole-body fingerprints are generated from different candidate sets.
 - Support varies by compound, and missing values are kept distinct from tested non-calls.
 - Reference-drug similarities depend on the compounds, target support, and comparison metric included in a given analysis.
-- Some continuous multivariate results carry documented nonconvergence limitations; the retained values and limitations are reported in the corresponding outputs and documentation.
+- Some fingerprint and continuous PCA fits reached their iteration limit before convergence; retained estimates carry the recorded limitation, as reported in the corresponding outputs and documentation.
 
 ## Support, licensing, and security
 
