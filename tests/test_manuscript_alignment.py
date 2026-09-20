@@ -39,22 +39,63 @@ def test_manuscript_identity_and_workflow_figure_are_fixed(governed_paths):
 
 
 def test_reader_facing_hr_and_fingerprint_objects_are_distinct(governed_paths):
-    readme = " ".join(
+    import re
+
+    readme = (
         (governed_paths["project_root"] / "README.md")
         .read_text(encoding="utf-8")
         .lower()
-        .split()
     )
+    paragraphs = [
+        " ".join(re.sub(r"[*`_]", "", paragraph).split())
+        for paragraph in re.split(r"\n\s*\n", readme)
+        if paragraph.strip() and not paragraph.lstrip().startswith("|")
+    ]
 
-    assert "full numerical target × anatomy matrix" in readme
-    assert "matrix is not itself a historeceptomic fingerprint" in readme
-    assert "selected from the hr-score matrix" in readme
-    assert "one-sided generalized extreme studentized deviate (gesd)" in readme
-    assert "fingerprint-call matrix" in readme
-    assert "`1` means called" in readme
-    assert "`0` means tested but not called" in readme
-    assert "missing means unsupported or untested" in readme
-    assert "it is not an hr-score matrix" in readme
+    def describes(*concepts: str) -> bool:
+        """Require related concepts together in one explanatory paragraph."""
+        return any(
+            all(re.search(concept, paragraph) for concept in concepts)
+            for paragraph in paragraphs
+        )
+
+    assert describes(
+        r"hr-score matrix", r"\b(?:complete|full)\b", r"\bnumerical\b",
+        r"\bhr (?:scores|values)\b", r"\bsupported\b", r"target[- ×]+anatomy",
+    ), "Define the complete numerical HR matrix over supported coordinates"
+    assert describes(
+        r"historeceptomic fingerprint.*\bselect(?:ed|ing|ion)?\b.*"
+        r"\bfrom (?:the |that |an? )?hr-score matrix",
+        r"upper-tail", r"one-sided", r"\bgesd\b",
+    ), "Define fingerprint selection from the HR matrix by one-sided upper-tail GESD"
+    assert describes(
+        r"fingerprint", r"hr-score matrix",
+        r"distinct from|different from|not (?:itself|the same (?:object|matrix))",
+    ), "Distinguish a fingerprint from the complete HR-score matrix"
+    assert describes(
+        r"fingerprint-call (?:matrix|matrices)", r"\bmembership\b",
+        r"\b1\s+(?:means|denotes|=)\s+called\b",
+        r"\b0\s+(?:means|denotes|=)\s+tested (?:but not called|non-calls?)\b",
+        r"\bmissing\s+(?:means|denotes|=)\s+unsupported or untested\b",
+        r"not an hr-score matrix|distinct from (?:an?|the) hr-score matrix",
+    ), "Define call membership while keeping tested non-calls and missingness distinct"
+
+    clauses = [
+        clause
+        for paragraph in paragraphs
+        for clause in re.split(r"(?<=[.!?;])\s+|,\s*|\s+(?:while|whereas|and)\s+", paragraph)
+    ]
+    assert any(
+        re.search(r"\bprimary\b", clause)
+        and re.search(r"(?:α|alpha)\s*=\s*0\.001(?!\d)", clause)
+        for clause in clauses
+    ), "Associate the primary fingerprint threshold with alpha = 0.001"
+    assert any(
+        re.search(r"\bsensitivity\b", clause)
+        and re.search(r"(?:α|alpha)\s*=\s*0\.0001(?!\d)", clause)
+        and re.search(r"more stringent|stricter", clause)
+        for clause in clauses
+    ), "Associate the more stringent sensitivity threshold with alpha = 0.0001"
 
 
 def test_family_pair_and_sparse_pca_match_manuscript(governed_paths):
