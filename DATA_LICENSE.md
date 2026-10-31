@@ -26,6 +26,28 @@ files, those contributions are made available under the
 - `results/reference/**` — 60 project-generated, non-substitutive analytical
   reference outputs.
 
+The same qualified CC BY-SA 4.0 grant applies to these additional
+project-authored demonstration and presentation assets:
+
+- `integrations/fixtures/synthetic-v1/*.json` — wholly invented exchange data
+  and its provenance manifest, not scientific evidence;
+- `notebooks/fixtures/*.csv` and the notebook's embedded numerical/plot outputs
+  — wholly invented educational data and its demonstration transformations;
+- `docs/figures/gallery_whole_body.png`,
+  `docs/figures/gallery_family_jaccard.png`, and
+  `docs/figures/gallery_provenance.json` — attributed presentations of approved
+  v0.1.1 reference outputs; and
+- output compilations produced by the approved integration adapter, to the
+  extent covered project contributions are adapted or redistributed.
+
+The schemas, generators, notebook code/explanatory prose, and original
+architecture diagram are software/documentation covered by MIT. Genuine public
+application screenshots under `docs/figures/apps/` are included as interface
+documentation, with provenance in that directory's README. They do not grant
+rights to underlying application datasets, third-party evidence, trademarks,
+or private application source code. The original Figure 4 retains its existing
+reference-output terms and bytes.
+
 Use of a factual datum that is not protected by copyright may not require a
 copyright license, but attribution, database rights, contract terms, privacy,
 and other laws can still apply. This notice does not waive those obligations.

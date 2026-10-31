@@ -217,6 +217,12 @@ not weaken an audit rule merely to suppress a real finding.
 
 ## Repository metadata and manifests
 
+For a dependency update or a change spanning several checked reports, use the
+staged-tree refresh sequence in [CI metadata maintenance](CI_METADATA_MAINTENANCE.md).
+It produces a reviewable deterministic diff without rerunning scientific work.
+CI retains its strict gates and provides a remediation patch after stale-evidence
+failures; applying the patch remains an explicit reviewed commit.
+
 `scripts/build_repository_metadata.py` refreshes versioned metadata derived from
 the governed tree. Run it only when its affected records have been reviewed for
 the public data boundary, inspect the complete diff, and use check mode to prove

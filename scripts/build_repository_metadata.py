@@ -81,10 +81,37 @@ def render_csv(fieldnames: list[str], rows: list[dict[str, object]]) -> str:
 
 
 def refresh_code_inventory(root: Path) -> str:
-    """Update included-code hashes and mark removed private tooling excluded."""
+    """Refresh existing code hashes and inventory additive public interfaces."""
 
     path = root / "audits" / "CODE_INVENTORY.csv"
     fieldnames, rows = read_csv(path)
+    indexed = {row.get("repo_destination", "") for row in rows if row.get("included_in_repo") == "YES"}
+    candidates: set[Path] = set()
+    for directory in ("src", "scripts", "tests", "configs", ".github", "integrations", "notebooks"):
+        candidates.update(
+            item for item in (root / directory).rglob("*")
+            if item.is_file() and item.suffix in {".py", ".yaml", ".yml", ".json", ".csv", ".ipynb"}
+        )
+    candidates.update(root.glob("requirements*.txt"))
+    for candidate in sorted(candidates):
+        rel = candidate.relative_to(root).as_posix()
+        if rel in indexed or "__pycache__" in candidate.parts:
+            continue
+        rows.append({
+            "code_id": "PUBLIC_" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:16].upper(),
+            "source_path": "REPO_ROOT/" + rel,
+            "language": "Python notebook" if candidate.suffix == ".ipynb" else candidate.suffix.lstrip("."),
+            "analysis_stage": "additive public interface and validation tooling",
+            "current_status": "PUBLIC_ADDITIVE_INTERFACE_OR_TOOLING",
+            "inputs": "public files or explicitly synthetic fixtures only",
+            "outputs": "versioned interfaces, demonstrations, or validation evidence",
+            "dependencies": "documented public environment",
+            "validation_source": "audits/CODE_DOCUMENTATION_AUDIT.md",
+            "duplicate_of": "",
+            "included_in_repo": "YES",
+            "repo_destination": rel,
+            "notes": "Additive public asset; does not replace a frozen scientific authority",
+        })
     for row in rows:
         destination = row.get("repo_destination", "")
         if row.get("included_in_repo") != "YES" or not destination:
@@ -101,7 +128,9 @@ def refresh_code_inventory(root: Path) -> str:
         if "sha256=" not in notes:
             notes = f"sha256={digest}" + (f"; {notes}" if notes else "")
         row["notes"] = notes
-        if destination.startswith(("src/", "tests/", "configs/")):
+        if row.get("code_id", "").startswith("PUBLIC_"):
+            row["validation_source"] = "audits/CODE_DOCUMENTATION_AUDIT.md"
+        elif destination.startswith(("src/", "tests/", "configs/")):
             row["validation_source"] = "audits/PUBLIC_SCIENTIFIC_EQUIVALENCE.md"
         elif destination.startswith("scripts/"):
             row["validation_source"] = "audits/CODE_DOCUMENTATION_AUDIT.md"
@@ -158,9 +187,12 @@ def public_authority_paths(root: Path) -> list[Path]:
     paths.extend(path for path in (root / "data" / "frozen").rglob("*") if path.is_file())
     paths.extend(path for path in (root / "results" / "reference").rglob("*") if path.is_file())
     paths.extend((root / "src" / "cardozo_ketamine_hr").glob("*.py"))
+    paths.extend((root / "src" / "cardozo_ketamine_hr").glob("integration*.schema.json"))
     paths.extend((root / "src" / "cardozo_ketamine_hr" / "upstream").glob("*.py"))
     paths.extend((root / "configs").glob("*.yaml"))
     paths.extend((root / "configs").glob("*.yml"))
+    paths.extend(path for path in (root / "integrations").rglob("*") if path.is_file() and path.suffix in {".json", ".csv", ".py"})
+    paths.extend((root / "notebooks").glob("*.ipynb"))
     paths.extend(
         root / relative
         for relative in (
@@ -177,6 +209,14 @@ def classify_authority(root: Path, path: Path) -> tuple[str, str, str]:
     """Classify one public authority without changing its scientific meaning."""
 
     rel = path.relative_to(root).as_posix()
+    if rel.startswith(("integrations/", "notebooks/")) or (
+        rel.startswith("src/cardozo_ketamine_hr/") and "integrat" in path.stem
+    ):
+        return (
+            "PUBLIC_INTEGRATION_OR_DEMONSTRATION",
+            "Additive versioned export interface or explicitly synthetic demonstration",
+            "PUBLIC_ADDITIVE_NOT_FROZEN_SCIENTIFIC_AUTHORITY",
+        )
     if rel == "data/frozen/metadata/class_membership.csv":
         return (
             "PUBLIC_CLASS_METADATA",
@@ -244,7 +284,10 @@ def build_authority_manifest(root: Path) -> str:
                 "bytes": path.stat().st_size,
                 "sha256": sha256(path),
                 "source_resource": resource,
-                "source_snapshot": "APPROVED_PUBLICATION_SOURCE_SNAPSHOT_2026-08-25",
+                "source_snapshot": (
+                    "PUBLIC_APPLICATION_INTERFACE_V1" if role == "PUBLIC_INTEGRATION_OR_DEMONSTRATION"
+                    else "APPROVED_PUBLICATION_SOURCE_SNAPSHOT_2026-08-25"
+                ),
                 "source_locator": "PUBLIC_RELEASE_FILE_DECISIONS.tsv",
                 "status": status,
             }

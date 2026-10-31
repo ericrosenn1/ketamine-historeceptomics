@@ -16,6 +16,7 @@ import argparse
 import ast
 import csv
 import io
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -47,10 +48,12 @@ SKIP_PARTS = {
     "release_artifacts",
     "runs",
 }
-PYTHON_ROOTS = ("src", "scripts", "tests")
+PYTHON_ROOTS = ("src", "scripts", "tests", "integrations", "notebooks")
 MARKER_SUFFIXES = {
     ".cff",
     ".csv",
+    ".ipynb",
+    ".json",
     ".md",
     ".ps1",
     ".py",
@@ -164,7 +167,7 @@ def audit_python(root: Path) -> list[Check]:
             checks.append(Check("python_syntax", rel, "module", "FAIL", f"Syntax error at line {exc.lineno}"))
             continue
         module_doc = ast.get_docstring(tree, clean=False)
-        production = rel.startswith(("src/", "scripts/"))
+        production = rel.startswith(("src/", "scripts/", "integrations/", "notebooks/"))
         complete, module_detail = module_doc_contract(module_doc)
         documented = complete if production else bool(module_doc and len(module_doc.strip()) >= 20)
         checks.append(
@@ -377,13 +380,25 @@ def audit_links(root: Path) -> list[Check]:
     """Check local Markdown links while leaving remote endpoints to endpoint QA."""
 
     checks: list[Check] = []
-    for path in sorted(root.rglob("*.md")):
+    paths = sorted([*root.rglob("*.md"), *root.rglob("*.ipynb")])
+    for path in paths:
         rel = relative(root, path)
         if rel in REPORT_PATHS or any(
             part in SKIP_PARTS or part.endswith(".egg-info") for part in path.parts
         ):
             continue
         text = path.read_text(encoding="utf-8")
+        if path.suffix == ".ipynb":
+            try:
+                notebook = json.loads(text)
+                text = "\n".join(
+                    "".join(cell.get("source", []))
+                    for cell in notebook["cells"]
+                    if cell.get("cell_type") == "markdown"
+                )
+            except (ValueError, KeyError, TypeError):
+                checks.append(Check("notebook_format", rel, "document", "FAIL", "Invalid notebook JSON or cells"))
+                continue
         for number, line in enumerate(text.splitlines(), 1):
             for match in LINK.finditer(line):
                 raw = normalize_link_target(match.group(1))
@@ -393,6 +408,35 @@ def audit_links(root: Path) -> list[Check]:
                 target = (root / target_text.lstrip("/")) if target_text.startswith("/") else (path.parent / target_text)
                 present = target.exists()
                 checks.append(Check("markdown_link", rel, f"{raw}:{number}", "PASS" if present else "FAIL", "Target exists" if present else "Missing local target"))
+    return checks
+
+
+def audit_notebooks(root: Path) -> list[Check]:
+    """Require executable Python cells and saved successful notebook execution."""
+
+    checks: list[Check] = []
+    for path in sorted((root / "notebooks").rglob("*.ipynb")):
+        rel = relative(root, path)
+        try:
+            notebook = json.loads(path.read_text(encoding="utf-8"))
+            if notebook.get("nbformat") != 4 or not isinstance(notebook.get("cells"), list):
+                raise ValueError("Expected version 4 notebook cells")
+        except (ValueError, TypeError):
+            checks.append(Check("notebook_format", rel, "document", "FAIL", "Invalid notebook JSON or version"))
+            continue
+        for index, cell in enumerate(notebook["cells"], 1):
+            if cell.get("cell_type") != "code":
+                continue
+            try:
+                ast.parse("".join(cell.get("source", [])), filename=f"{rel}:cell{index}")
+                valid = True
+            except (SyntaxError, TypeError):
+                valid = False
+            executed = isinstance(cell.get("execution_count"), int) and not any(
+                output.get("output_type") == "error" for output in cell.get("outputs", [])
+            )
+            checks.append(Check("notebook_python", rel, f"cell {index}", "PASS" if valid else "FAIL", "Python source parses" if valid else "Invalid Python cell source"))
+            checks.append(Check("notebook_execution", rel, f"cell {index}", "PASS" if executed else "FAIL", "Saved successful execution" if executed else "Missing execution count or saved error output"))
     return checks
 
 
@@ -539,6 +583,7 @@ def main() -> None:
             *audit_test_descriptors(root),
             *audit_markers(root),
             *audit_links(root),
+            *audit_notebooks(root),
             *audit_citations(root),
         ],
         key=lambda item: (item.category, item.path, item.item),

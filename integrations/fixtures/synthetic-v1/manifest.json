@@ -1,0 +1,87 @@
+{
+  "data_use": {
+    "license": "CC-BY-SA-4.0",
+    "notice": "https://github.com/ericrosenn1/ketamine-historeceptomics/blob/main/DATA_LICENSE.md",
+    "restrictions": [
+      "Wholly invented test values; never use as scientific evidence.",
+      "Preserve synthetic labels, attribution and ShareAlike notices."
+    ]
+  },
+  "files": [
+    {
+      "bytes": 1695,
+      "path": "records.json",
+      "record_count": 4,
+      "sha256": "1bb796d135ac10b672ad97479e804546d41072537d59da4db6d8bbdef6076810"
+    }
+  ],
+  "generation": {
+    "command": "python integrations/generate_synthetic.py --output <new-directory>",
+    "generated_at": "2000-01-01T00:00:00Z",
+    "time_basis": "synthetic_fixed_epoch"
+  },
+  "identities": {
+    "mapping_policy": "exact_source_ids_only",
+    "namespace": "SYNTHETIC_INTEGRATION_V1",
+    "profiles": [
+      {
+        "id": "SYNTHETIC_PROFILE",
+        "identity_grain": "INVENTED_TEST_PROFILE",
+        "source_id": "SYNTHETIC_PROFILE"
+      }
+    ],
+    "targets": [
+      {
+        "id": "SYNTHETIC_TARGET_A",
+        "source_label": "Invented target A"
+      },
+      {
+        "id": "SYNTHETIC_TARGET_B",
+        "source_label": "Invented target B"
+      }
+    ],
+    "tissues": [
+      {
+        "id": "SYNTHETIC_TISSUE_X",
+        "source_label": "Invented tissue X"
+      },
+      {
+        "id": "SYNTHETIC_TISSUE_Y",
+        "source_label": "Invented tissue Y"
+      }
+    ]
+  },
+  "producer": {
+    "commit": "0000000000000000000000000000000000000000",
+    "dirty": false,
+    "release": "SYNTHETIC_DEMONSTRATION",
+    "repository": "https://github.com/ericrosenn1/ketamine-historeceptomics"
+  },
+  "schema_version": "1.0.0",
+  "scope": {
+    "analysis_scope": "SYNTHETIC_DEMONSTRATION_NOT_SCIENTIFIC_EVIDENCE",
+    "coverage": "explicit_coordinates",
+    "expression_dataset_ids": [
+      "SYNTHETIC_EXPRESSION_V1"
+    ],
+    "gesd_alphas": [
+      0.001
+    ],
+    "missingness_policy": "absent_rows_are_unknown;null_is_not_zero;noncalls_require_explicit_testing"
+  },
+  "source_artifacts": [
+    {
+      "bytes": 3606,
+      "path": "integrations/generate_synthetic.py",
+      "record_count": 4,
+      "release": "SYNTHETIC_DEMONSTRATION",
+      "sha256": "3bfa112cac3b605b82a1584a5d0db85c8477e1abf62d8041999f9cb45e732859"
+    }
+  ],
+  "synthetic": true,
+  "validation": {
+    "method": "schema_identity_missingness_integrity_v1",
+    "scientific_scope": "Synthetic compatibility fixture only; memberships are invented, not fitted GESD results.",
+    "status": "PASS"
+  }
+}

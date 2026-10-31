@@ -18,8 +18,8 @@ decision.
 
 ## Summary
 
-The final record contains 231 rows across source-tree files and public
-additions:
+The initial v0.1.1 record contains 231 rows across source-tree files and public
+additions. The following table records that original release boundary:
 
 | Public decision | Rows | Meaning |
 |---|---:|---|
@@ -33,6 +33,14 @@ scientific inputs are routed to a user-supplied hash-validated directory, and
 the repository does not promise that each upstream source offers a direct
 public download.
 
+The 2026-10-31 public project/interface enhancement appends **30** individually
+reviewed `KEEP` rows (261 total records). These cover original integration
+software/schemas/docs, explicitly synthetic demonstration assets, two genuine
+public-interface screenshots, attributed reference-table gallery views, and
+validation evidence. Existing file decisions, the 20 excluded inputs, and the
+60 scientific reference-output decisions remain in force. New asset terms and
+provenance are recorded per path and qualified in [DATA_LICENSE.md](DATA_LICENSE.md).
+
 The scientific data/reference inventory contained 81 rows:
 
 | Decision group | Files | Public treatment |
@@ -41,7 +49,7 @@ The scientific data/reference inventory contained 81 rows:
 | Class-membership registry | 1 | `KEEP`; retained byte-identically at `data/frozen/metadata/class_membership.csv` |
 | Near-source numerical inputs | 20 | `REPLACE_WITH_SYNTHETIC_FIXTURE`; excluded from Git and externally routed for Verify/Full |
 
-The three small CSVs under [`data/fixtures/`](data/fixtures/) are invented test
+The three small CSVs under [`data/fixtures/`](data/fixtures/README.md) are invented test
 data. They collectively exercise the public Smoke schemas and missingness
 contracts; they are not one-to-one scientific replacements for the 20 excluded
 files and cannot be used to reproduce the accepted ketamine results.
@@ -77,7 +85,7 @@ source's current terms.
 
 ## Why reference outputs were retained
 
-The 60 files in [`results/reference/`](results/reference/) are accepted
+The 60 files in [`results/reference/`](https://github.com/ericrosenn1/ketamine-historeceptomics/tree/main/results/reference) are accepted
 analysis outputs used for transparent inspection and regression comparison.
 They were reviewed individually, retained without byte changes, attributed to
 their source resources and methods, and separated from the excluded

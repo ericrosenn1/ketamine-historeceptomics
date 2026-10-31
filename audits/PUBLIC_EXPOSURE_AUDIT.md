@@ -2,8 +2,8 @@
 
 Overall status: `PASS`
 
-- Publishable files scanned: `219`
-- Publishable bytes scanned: `9926353`
+- Publishable files scanned: `249`
+- Publishable bytes scanned: `11676990`
 - Open findings: `0`
 - Secret-pattern findings: `0`
 - Email-address findings: `0`
@@ -16,13 +16,13 @@ Overall status: `PASS`
 - Development-session metadata findings: `0`
 - Prohibited or unapproved file findings: `0`
 - Files at least 50 MiB: `0`
-- Cleared binary files: `3` approved public binary assets.
+- Cleared binary files: `7` approved public binary assets.
 
 ## Scope and interpretation
 
 The scan covers the public working tree while excluding Git internals and explicitly ignored runtime/build directories. It checks credential signatures, connection strings, email addresses, phone numbers, personal-address patterns, private usernames, named and generic workstation paths, development-session metadata, strict UTF-8 text decoding, large files, and every non-text file against an exact allowlist.
 
-The only allowed binary files are `results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf` and `results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png`. Any other binary or unknown file type fails the audit.
+Allowed binary files are listed individually in `ALLOWED_BINARY_PATHS` in `scripts/audit_repository.py`; directory-wide binary exceptions are not permitted. Any other binary or unknown file type fails the audit.
 
 The scanner emits categories, paths, and line numbers only; it never copies a matched credential or personal-data value into the report. This repository check supplements GitHub secret scanning and the documented human redistribution review.
 

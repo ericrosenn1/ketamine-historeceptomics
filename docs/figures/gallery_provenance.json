@@ -1,0 +1,64 @@
+{
+  "reference_release": "v0.1.1",
+  "source_hashes": {
+    "results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv": "abb2aa0bc6e3343e0eeda91cca9b0699356c770542b9b7b1ff9976f86eeb9a0e",
+    "results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv": "ff279f96cb5b8c7fbf64370add496e91e45dbce69268d2c1c156ece10dda142a",
+    "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png": "0acb17dce9b984fd2db0c9144e472dd8828bc2523688bbf0dd812cfd7f3105f8",
+    "results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv": "8a369b7ddd2201e3ebc5a9ba227d67997b2e154b8982238588bf95a4894ed4aa",
+    "results/reference/global/GLOBAL_MODEL_STATUS.csv": "a32606c98f49603fcc3ae027fda20efb6b54c3a9a69b4ed1ff23550b02e1a12d"
+  },
+  "scientific_recalculation": false,
+  "rendering": "Two direct views of accepted tables plus unchanged accepted Figure 4; no HR, GESD, pair metric, or PCA refit",
+  "data_license": "CC-BY-SA-4.0; DATA_LICENSE.md and third-party qualifications apply",
+  "outputs": {
+    "docs/figures/gallery_whole_body.png": {
+      "source": "results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv",
+      "selection": "stored fingerprint_rank 1 through 12 of 59; no new calls",
+      "scope": "whole_body_58_targets_77_tissues",
+      "gesd_alpha": 0.001,
+      "fields_plotted": [
+        "canonical_target_id",
+        "tissue",
+        "HR_score",
+        "tissue_class"
+      ],
+      "records_plotted": 12,
+      "source_records": 59,
+      "display_colors": {
+        "CNS": "#237a95",
+        "Peripheral/non-CNS": "#ab6235"
+      },
+      "sha256": "abf7e4095f1c5b5118457946baddba3fb42bc8c76fe621f19d8e691fdf899991"
+    },
+    "docs/figures/gallery_family_jaccard.png": {
+      "source": "results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv",
+      "scope": "strict_CNS_10_family_profiles_45_unordered_pairs",
+      "gesd_alpha": 0.001,
+      "field_plotted": "alpha001_call_jaccard",
+      "records_plotted": 45,
+      "roster": [
+        "Ketamine, pooled parent",
+        "Ketamine, confirmed racemate",
+        "S-ketamine",
+        "R-ketamine",
+        "Hydroxyketamine, unspecified isomer aggregate",
+        "(2R,6R)-hydroxynorketamine",
+        "(2S,6S)-hydroxynorketamine",
+        "Hydroxynorketamine / HNK, generic identity",
+        "Hydroxyketamine, generic E7 identity",
+        "Norketamine"
+      ],
+      "display": "upper triangle only; diagonal/lower triangle omitted, not zero",
+      "empty_union_pairs": 6,
+      "empty_union_convention": "stored Jaccard = 1 for both empty call sets; marked with an asterisk",
+      "sha256": "462d98f78e11edaee6473bf29e7e72ca5b46fd061d539d11a1852acb9116c15c"
+    },
+    "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png": {
+      "sha256": "0acb17dce9b984fd2db0c9144e472dd8828bc2523688bbf0dd812cfd7f3105f8",
+      "transformation": "none; original accepted Figure 4",
+      "scope": "exploratory continuous strict-CNS common-RHR fixed-reference PCA; 25 reference drugs plus pooled-parent query",
+      "gesd_alpha": null,
+      "limitation": "Inherited EM-SVD reference fit did not converge in 300 iterations; retained point estimate"
+    }
+  }
+}

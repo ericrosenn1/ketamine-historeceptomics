@@ -32,6 +32,7 @@ classifiers = [
 ]
 dependencies = [
   "joblib==1.5.3",
+  "jsonschema==3.2.0",
   "matplotlib==3.11.1",
   "numpy==2.5.1",
   "openpyxl==3.1.5",
@@ -61,6 +62,9 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+cardozo_ketamine_hr = ["integration-v1.schema.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
