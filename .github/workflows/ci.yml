@@ -92,6 +92,47 @@ jobs:
       - name: Check deterministic public manifests
         run: python scripts/build_release_manifests.py --root . --check
 
+      - name: Prepare reviewed metadata remediation after failure
+        if: failure()
+        run: python scripts/refresh_public_metadata.py --root . --patch "${{ runner.temp }}/public-metadata-refresh.patch"
+
+      - name: Upload metadata remediation patch
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: public-metadata-refresh-${{ github.sha }}
+          path: ${{ runner.temp }}/public-metadata-refresh.patch
+          if-no-files-found: warn
+          retention-days: 14
+
+  notebook-validation:
+    name: notebook-validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.10'
+          cache: pip
+          cache-dependency-path: |
+            requirements-lock.txt
+            requirements-notebook.txt
+
+      - name: Install scientific and notebook toolchains
+        run: python -m pip install -r requirements-lock.txt -r requirements-notebook.txt
+
+      - name: Install package without resolving dependencies
+        run: python -m pip install --no-deps -e .
+
+      - name: Execute the synthetic demonstration from a clean kernel
+        run: python notebooks/execute.py
+
   secret-scan:
     name: secret-scan
     runs-on: ubuntu-latest

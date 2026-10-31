@@ -50,8 +50,12 @@ PUBLIC_PREFIXES = (
     "data/fixtures/",
     "data/frozen/",
     "docs/",
+    "integrations/",
+    "notebooks/",
     "optional/",
     "results/reference/",
+    "scripts/",
+    "src/",
 )
 
 

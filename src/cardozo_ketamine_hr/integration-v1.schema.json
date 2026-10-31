@@ -1,0 +1,410 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "synthetic",
+    "producer",
+    "generation",
+    "scope",
+    "identities",
+    "source_artifacts",
+    "files",
+    "data_use",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "release",
+        "commit",
+        "dirty"
+      ],
+      "properties": {
+        "repository": {
+          "const": "https://github.com/ericrosenn1/ketamine-historeceptomics"
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "dirty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generated_at",
+        "time_basis",
+        "command"
+      ],
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "time_basis": {
+          "enum": [
+            "producer_commit",
+            "synthetic_fixed_epoch"
+          ]
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "analysis_scope",
+        "coverage",
+        "gesd_alphas",
+        "expression_dataset_ids",
+        "missingness_policy"
+      ],
+      "properties": {
+        "analysis_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coverage": {
+          "enum": [
+            "positive_calls_only",
+            "explicit_coordinates"
+          ]
+        },
+        "gesd_alphas": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              0.001,
+              0.0001
+            ]
+          },
+          "uniqueItems": true
+        },
+        "expression_dataset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "missingness_policy": {
+          "const": "absent_rows_are_unknown;null_is_not_zero;noncalls_require_explicit_testing"
+        }
+      }
+    },
+    "identities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "namespace",
+        "mapping_policy",
+        "profiles",
+        "targets",
+        "tissues"
+      ],
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mapping_policy": {
+          "const": "exact_source_ids_only"
+        },
+        "profiles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "source_id",
+              "identity_grain"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "identity_grain": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "source_label"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_label": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "tissues": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "source_label"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_label": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "source_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "release",
+          "record_count"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "release": {
+            "type": "string",
+            "minLength": 1
+          },
+          "record_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "record_count"
+        ],
+        "properties": {
+          "path": {
+            "const": "records.json"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "record_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "maxItems": 1
+    },
+    "data_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "license",
+        "notice",
+        "restrictions"
+      ],
+      "properties": {
+        "license": {
+          "const": "CC-BY-SA-4.0"
+        },
+        "notice": {
+          "const": "https://github.com/ericrosenn1/ketamine-historeceptomics/blob/main/DATA_LICENSE.md"
+        },
+        "restrictions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "method",
+        "scientific_scope"
+      ],
+      "properties": {
+        "status": {
+          "const": "PASS"
+        },
+        "method": {
+          "const": "schema_identity_missingness_integrity_v1"
+        },
+        "scientific_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Historeceptomics file exchange manifest v1.0.0",
+  "definitions": {
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/record"
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id",
+        "source_profile_id",
+        "target_id",
+        "tissue_id",
+        "expression_dataset_id",
+        "hr_score",
+        "fingerprint_member",
+        "support_status",
+        "gesd_alpha",
+        "source_artifact",
+        "source_row"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_profile_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tissue_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expression_dataset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hr_score": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fingerprint_member": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "support_status": {
+          "enum": [
+            "supported",
+            "unsupported",
+            "untested"
+          ]
+        },
+        "gesd_alpha": {
+          "enum": [
+            0.001,
+            0.0001
+          ]
+        },
+        "source_artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_row": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

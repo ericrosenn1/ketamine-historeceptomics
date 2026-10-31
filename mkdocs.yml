@@ -18,6 +18,8 @@ nav:
   - Home: README.md
   - Scientific documentation:
       - Methods: docs/METHODS.md
+      - Application integration: docs/APPLICATION_INTEGRATION.md
+      - Scientific results gallery: docs/RESULTS_GALLERY.md
       - Data sources: docs/DATA_SOURCES.md
       - Provenance: docs/PROVENANCE.md
       - References: docs/REFERENCES.md
@@ -27,6 +29,7 @@ nav:
       - Validated environment: docs/ENVIRONMENT.md
       - Code architecture: docs/CODE_ARCHITECTURE.md
       - Developer guide: docs/DEVELOPER_GUIDE.md
+      - CI metadata maintenance: docs/CI_METADATA_MAINTENANCE.md
   - Project:
       - Release notes: RELEASE_NOTES.md
       - Changelog: CHANGELOG.md

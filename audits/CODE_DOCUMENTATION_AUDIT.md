@@ -2,8 +2,8 @@
 
 Overall status: `PASS`
 
-- Checks evaluated: `1269`
-- Passing checks: `1269`
+- Checks evaluated: `1440`
+- Passing checks: `1440`
 - Failing checks: `0`
 
 ## Category summary
@@ -12,17 +12,19 @@ Overall status: `PASS`
 |---|---:|---:|
 | `citation_bibtex` | 1 | 1 |
 | `citation_cff` | 1 | 1 |
-| `class_docstring` | 17 | 17 |
+| `class_docstring` | 18 | 18 |
 | `configuration_descriptor` | 60 | 60 |
-| `development_metadata` | 207 | 207 |
-| `function_docstring` | 450 | 450 |
-| `markdown_link` | 117 | 117 |
-| `module_docstring` | 76 | 76 |
+| `development_metadata` | 236 | 236 |
+| `function_docstring` | 473 | 473 |
+| `markdown_link` | 172 | 172 |
+| `module_docstring` | 84 | 84 |
+| `notebook_execution` | 8 | 8 |
+| `notebook_python` | 8 | 8 |
 | `powershell_failure_contract` | 6 | 6 |
 | `powershell_help` | 18 | 18 |
-| `spdx` | 82 | 82 |
-| `test_descriptor` | 27 | 27 |
-| `unresolved_marker` | 207 | 207 |
+| `spdx` | 90 | 90 |
+| `test_descriptor` | 29 | 29 |
+| `unresolved_marker` | 236 | 236 |
 
 Tiny wrappers, self-explanatory test helpers, and unchanged third-party artifacts are permitted exceptions. All production modules and nontrivial callables remain in scope.
 

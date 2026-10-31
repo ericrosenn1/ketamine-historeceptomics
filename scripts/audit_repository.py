@@ -13,8 +13,11 @@ Lane: public metadata/security audit; no scientific computation or input access.
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 import csv
 import io
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -41,6 +44,7 @@ TEXT_SUFFIXES = {
     ".gitattributes",
     ".gitignore",
     ".json",
+    ".ipynb",
     ".md",
     ".ps1",
     ".py",
@@ -70,6 +74,10 @@ PROHIBITED_SUFFIXES = {
     ".zip",
 }
 ALLOWED_BINARY_PATHS = {
+    "docs/figures/gallery_family_jaccard.png",
+    "docs/figures/gallery_whole_body.png",
+    "docs/figures/apps/expression-state-live.png",
+    "docs/figures/apps/phenotype-live.png",
     "docs/figures/ketamine_historeceptomics_workflow.png",
     "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf",
     "results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png",
@@ -185,6 +193,50 @@ def line_numbers(pattern: re.Pattern[str], text: str) -> list[int]:
     return [number for number, line in enumerate(text.splitlines(), 1) if pattern.search(line)]
 
 
+def notebook_text(text: str, rel: str) -> tuple[str, list[Finding]]:
+    """Decode notebook sources, metadata, and saved textual outputs for scanning.
+
+    Embedded PNG output is accepted only with valid base64 and a PNG signature;
+    every other string, including HTML, SVG, attachments, and metadata, is scanned.
+    Diagnostics for decoded cells refer to the normalized scan text line numbers.
+    """
+
+    findings: list[Finding] = []
+    strings: list[str] = []
+    try:
+        document = json.loads(text)
+        if not isinstance(document, dict) or document.get("nbformat") != 4:
+            raise ValueError("Expected a version 4 notebook object")
+    except (ValueError, TypeError):
+        return text, [Finding("notebook_format", "ERROR", rel, 0, "OPEN", "Notebook is not valid version 4 JSON")]
+
+    def visit(value: object, key: str = "") -> None:
+        """Collect decoded strings and reject malformed embedded image output."""
+
+        if key == "image/png":
+            try:
+                encoded = "".join(value) if isinstance(value, list) else value
+                payload = base64.b64decode(encoded, validate=True)
+                if not payload.startswith(b"\x89PNG\r\n\x1a\n") or len(payload) > 5 * 1024 * 1024:
+                    raise ValueError("Invalid or oversized PNG")
+            except (ValueError, TypeError, binascii.Error):
+                findings.append(Finding("notebook_image", "ERROR", rel, 0, "OPEN", "Embedded PNG output is malformed or exceeds 5 MiB"))
+        elif key.startswith("image/") and key != "image/svg+xml":
+            findings.append(Finding("notebook_image", "ERROR", rel, 0, "OPEN", "Embedded image MIME type requires a publication review"))
+        elif isinstance(value, dict):
+            for child_key, child in value.items():
+                strings.append(str(child_key))
+                visit(child, str(child_key))
+        elif isinstance(value, list):
+            for child in value:
+                visit(child, key)
+        elif isinstance(value, str):
+            strings.append(value)
+
+    visit(document)
+    return "\n".join(strings), findings
+
+
 def scan(root: Path) -> tuple[list[Path], list[Finding], int]:
     """Scan the tree and return files, value-free findings, and total bytes."""
 
@@ -239,6 +291,10 @@ def scan(root: Path) -> tuple[list[Path], list[Finding], int]:
                 )
             )
             continue
+
+        if suffix == ".ipynb":
+            text, notebook_findings = notebook_text(text, rel)
+            findings.extend(notebook_findings)
 
         # The scanner source necessarily contains signature expressions; its own
         # patterns are excluded from content matching, but not from file/type QA.
@@ -339,7 +395,7 @@ def render_report(files: list[Path], findings: list[Finding], total_bytes: int) 
         "",
         "The scan covers the public working tree while excluding Git internals and explicitly ignored runtime/build directories. It checks credential signatures, connection strings, email addresses, phone numbers, personal-address patterns, private usernames, named and generic workstation paths, development-session metadata, strict UTF-8 text decoding, large files, and every non-text file against an exact allowlist.",
         "",
-        "The only allowed binary files are `results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND.pdf` and `results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png`. Any other binary or unknown file type fails the audit.",
+        "Allowed binary files are listed individually in `ALLOWED_BINARY_PATHS` in `scripts/audit_repository.py`; directory-wide binary exceptions are not permitted. Any other binary or unknown file type fails the audit.",
         "",
         "The scanner emits categories, paths, and line numbers only; it never copies a matched credential or personal-data value into the report. This repository check supplements GitHub secret scanning and the documented human redistribution review.",
         "",
@@ -369,7 +425,7 @@ def write_or_check(root: Path, outputs: dict[str, str], check: bool) -> None:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(rendered, encoding="utf-8", newline="\n")
     if stale:
-        raise SystemExit("Repository audit reports are stale: " + ", ".join(stale))
+        raise SystemExit("Repository audit reports are stale: " + ", ".join(stale) + "; stage intended source changes, then run python scripts/refresh_public_metadata.py --root . and review/stage the generated diff")
 
 
 def main() -> None:

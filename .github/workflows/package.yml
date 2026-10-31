@@ -56,6 +56,12 @@ jobs:
           "${RUNNER_TEMP}/wheel-smoke/bin/python" -c "import cardozo_ketamine_hr, importlib.metadata; assert cardozo_ketamine_hr.__version__ == importlib.metadata.version('ketamine-historeceptomics')"
           "${RUNNER_TEMP}/wheel-smoke/bin/cardozo-ketamine-hr" --help
 
+      - name: Validate integration fixture with installed wheel outside checkout
+        shell: bash
+        run: |
+          cd "${RUNNER_TEMP}"
+          "${RUNNER_TEMP}/wheel-smoke/bin/python" -m cardozo_ketamine_hr.integration validate "${GITHUB_WORKSPACE}/integrations/fixtures/synthetic-v1" --expected-namespace SYNTHETIC_INTEGRATION_V1
+
       - name: Retain validated distributions
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:

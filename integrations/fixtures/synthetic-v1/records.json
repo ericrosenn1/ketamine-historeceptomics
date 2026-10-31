@@ -1,0 +1,54 @@
+[
+  {
+    "expression_dataset_id": "SYNTHETIC_EXPRESSION_V1",
+    "fingerprint_member": true,
+    "gesd_alpha": 0.001,
+    "hr_score": 12.0,
+    "profile_id": "SYNTHETIC_PROFILE",
+    "source_artifact": "integrations/generate_synthetic.py",
+    "source_profile_id": "SYNTHETIC_PROFILE",
+    "source_row": 1,
+    "support_status": "supported",
+    "target_id": "SYNTHETIC_TARGET_A",
+    "tissue_id": "SYNTHETIC_TISSUE_X"
+  },
+  {
+    "expression_dataset_id": "SYNTHETIC_EXPRESSION_V1",
+    "fingerprint_member": false,
+    "gesd_alpha": 0.001,
+    "hr_score": 0.0,
+    "profile_id": "SYNTHETIC_PROFILE",
+    "source_artifact": "integrations/generate_synthetic.py",
+    "source_profile_id": "SYNTHETIC_PROFILE",
+    "source_row": 2,
+    "support_status": "supported",
+    "target_id": "SYNTHETIC_TARGET_A",
+    "tissue_id": "SYNTHETIC_TISSUE_Y"
+  },
+  {
+    "expression_dataset_id": "SYNTHETIC_EXPRESSION_V1",
+    "fingerprint_member": null,
+    "gesd_alpha": 0.001,
+    "hr_score": 2.0,
+    "profile_id": "SYNTHETIC_PROFILE",
+    "source_artifact": "integrations/generate_synthetic.py",
+    "source_profile_id": "SYNTHETIC_PROFILE",
+    "source_row": 3,
+    "support_status": "untested",
+    "target_id": "SYNTHETIC_TARGET_B",
+    "tissue_id": "SYNTHETIC_TISSUE_X"
+  },
+  {
+    "expression_dataset_id": "SYNTHETIC_EXPRESSION_V1",
+    "fingerprint_member": null,
+    "gesd_alpha": 0.001,
+    "hr_score": null,
+    "profile_id": "SYNTHETIC_PROFILE",
+    "source_artifact": "integrations/generate_synthetic.py",
+    "source_profile_id": "SYNTHETIC_PROFILE",
+    "source_row": 4,
+    "support_status": "unsupported",
+    "target_id": "SYNTHETIC_TARGET_B",
+    "tissue_id": "SYNTHETIC_TISSUE_Y"
+  }
+]

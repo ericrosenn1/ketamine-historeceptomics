@@ -39,7 +39,7 @@ fixtures only.
 
 The release retains 61 scientific/reference files:
 
-- 60 accepted output files beneath [`results/reference/`](../results/reference/),
+- 60 accepted output files beneath [`results/reference/`](https://github.com/ericrosenn1/ketamine-historeceptomics/tree/main/results/reference),
   covering family, global, class-context, whole-body, and fixed Figure 4
   results;
 - the descriptive many-to-many class registry at
@@ -72,7 +72,7 @@ in the external tree. No other absent input is filled from public files.
 
 ## Synthetic Smoke fixtures
 
-[`data/fixtures/`](../data/fixtures/) contains three small invented CSVs. They
+[`data/fixtures/`](../data/fixtures/README.md) contains three small invented CSVs. They
 exercise the activity, expression, HR, missingness, sparse-call, pairwise, and
 multivariate interfaces. The names, values, targets, tissues, and compounds are
 fictional; no row was copied from an upstream database, publication, or project

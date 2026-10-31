@@ -2,179 +2,155 @@
 
 [![CI](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/ci.yml/badge.svg)](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/ci.yml)
 [![Docs](https://img.shields.io/badge/docs-online-blue.svg)](https://ericrosenn1.github.io/ketamine-historeceptomics/)
-[![Docs Build](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/docs.yml/badge.svg)](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/docs.yml)
-[![Package Build](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/package.yml/badge.svg)](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/package.yml)
-[![Coverage](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/coverage.yml/badge.svg)](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/coverage.yml)
-[![CodeQL](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/codeql.yml/badge.svg)](https://github.com/ericrosenn1/ketamine-historeceptomics/actions/workflows/codeql.yml)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ericrosenn1/ketamine-historeceptomics/badge)](https://securityscorecards.dev/viewer/?uri=github.com/ericrosenn1/ketamine-historeceptomics)
-
 [![Release](https://img.shields.io/github/v/release/ericrosenn1/ketamine-historeceptomics?display_name=tag)](https://github.com/ericrosenn1/ketamine-historeceptomics/releases/latest)
-[![Release Date](https://img.shields.io/github/release-date/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/releases)
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/github/license/ericrosenn1/ketamine-historeceptomics)](LICENSE)
-[![CITATION.cff](https://img.shields.io/badge/citation-CITATION.cff-blue.svg)](CITATION.cff)
+[![Citation](https://img.shields.io/badge/citation-CITATION.cff-blue.svg)](CITATION.cff)
 
-[![Last Commit](https://img.shields.io/github/last-commit/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/commits/main)
-[![Open Issues](https://img.shields.io/github/issues/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics/issues)
-[![Repository Size](https://img.shields.io/github/repo-size/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
-[![Code Size](https://img.shields.io/github/languages/code-size/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
-[![Top Language](https://img.shields.io/github/languages/top/ericrosenn1/ketamine-historeceptomics)](https://github.com/ericrosenn1/ketamine-historeceptomics)
+Ketamine Historeceptomics combines compound–target pharmacological activity with human tissue expression to investigate target–anatomy relationships for ketamine, its enantiomers and metabolites, and 25 psychoactive reference drugs. The research asks how their historeceptomic fingerprints overlap and differ across CNS and whole-body analysis scopes.
 
-Ketamine Historeceptomics is a computational pharmacology project that combines compound-target activity with human tissue expression to quantify target-anatomy relationships for ketamine and comparator drugs. The analysis covers ketamine, its enantiomers and metabolites, together with 25 psychoactive reference drugs.
+This is the public computational research repository for the larger Cardozo ketamine historeceptomics project. It provides scientific methods, reproducibility software, selected accepted numerical results, and a versioned file interface for downstream applications. It accompanies the working manuscript **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_** by **Eric Rosenn and Timothy Cardozo**.
 
-The repository accompanies the working manuscript **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_** by Eric Rosenn and Timothy Cardozo. It contains the analysis software, reproducibility tests, selected reference results, documentation, and publicly distributable data and reference results for inspecting and reproducing the analysis.
-
-## What the method measures
-
-For each supported compound-target-tissue combination, the workflow calculates an **HR score**:
+## Computational approach
 
 **HR score = target-level pharmacological activity × standardized tissue expression**
 
-The complete collection of numerical HR values at supported target-anatomy coordinates for a compound forms an **HR-score matrix**; unsupported coordinates remain missing. A **historeceptomic fingerprint** is then defined by selecting target-anatomy coordinates from that HR-score matrix that are upper-tail outliers by one-sided generalized extreme Studentized deviate (GESD) testing.
+Activity is expressed as the governed target-level pActivity value or numerical censoring boundary; expression is standardized within each gene using sample standard deviation (`ddof=1`). The **HR-score matrix** is the complete numerical representation of HR values at supported target-anatomy coordinates. Unsupported coordinates remain missing.
 
-The primary fingerprint threshold is **α = 0.001**. A more stringent **α = 0.0001** threshold is used as a sensitivity analysis.
+A **historeceptomic fingerprint (HR fingerprint)** is the sparse set of target-anatomy coordinates selected from the HR-score matrix as upper-tail outliers using the project's one-sided generalized extreme Studentized deviate (**GESD**) implementation. A fingerprint is distinct from the complete HR-score matrix.
 
-```text
-pharmacological activity + standardized expression
-  -> HR-score matrix
-  -> GESD outlier selection
-  -> historeceptomic fingerprint
-```
+The primary fingerprint threshold is **α = 0.001**. The more stringent sensitivity threshold is **α = 0.0001**.
 
-A fingerprint therefore represents the selected target-anatomy features of an HR profile. It is distinct from the complete numerical HR-score matrix.
+A **fingerprint-call matrix** encodes membership: **1 means called**, **0 means tested non-call**, and **missing means unsupported or untested**. It is distinct from an HR-score matrix.
 
-A **fingerprint-call matrix** encodes fingerprint membership across compounds and target-anatomy coordinates: `1` means called, `0` means tested but not called, and missing means unsupported or untested. It is not an HR-score matrix.
+**Fingerprint comparisons are the principal analytical results.** Continuous common-RHR comparisons are exploratory. Methods include call overlap, Jaccard similarity, overlap coefficient, signed sparse cosine, fingerprint PCA, and exploratory continuous PCA, PCoA, MDS, clustering and correlations. See [computational methods](docs/METHODS.md).
 
-## Analysis overview
+## Interactive Research Applications
 
-The project evaluates:
+These separately developed research applications extend the computational analysis into interactive exploration. Their production source repositories are currently private; their public interfaces can be launched below. Additional expression, evidence, literature and visualization processing is maintained separately.
 
-- Ketamine strict-CNS and whole-body fingerprints;
-- ketamine-family profiles, including confirmed racemate, S-ketamine, R-ketamine, hydroxyketamine and hydroxynorketamine forms, and norketamine;
-- pairwise comparisons among 10 ketamine-family profiles;
-- comparison with 25 psychoactive reference drugs;
-- fingerprint overlap, Jaccard similarity, overlap coefficient, subtraction of nonshared calls, and signed cosine similarity;
-- PCA of fingerprint-call matrices at the primary and sensitivity thresholds;
-- exploratory continuous comparisons using matched common-RHR coordinates, including PCA, PCoA, MDS, clustering, cosine similarity, and correlation.
+### Ketamine Phenotype Explorer
 
-The fingerprint analyses are the principal comparisons. Continuous common-RHR analyses are provided as exploratory numerical comparisons of the underlying HR profiles.
+[**Launch the Phenotype Explorer →**](https://ketamine-phenotype-explorer.streamlit.app/)
 
-## Analysis workflow
+![Public Ketamine Phenotype Explorer interface](docs/figures/apps/phenotype-live.png)
 
-![Ketamine historeceptomics analysis workflow](docs/figures/ketamine_historeceptomics_workflow.png)
+Explore compound-specific fingerprints and receptor–tissue–phenotype associations across four compound views, inspect literature evidence and source records, filter phenotypes, interact with Sankey/network views, and download selected data. The app reads its own pinned coordinate and phenotype-evidence authority.
 
-## Compounds represented
+### Expression-State Historeceptomics Explorer
 
-The ketamine-family analysis contains Ketamine, confirmed racemate, S-ketamine (esketamine), R-ketamine (arketamine), an unspecified-isomer hydroxyketamine aggregate, (2R,6R)- and (2S,6S)-hydroxynorketamine, generic hydroxynorketamine/HNK, generic hydroxyketamine, and norketamine.
+[**Launch the Expression-State Explorer →**](https://huggingface.co/spaces/EricRosenn1/ketamine-state-historeceptomics)
 
-**Ketamine** refers to the pooled-parent ketamine analysis profile used throughout this repository; the confirmed racemate profile is retained separately.
+![Public Expression-State Historeceptomics Explorer interface](docs/figures/apps/expression-state-live.png)
 
-The reference panel contains bupropion, fluoxetine, duloxetine, venlafaxine, scopolamine, dextromethorphan, morphine, propofol, dexmedetomidine, lysergide (LSD), psilocin, clozapine, chlorpromazine, sertraline, mirtazapine, aripiprazole, haloperidol, olanzapine, risperidone, quetiapine, ziprasidone, PCP, valproate, lamotrigine, and psilocybin.
+Select expression atlases, explore dataset-specific recalculated fingerprints and supported biological-condition comparisons, inspect receptor–tissue and phenotype graphs, and use anatomical and 2D/3D representations, provenance tables and comparison tools. The public Space serves a packaged research snapshot; expression uploads and local recomputation belong to its local application.
 
-## Key results represented in the repository
+The screenshots are genuine public-interface captures from **2026-10-31**; [capture provenance and scope](docs/figures/apps/README.md) are recorded. The state screenshot's **17 displayed evidence-linked coordinates** are a filtered graph subset, not a revision of the accepted **19 CNS calls**. Features and current data flows are documented in the [integration assessment](audits/PROJECT_INTEGRATION_ASSESSMENT.md).
 
-| Analysis | Accepted scope |
-|---|---:|
+## Scientific analyses and selected results
+
+Accepted **v0.1.1** reference results are preserved. Here, **Ketamine** denotes the pooled-parent analysis profile, separately retained from confirmed racemate. Enantiomers, specified metabolite stereoisomers, unspecified-isomer aggregates and generic profiles remain distinct.
+
+| Analysis | Accepted scope or result |
+|---|---|
 | Strict-CNS Ketamine HR-score matrix | 58 targets × 18 tissues = 1,044 coordinates |
-| Strict-CNS primary fingerprint | 19 calls at α = 0.001 |
-| Strict-CNS sensitivity fingerprint | 14 calls at α = 0.0001 |
+| Strict-CNS fingerprint | 19 primary calls; 14 sensitivity calls |
 | Whole-body Ketamine HR-score matrix | 58 targets × 77 tissues = 4,466 coordinates |
-| Whole-body primary fingerprint | 59 calls at α = 0.001 |
-| Whole-body sensitivity fingerprint | 38 calls at α = 0.0001 |
+| Whole-body fingerprint | 59 primary calls; 38 sensitivity calls |
 | Ketamine-family comparison | 10 profiles; 45 unordered pairs |
-| External reference panel | 25 profiles |
-| Combined comparison | 35 profiles; 595 unordered pairs |
+| External reference panel / combined comparison | 25 external profiles / 35 profiles; 595 unordered pairs |
 | S-ketamine vs R-ketamine, α = 0.001 | 11 shared calls; 12-call union; Jaccard 0.92; overlap coefficient 1.00 |
 | Family fingerprint PCA, α = 0.001 | 17 variable features; PC1 68.2%; PC2 30.4% |
 | Global fingerprint PCA, α = 0.001 | 30 variable features; PC1 51.0%; PC2 44.5% |
 
-For Ketamine against selected external drugs at α = 0.001, pairwise results include chlorpromazine with 8 shared calls, clozapine with 6, sertraline with 5, fluoxetine with 5, and olanzapine with 6.
+The [three-figure results gallery](docs/RESULTS_GALLERY.md) provides captions, exact source tables, hashes, selections and limitations. The first two views directly display accepted table values; Figure 4 is unchanged.
 
-Representative outputs are available under [`results/reference/`](results/reference/).
+| Whole-body fingerprint | Family fingerprint comparison | External-drug context |
+|---|---|---|
+| ![Twelve highest-ranked whole-body calls](docs/figures/gallery_whole_body.png) | ![All forty-five family Jaccard comparisons](docs/figures/gallery_family_jaccard.png) | ![Accepted frozen-reference PCA Figure 4](results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png) |
+| [Stored HR values, ranks 1–12 of 59](results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv); α = 0.001 | [All 45 stored Jaccard values](results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv); α = 0.001; stars mark empty-union conventions | [Frozen continuous PCA coordinates](results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv); exploratory; no GESD α; nonconverged fit limitation retained |
 
-## Manuscript-linked analyses
+Literature-based CNS phenotype and neuropsychiatric pathology interpretation is documented separately from the executable public reproduction workflow; see [optional analyses](optional/README.md) and the [reproducibility matrix](ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
 
-The working manuscript also includes literature-based interpretation of fingerprint relationships in:
+## Project architecture and data flow
 
-- CNS phenotype mapping; and
-- neuropsychiatric pathology mapping.
+![Scientific computation, interpretation, applications and integration architecture](docs/figures/project-architecture.svg)
 
-Those interpretation analyses are documented in the repository but are not part of the executable public reproduction workflow. See [`optional/README.md`](optional/README.md) and [`ANALYSIS_REPRODUCIBILITY_MATRIX.csv`](ANALYSIS_REPRODUCIBILITY_MATRIX.csv).
+The project consists of this public computational repository, a private scientific development repository, and the two independently maintained applications. The diagram distinguishes verified computation/build connections from proposed application adoption of the new interface. Scientific interpretation and application-specific processing retain their own provenance and governance.
 
-## Data availability and reproducibility
+The public producer and validator below are implemented and tested. **Neither production application currently consumes this export contract.** Compatible selected coordinates do not establish shared files, byte-identical matrices, or one automated production pipeline. See [application integration](docs/APPLICATION_INTEGRATION.md) for verified relationships, consumer responsibilities and future adapter tasks. Repository visibility governs code access; compatible data contracts enable exchange without requiring public application source.
 
-The public repository contains the analysis software, test data, selected reference outputs, and documentation needed to inspect the implementation and validate the public workflow.
+## Reproducibility and data availability
 
-Some source datasets used in the full analysis cannot be redistributed with the repository. Users who want to reproduce analyses that depend on those sources must obtain the corresponding inputs separately. The expected files and validation information are documented in [`EXTERNAL_INPUT_MANIFEST.tsv`](EXTERNAL_INPUT_MANIFEST.tsv) and [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md).
+The public release retains **60 scientific reference artifacts** and a class-membership registry. **Twenty near-source numerical inputs are excluded** because redistribution terms are source-specific or unclear. Their required paths, sizes and SHA-256 values are in [EXTERNAL_INPUT_MANIFEST.tsv](EXTERNAL_INPUT_MANIFEST.tsv); acquisition and usage constraints are in [data sources](docs/DATA_SOURCES.md) and [provenance](docs/PROVENANCE.md).
 
-For a detailed description of the public release boundary, validation modes, retained reference files, and exact input checks, see:
+- **Smoke:** self-contained software validation with invented fixtures; no restricted inputs.
+- **Verify:** requires a separately obtained, manifest-valid external input tree.
+- **Full:** requires that tree plus the documented initial activity table and historical resources; it does not claim reconstruction from raw public databases through the unrecovered earliest activity-table producer.
 
-- [Reproducibility guide](docs/REPRODUCIBILITY.md)
-- [Input provenance and data availability](docs/PROVENANCE.md)
-- [Data sources and acquisition](docs/DATA_SOURCES.md)
-- [Technical release README preserved from the previous public version](https://github.com/ericrosenn1/ketamine-historeceptomics/blob/archive/readme-technical-20260920/README.md)
+Follow the [reproducibility guide](docs/REPRODUCIBILITY.md) and [Full-mode boundary](docs/FULL_MODE.md). The [reference checksum record](audits/INTEGRATION_REFERENCE_CHECKSUMS.tsv) and [integration regression audit](audits/INTEGRATION_REGRESSION_AUDIT.md) document preservation and validation of this enhancement. Software execution, byte identity and scientific validity are distinct checks.
 
 ## Quick start
 
-The validated release environment is Python 3.12 on Windows with PowerShell 7.
+The validated environment is **Python 3.12, Windows and PowerShell 7**. From PowerShell:
 
 ```powershell
+$ErrorActionPreference = 'Stop'
 git clone https://github.com/ericrosenn1/ketamine-historeceptomics.git
+if ($LASTEXITCODE -ne 0) { throw 'Clone failed' }
 Set-Location ketamine-historeceptomics
 py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --disable-pip-version-check -r requirements-lock.txt
+if ($LASTEXITCODE -ne 0) { throw 'Environment creation failed' }
+$env:CARDOZO_HR_PYTHON = (Resolve-Path .\.venv\Scripts\python.exe).Path
+& $env:CARDOZO_HR_PYTHON -m pip install -r requirements-lock.txt
+if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed' }
+& $env:CARDOZO_HR_PYTHON -m pip install --no-deps --no-build-isolation -e .
+if ($LASTEXITCODE -ne 0) { throw 'Package installation failed' }
 pwsh -NoProfile -File .\launchers\Smoke.ps1
+if ($LASTEXITCODE -ne 0) { throw 'Smoke validation failed' }
 ```
 
-The quick-start command runs the repository's self-contained software validation workflow using test fixtures. It does not require the nonredistributed scientific inputs.
+Smoke uses synthetic data; its success does not reproduce the ketamine reference analysis. Additional platforms and execution requirements are described in the [environment guide](docs/ENVIRONMENT.md).
 
-Instructions for reproducing analyses that require external inputs are in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+### Export approved results for an application
 
-## Documentation
+With the installed environment selected as `python`:
 
-- [Computational methods](docs/METHODS.md)
-- [Reproducibility guide](docs/REPRODUCIBILITY.md)
-- [Input provenance and data availability](docs/PROVENANCE.md)
-- [Data sources and acquisition](docs/DATA_SOURCES.md)
-- [Scientific and software references](docs/REFERENCES.md)
-- [Code architecture](docs/CODE_ARCHITECTURE.md)
-- [Developer guide](docs/DEVELOPER_GUIDE.md)
-- [Validated environment](docs/ENVIRONMENT.md)
+```bash
+python -m cardozo_ketamine_hr.integration export --output local/app-export
+python -m cardozo_ketamine_hr.integration validate local/app-export
+```
 
-Full documentation is also available at the [project documentation site](https://ericrosenn1.github.io/ketamine-historeceptomics/).
+The **v1.0.0** file contract carries source-native identities, dataset/scope, thresholds, support states, provenance, checksums and data-use notices. Its first real adapter exports only the approved **59 primary + 38 sensitivity whole-body positive-call records**, preserving stored HR values. Omitted coordinates cannot be interpreted as tested non-calls. It does not export restricted full matrices or literature authorities.
 
-## Repository layout
+Use the [integration guide, schemas and synthetic consumer](integrations/README.md) to validate bundles before use. A passing validator establishes structural compatibility and integrity; adoption by either application requires a separate reviewed adapter and scientific regression checks.
+
+### Run the educational notebook
+
+[Historeceptomics_Quickstart.ipynb](notebooks/Historeceptomics_Quickstart.ipynb) demonstrates activity/expression loading, HR-score construction, the actual GESD implementation, fingerprint comparison and visualization using clearly labeled invented data. It includes saved execution outputs. Follow the [notebook guide](notebooks/README.md) to install the optional tools and execute all cells in a clean environment.
+
+## Documentation and repository structure
+
+[Full documentation](https://ericrosenn1.github.io/ketamine-historeceptomics/) · [Methods](docs/METHODS.md) · [References](docs/REFERENCES.md) · [Code architecture](docs/CODE_ARCHITECTURE.md) · [Developer guide](docs/DEVELOPER_GUIDE.md)
 
 | Path | Purpose |
 |---|---|
-| `src/cardozo_ketamine_hr/` | Analysis implementation |
-| `configs/` | Compound identities, tissues, thresholds, and analysis parameters |
-| `results/reference/` | Selected accepted reference outputs |
-| `tests/` | Unit, contract, and reproducibility tests |
-| `data/fixtures/` | Self-contained test inputs |
-| `launchers/` | PowerShell entry points |
-| `docs/` | Methods, provenance, data-source, and developer documentation |
-| `scripts/` | Repository validation and metadata utilities |
+| `src/cardozo_ketamine_hr/` | Scientific implementation and public integration utility |
+| `configs/` | Governed compound identities, tissue rosters, parameters and thresholds |
+| `results/reference/` | Accepted frozen numerical outputs and Figure 4 |
+| `integrations/` | Versioned exchange schemas, synthetic fixture and consumer example |
+| `notebooks/` | Executed synthetic method demonstration and fixtures |
+| `tests/`, `data/fixtures/` | Unit/contract tests and self-contained Smoke inputs |
+| `launchers/`, `scripts/` | Execution, publication-boundary and metadata validation utilities |
+| `docs/`, `audits/` | Methods, application architecture, gallery, provenance and validation evidence |
 
-## Citation
+## Citation, authorship and licensing
 
-To cite the software, use **Eric Rosenn, _Ketamine Historeceptomics_, version 0.1.1**, with the machine-readable record in [`CITATION.cff`](CITATION.cff) or [`CITATION.bib`](CITATION.bib).
+Cite the software as **Eric Rosenn, _Ketamine Historeceptomics_, version 0.1.1**, using [CITATION.cff](CITATION.cff) or [CITATION.bib](CITATION.bib). The related working manuscript is **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_**, by **Eric Rosenn and Timothy Cardozo**. No journal, DOI, publication date or publication status is asserted here.
 
-The related manuscript currently has the working title **_Historeceptomic Profiling of Ketamine, Its Enantiomers, and Metabolites_** and the author list **Eric Rosenn and Timothy Cardozo**. A journal, DOI, publication date, or publication status is not asserted here.
+Original software and documentation use the [MIT License](LICENSE). Approved project data, synthetic fixtures and adapted analytical outputs have separate [data/output terms](DATA_LICENSE.md), including CC BY-SA 4.0 where stated; [third-party notices](THIRD_PARTY_NOTICES.md) preserve upstream restrictions. Public application access does not grant rights to private code or restricted inputs.
 
-## Interpretation notes
+HR scores and fingerprints do not directly measure tissue exposure, mechanism, effect direction, therapeutic benefit, clinical response or causality. Statistical α is not biological significance; CNS and whole-body candidate universes differ. Missing support is not a negative result. Some fingerprint and continuous PCA estimates did not converge and retain the documented limitations. See the [methods](docs/METHODS.md) and [gallery captions](docs/RESULTS_GALLERY.md).
 
-- HR scores depend on the pharmacological activity and tissue-expression inputs used by the workflow; they are not direct measures of tissue exposure, mechanism, therapeutic benefit, clinical response, or causality.
-- The configured α values are statistical outlier-selection thresholds, not biological-significance thresholds.
-- Strict-CNS and whole-body fingerprints are generated from different candidate sets.
-- Support varies by compound, and missing values are kept distinct from tested non-calls.
-- Reference-drug similarities depend on the compounds, target support, and comparison metric included in a given analysis.
-- Some fingerprint and continuous PCA fits reached their iteration limit before convergence; retained estimates carry the recorded limitation, as reported in the corresponding outputs and documentation.
-
-## Support, licensing, and security
-
-Original software and repository documentation are released under the [MIT License](LICENSE). Data and derived-output terms are documented separately in [`DATA_LICENSE.md`](DATA_LICENSE.md) and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-
-Use [GitHub Issues](https://github.com/ericrosenn1/ketamine-historeceptomics/issues) for reproducibility problems, bugs, and support. Follow [`SECURITY.md`](SECURITY.md) for security concerns.
+For bugs or reproducibility questions, use [GitHub Issues](https://github.com/ericrosenn1/ketamine-historeceptomics/issues); follow [SECURITY.md](SECURITY.md) for security concerns.
 
 Copyright © 2026 Eric Rosenn.

@@ -60,7 +60,7 @@ pwsh -NoProfile -File .\launchers\Smoke.ps1
 ```
 
 Smoke validates all retained public reference/class-registry hashes and uses
-the invented files in [`data/fixtures/`](../data/fixtures/) to exercise:
+the invented files in [`data/fixtures/`](../data/fixtures/README.md) to exercise:
 
 - the HR multiplication contract;
 - finite-value and missingness behavior;
@@ -123,7 +123,7 @@ analyses, exploratory continuous analyses, class-context summaries, whole-body
 fingerprints, and the fixed-coordinate Figure 4 derivative.
 
 Regenerated artifacts are compared with the 60 accepted files under
-[`results/reference/`](../results/reference/). The required downstream ledger
+[`results/reference/`](https://github.com/ericrosenn1/ketamine-historeceptomics/tree/main/results/reference). The required downstream ledger
 contains 87 checks in the accepted workflow.
 
 ## Full

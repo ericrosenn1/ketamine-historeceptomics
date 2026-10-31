@@ -1,8 +1,8 @@
 category	path	item	status	detail
 citation_bibtex	CITATION.bib	document	PASS	26 unique entries parsed by Pybtex
 citation_cff	CITATION.cff	document	PASS	CFF 1.2 schema, v0.1.1 fields, single software author, and ORCID checksum valid
-class_docstring	scripts/audit_code_documentation.py	Check:79	PASS	Documented
-class_docstring	scripts/audit_repository.py	Finding:136	PASS	Documented
+class_docstring	scripts/audit_code_documentation.py	Check:82	PASS	Documented
+class_docstring	scripts/audit_repository.py	Finding:144	PASS	Documented
 class_docstring	scripts/build_release_manifests.py	GitBlob:41	PASS	Documented
 class_docstring	scripts/compare_executable_ast.py	DocstringStripper:44	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/activity.py	NormalizedActivity:52	PASS	Documented
@@ -10,6 +10,7 @@ class_docstring	src/cardozo_ketamine_hr/figures.py	FigureRecorder:63	PASS	Docume
 class_docstring	src/cardozo_ketamine_hr/final_audit.py	AuditRun:121	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/gpu_backend.py	BackendDecision:33	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/identity.py	IdentityResolution:56	PASS	Documented
+class_docstring	src/cardozo_ketamine_hr/integration.py	CompatibilityError:41	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/pipeline.py	RunContext:81	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/portable.py	CheckLedger:84	PASS	Documented
 class_docstring	src/cardozo_ketamine_hr/qa.py	QARecorder:43	PASS	Documented
@@ -113,7 +114,10 @@ development_metadata	SHA256SUMS.txt	file	PASS	No findings
 development_metadata	SUPPORT.md	file	PASS	No findings
 development_metadata	THIRD_PARTY_NOTICES.md	file	PASS	No findings
 development_metadata	audits/CODE_INVENTORY.csv	file	PASS	No findings
+development_metadata	audits/INTEGRATION_REFERENCE_CHECKSUMS.tsv	file	PASS	No findings
+development_metadata	audits/INTEGRATION_REGRESSION_AUDIT.md	file	PASS	No findings
 development_metadata	audits/OUTPUT_CODE_LINEAGE.csv	file	PASS	No findings
+development_metadata	audits/PROJECT_INTEGRATION_ASSESSMENT.md	file	PASS	No findings
 development_metadata	audits/PUBLIC_EXPOSURE_AUDIT.md	file	PASS	No findings
 development_metadata	audits/PUBLIC_EXPOSURE_FINDINGS.tsv	file	PASS	No findings
 development_metadata	audits/PUBLIC_SCIENTIFIC_EQUIVALENCE.md	file	PASS	No findings
@@ -134,6 +138,8 @@ development_metadata	data/fixtures/smoke_activity.csv	file	PASS	No findings
 development_metadata	data/fixtures/smoke_expression.csv	file	PASS	No findings
 development_metadata	data/fixtures/smoke_profiles.csv	file	PASS	No findings
 development_metadata	data/frozen/metadata/class_membership.csv	file	PASS	No findings
+development_metadata	docs/APPLICATION_INTEGRATION.md	file	PASS	No findings
+development_metadata	docs/CI_METADATA_MAINTENANCE.md	file	PASS	No findings
 development_metadata	docs/CODE_ARCHITECTURE.md	file	PASS	No findings
 development_metadata	docs/DATA_SOURCES.md	file	PASS	No findings
 development_metadata	docs/DEVELOPER_GUIDE.md	file	PASS	No findings
@@ -143,7 +149,15 @@ development_metadata	docs/METHODS.md	file	PASS	No findings
 development_metadata	docs/PROVENANCE.md	file	PASS	No findings
 development_metadata	docs/REFERENCES.md	file	PASS	No findings
 development_metadata	docs/REPRODUCIBILITY.md	file	PASS	No findings
+development_metadata	docs/RESULTS_GALLERY.md	file	PASS	No findings
+development_metadata	docs/figures/apps/README.md	file	PASS	No findings
+development_metadata	docs/figures/gallery_provenance.json	file	PASS	No findings
 development_metadata	environment.yml	file	PASS	No findings
+development_metadata	integrations/README.md	file	PASS	No findings
+development_metadata	integrations/fixtures/synthetic-v1/manifest.json	file	PASS	No findings
+development_metadata	integrations/fixtures/synthetic-v1/records.json	file	PASS	No findings
+development_metadata	integrations/generate_synthetic.py	file	PASS	No findings
+development_metadata	integrations/read_example.py	file	PASS	No findings
 development_metadata	launchers/Full.ps1	file	PASS	No findings
 development_metadata	launchers/Run.ps1	file	PASS	No findings
 development_metadata	launchers/Smoke.ps1	file	PASS	No findings
@@ -151,11 +165,17 @@ development_metadata	launchers/Verify.ps1	file	PASS	No findings
 development_metadata	launchers/run_reproduction.ps1	file	PASS	No findings
 development_metadata	launchers/validate_release.ps1	file	PASS	No findings
 development_metadata	mkdocs.yml	file	PASS	No findings
+development_metadata	notebooks/Historeceptomics_Quickstart.ipynb	file	PASS	No findings
+development_metadata	notebooks/README.md	file	PASS	No findings
+development_metadata	notebooks/execute.py	file	PASS	No findings
+development_metadata	notebooks/fixtures/activity.csv	file	PASS	No findings
+development_metadata	notebooks/fixtures/expression.csv	file	PASS	No findings
 development_metadata	optional/README.md	file	PASS	No findings
 development_metadata	pyproject.toml	file	PASS	No findings
 development_metadata	requirements-coverage.txt	file	PASS	No findings
 development_metadata	requirements-docs.txt	file	PASS	No findings
 development_metadata	requirements-lock.txt	file	PASS	No findings
+development_metadata	requirements-notebook.txt	file	PASS	No findings
 development_metadata	requirements-package.txt	file	PASS	No findings
 development_metadata	requirements.txt	file	PASS	No findings
 development_metadata	results/reference/FINAL_MODEL_STATUS.csv	file	PASS	No findings
@@ -185,6 +205,8 @@ development_metadata	results/reference/family/FAMILY_TARGET_LEVEL_PCA_LOADINGS.c
 development_metadata	results/reference/family/FAMILY_TARGET_LEVEL_PCA_SCORES.csv	file	PASS	No findings
 development_metadata	results/reference/family/FAMILY_WEIGHTED_MDS_COORDINATES.csv	file	PASS	No findings
 development_metadata	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv	file	PASS	No findings
+development_metadata	results/reference/figure4/qc/NUMERICAL_QC.json	file	PASS	No findings
+development_metadata	results/reference/figure4/qc/VISUAL_LAYOUT_QC.json	file	PASS	No findings
 development_metadata	results/reference/figure4/source_data/FROZEN_GLOBAL_FIXED_REFERENCE_PCA_SCORES.csv	file	PASS	No findings
 development_metadata	results/reference/figure4/source_data/PALETTE_SPECIFICATION.csv	file	PASS	No findings
 development_metadata	results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv	file	PASS	No findings
@@ -208,13 +230,17 @@ development_metadata	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.
 development_metadata	results/reference/global/GLOBAL_TARGET_LEVEL_PCA_LOADINGS.csv	file	PASS	No findings
 development_metadata	results/reference/global/GLOBAL_TARGET_LEVEL_PCA_SCORES.csv	file	PASS	No findings
 development_metadata	results/reference/global/GLOBAL_WEIGHTED_MDS_COORDINATES.csv	file	PASS	No findings
+development_metadata	results/reference/whole_body/CNS_SMOKE_TEST.json	file	PASS	No findings
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p0001.csv	file	PASS	No findings
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv	file	PASS	No findings
 development_metadata	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_SUMMARY_METRICS.csv	file	PASS	No findings
+development_metadata	results/reference/whole_body/QC_RESULTS.json	file	PASS	No findings
 development_metadata	scripts/audit_distribution.py	file	PASS	No findings
 development_metadata	scripts/build_release_manifests.py	file	PASS	No findings
 development_metadata	scripts/build_repository_metadata.py	file	PASS	No findings
 development_metadata	scripts/compare_executable_ast.py	file	PASS	No findings
+development_metadata	scripts/refresh_public_metadata.py	file	PASS	No findings
+development_metadata	scripts/render_results_gallery.py	file	PASS	No findings
 development_metadata	scripts/stage_docs.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/__init__.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/__main__.py	file	PASS	No findings
@@ -233,6 +259,8 @@ development_metadata	src/cardozo_ketamine_hr/gpu_backend.py	file	PASS	No finding
 development_metadata	src/cardozo_ketamine_hr/hr.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/identity.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/independent_validation.py	file	PASS	No findings
+development_metadata	src/cardozo_ketamine_hr/integration-v1.schema.json	file	PASS	No findings
+development_metadata	src/cardozo_ketamine_hr/integration.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/multivariate.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/nearest_reference.py	file	PASS	No findings
 development_metadata	src/cardozo_ketamine_hr/packaging.py	file	PASS	No findings
@@ -274,6 +302,7 @@ development_metadata	tests/test_governance_statuses.py	file	PASS	No findings
 development_metadata	tests/test_heatmap_call_count.py	file	PASS	No findings
 development_metadata	tests/test_hr_construction.py	file	PASS	No findings
 development_metadata	tests/test_identity_resolution.py	file	PASS	No findings
+development_metadata	tests/test_integration_contract.py	file	PASS	No findings
 development_metadata	tests/test_manuscript_alignment.py	file	PASS	No findings
 development_metadata	tests/test_multivariate_rank_handling.py	file	PASS	No findings
 development_metadata	tests/test_pairwise_metrics.py	file	PASS	No findings
@@ -281,42 +310,49 @@ development_metadata	tests/test_pipeline_orchestration_synthetic.py	file	PASS	No
 development_metadata	tests/test_pooled_authority_counts.py	file	PASS	No findings
 development_metadata	tests/test_portable_release_outputs.py	file	PASS	No findings
 development_metadata	tests/test_public_figures_synthetic.py	file	PASS	No findings
+development_metadata	tests/test_public_metadata_maintenance.py	file	PASS	No findings
 development_metadata	tests/test_public_utility_contracts.py	file	PASS	No findings
 development_metadata	tests/test_resource_limits.py	file	PASS	No findings
 development_metadata	tests/test_target_mapping.py	file	PASS	No findings
 development_metadata	tests/test_upstream_parsing_synthetic.py	file	PASS	No findings
-function_docstring	scripts/audit_code_documentation.py	audit_citations:415	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_descriptors:278	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_links:376	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_markers:338	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_powershell:227	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_python:154	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	audit_test_descriptors:326	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	descriptor_paths:266	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	function_is_nontrivial:126	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	main:527	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	module_doc_contract:136	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	normalize_link_target:365	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	parse_args:89	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	python_files:111	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	relative:105	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	render_markdown:479	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	render_tsv:468	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	valid_orcid:399	PASS	Documented
-function_docstring	scripts/audit_code_documentation.py	write_or_check:511	PASS	Documented
+function_docstring	integrations/generate_synthetic.py	generate:20	PASS	Documented
+function_docstring	integrations/generate_synthetic.py	main:39	PASS	Documented
+function_docstring	integrations/read_example.py	main:19	PASS	Documented
+function_docstring	notebooks/execute.py	main:27	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_citations:459	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_descriptors:281	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_links:379	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_markers:341	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_notebooks:414	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_powershell:230	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_python:157	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	audit_test_descriptors:329	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	descriptor_paths:269	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	function_is_nontrivial:129	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	main:571	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	module_doc_contract:139	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	normalize_link_target:368	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	parse_args:92	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	python_files:114	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	relative:108	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	render_markdown:523	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	render_tsv:512	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	valid_orcid:443	PASS	Documented
+function_docstring	scripts/audit_code_documentation.py	write_or_check:555	PASS	Documented
 function_docstring	scripts/audit_distribution.py	audit_member:61	PASS	Documented
 function_docstring	scripts/audit_distribution.py	audit_sdist:91	PASS	Documented
 function_docstring	scripts/audit_distribution.py	audit_wheel:77	PASS	Documented
 function_docstring	scripts/audit_distribution.py	main:106	PASS	Documented
 function_docstring	scripts/audit_distribution.py	sha256:51	PASS	Documented
-function_docstring	scripts/audit_repository.py	included:171	PASS	Documented
-function_docstring	scripts/audit_repository.py	line_numbers:182	PASS	Documented
-function_docstring	scripts/audit_repository.py	main:375	PASS	Documented
-function_docstring	scripts/audit_repository.py	parse_args:147	PASS	Documented
-function_docstring	scripts/audit_repository.py	render_findings:297	PASS	Documented
-function_docstring	scripts/audit_repository.py	render_report:310	PASS	Documented
-function_docstring	scripts/audit_repository.py	scan:188	PASS	Documented
-function_docstring	scripts/audit_repository.py	write_or_check:359	PASS	Documented
+function_docstring	scripts/audit_repository.py	included:179	PASS	Documented
+function_docstring	scripts/audit_repository.py	line_numbers:190	PASS	Documented
+function_docstring	scripts/audit_repository.py	main:431	PASS	Documented
+function_docstring	scripts/audit_repository.py	notebook_text:196	PASS	Documented
+function_docstring	scripts/audit_repository.py	parse_args:155	PASS	Documented
+function_docstring	scripts/audit_repository.py	render_findings:353	PASS	Documented
+function_docstring	scripts/audit_repository.py	render_report:366	PASS	Documented
+function_docstring	scripts/audit_repository.py	scan:240	PASS	Documented
+function_docstring	scripts/audit_repository.py	write_or_check:415	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	git:74	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	main:153	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	parse_args:50	PASS	Documented
@@ -325,18 +361,18 @@ function_docstring	scripts/build_release_manifests.py	sha256:123	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	staged_blobs:86	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	worktree_blobs:106	PASS	Documented
 function_docstring	scripts/build_release_manifests.py	write_or_check:143	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	build_authority_manifest:223	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	classify_authority:176	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	main:304	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	build_authority_manifest:263	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	classify_authority:208	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	main:347	PASS	Documented
 function_docstring	scripts/build_repository_metadata.py	parse_args:29	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	public_authority_paths:154	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	public_authority_paths:183	PASS	Documented
 function_docstring	scripts/build_repository_metadata.py	read_csv:57	PASS	Documented
 function_docstring	scripts/build_repository_metadata.py	refresh_code_inventory:83	PASS	Documented
 function_docstring	scripts/build_repository_metadata.py	render_csv:67	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	resolve_data_manifest:125	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	resolve_data_manifest:154	PASS	Documented
 function_docstring	scripts/build_repository_metadata.py	sha256:47	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	validate_release_metadata:255	PASS	Documented
-function_docstring	scripts/build_repository_metadata.py	write_or_check:294	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	validate_release_metadata:298	PASS	Documented
+function_docstring	scripts/build_repository_metadata.py	write_or_check:337	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	build_snapshot:114	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	compare_snapshots:137	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	main:199	PASS	Documented
@@ -349,9 +385,17 @@ function_docstring	scripts/compare_executable_ast.py	visit_FunctionDef:72	PASS	D
 function_docstring	scripts/compare_executable_ast.py	visit_Module:60	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	write_json:165	PASS	Documented
 function_docstring	scripts/compare_executable_ast.py	write_tsv:172	PASS	Documented
-function_docstring	scripts/stage_docs.py	include:70	PASS	Documented
-function_docstring	scripts/stage_docs.py	main:77	PASS	Documented
-function_docstring	scripts/stage_docs.py	tracked_files:58	PASS	Documented
+function_docstring	scripts/refresh_public_metadata.py	command:40	PASS	Documented
+function_docstring	scripts/refresh_public_metadata.py	main:94	PASS	Documented
+function_docstring	scripts/refresh_public_metadata.py	materialize:71	PASS	Documented
+function_docstring	scripts/refresh_public_metadata.py	refresh:49	PASS	Documented
+function_docstring	scripts/render_results_gallery.py	main:148	PASS	Documented
+function_docstring	scripts/render_results_gallery.py	render_family:88	PASS	Documented
+function_docstring	scripts/render_results_gallery.py	render_whole_body:48	PASS	Documented
+function_docstring	scripts/render_results_gallery.py	sha256:42	PASS	Documented
+function_docstring	scripts/stage_docs.py	include:74	PASS	Documented
+function_docstring	scripts/stage_docs.py	main:81	PASS	Documented
+function_docstring	scripts/stage_docs.py	tracked_files:62	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/activity.py	normalize_activity:89	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/authority_discovery.py	discover:26	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/class_analysis.py	run_class_models:91	PASS	Documented
@@ -427,6 +471,15 @@ function_docstring	src/cardozo_ketamine_hr/identity.py	load_compound_config:105	
 function_docstring	src/cardozo_ketamine_hr/identity.py	normalize_compound_name:81	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/identity.py	resolve_compound_identity:133	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/independent_validation.py	validate_run:48	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	_registry:104	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	_schema_validate:83	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	_unique_json_pairs:57	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	_write_bundle:223	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	canonical_json:45	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	digest:51	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	export_approved:239	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	main:294	PASS	Documented
+function_docstring	src/cardozo_ketamine_hr/integration.py	validate_bundle:114	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/multivariate.py	complete_case_pca:52	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/multivariate.py	complete_distance_subset:411	PASS	Documented
 function_docstring	src/cardozo_ketamine_hr/multivariate.py	em_svd_pca:111	PASS	Documented
@@ -737,48 +790,63 @@ function_docstring	src/cardozo_ketamine_hr/utilities.py	write_json:144	PASS	Docu
 function_docstring	src/cardozo_ketamine_hr/utilities.py	write_table:102	PASS	Documented
 markdown_link	CONTRIBUTING.md	CODE_OF_CONDUCT.md:28	PASS	Target exists
 markdown_link	CONTRIBUTING.md	docs/DEVELOPER_GUIDE.md:26	PASS	Target exists
-markdown_link	DATA_LICENSE.md	CITATION.cff:36	PASS	Target exists
-markdown_link	DATA_LICENSE.md	DATA_MANIFEST.csv:64	PASS	Target exists
+markdown_link	DATA_LICENSE.md	CITATION.cff:58	PASS	Target exists
+markdown_link	DATA_LICENSE.md	DATA_MANIFEST.csv:86	PASS	Target exists
 markdown_link	DATA_LICENSE.md	LICENSE:5	PASS	Target exists
-markdown_link	DATA_LICENSE.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:60	PASS	Target exists
-markdown_link	DATA_LICENSE.md	THIRD_PARTY_NOTICES.md:54	PASS	Target exists
-markdown_link	DATA_LICENSE.md	docs/DATA_SOURCES.md:55	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	DATA_LICENSE.md:90	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	DATA_LICENSE.md:97	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	EXTERNAL_INPUT_MANIFEST.tsv:66	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	LICENSE:96	PASS	Target exists
+markdown_link	DATA_LICENSE.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:82	PASS	Target exists
+markdown_link	DATA_LICENSE.md	THIRD_PARTY_NOTICES.md:76	PASS	Target exists
+markdown_link	DATA_LICENSE.md	docs/DATA_SOURCES.md:77	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	DATA_LICENSE.md:105	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	DATA_LICENSE.md:42	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	DATA_LICENSE.md:98	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	EXTERNAL_INPUT_MANIFEST.tsv:74	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	LICENSE:104	PASS	Target exists
 markdown_link	PUBLIC_RELEASE_DECISIONS.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:9	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	PUBLIC_RELEASE_MANIFEST.tsv:115	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	SHA256SUMS.txt:116	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	THIRD_PARTY_NOTICES.md:91	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	data/fixtures/:44	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/DATA_SOURCES.md:68	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/FULL_MODE.md:70	PASS	Target exists
-markdown_link	PUBLIC_RELEASE_DECISIONS.md	results/reference/:80	PASS	Target exists
-markdown_link	README.md	ANALYSIS_REPRODUCIBILITY_MATRIX.csv:102	PASS	Target exists
-markdown_link	README.md	CITATION.bib:161	PASS	Target exists
-markdown_link	README.md	CITATION.cff:161	PASS	Target exists
-markdown_link	README.md	DATA_LICENSE.md:176	PASS	Target exists
-markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:108	PASS	Target exists
-markdown_link	README.md	LICENSE:176	PASS	Target exists
-markdown_link	README.md	SECURITY.md:178	PASS	Target exists
-markdown_link	README.md	THIRD_PARTY_NOTICES.md:176	PASS	Target exists
-markdown_link	README.md	docs/CODE_ARCHITECTURE.md:140	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:108	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:114	PASS	Target exists
-markdown_link	README.md	docs/DATA_SOURCES.md:138	PASS	Target exists
-markdown_link	README.md	docs/DEVELOPER_GUIDE.md:141	PASS	Target exists
-markdown_link	README.md	docs/ENVIRONMENT.md:142	PASS	Target exists
-markdown_link	README.md	docs/METHODS.md:135	PASS	Target exists
-markdown_link	README.md	docs/PROVENANCE.md:113	PASS	Target exists
-markdown_link	README.md	docs/PROVENANCE.md:137	PASS	Target exists
-markdown_link	README.md	docs/REFERENCES.md:139	PASS	Target exists
-markdown_link	README.md	docs/REPRODUCIBILITY.md:112	PASS	Target exists
-markdown_link	README.md	docs/REPRODUCIBILITY.md:131	PASS	Target exists
-markdown_link	README.md	docs/REPRODUCIBILITY.md:136	PASS	Target exists
-markdown_link	README.md	docs/figures/ketamine_historeceptomics_workflow.png:64	PASS	Target exists
-markdown_link	README.md	optional/README.md:102	PASS	Target exists
-markdown_link	README.md	results/reference/:93	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	PUBLIC_RELEASE_MANIFEST.tsv:123	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	SHA256SUMS.txt:124	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	THIRD_PARTY_NOTICES.md:99	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	data/fixtures/README.md:52	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/DATA_SOURCES.md:76	PASS	Target exists
+markdown_link	PUBLIC_RELEASE_DECISIONS.md	docs/FULL_MODE.md:78	PASS	Target exists
+markdown_link	README.md	ANALYSIS_REPRODUCIBILITY_MATRIX.csv:72	PASS	Target exists
+markdown_link	README.md	CITATION.bib:148	PASS	Target exists
+markdown_link	README.md	CITATION.cff:148	PASS	Target exists
+markdown_link	README.md	DATA_LICENSE.md:150	PASS	Target exists
+markdown_link	README.md	EXTERNAL_INPUT_MANIFEST.tsv:84	PASS	Target exists
+markdown_link	README.md	LICENSE:150	PASS	Target exists
+markdown_link	README.md	SECURITY.md:154	PASS	Target exists
+markdown_link	README.md	THIRD_PARTY_NOTICES.md:150	PASS	Target exists
+markdown_link	README.md	audits/INTEGRATION_REFERENCE_CHECKSUMS.tsv:90	PASS	Target exists
+markdown_link	README.md	audits/INTEGRATION_REGRESSION_AUDIT.md:90	PASS	Target exists
+markdown_link	README.md	audits/PROJECT_INTEGRATION_ASSESSMENT.md:47	PASS	Target exists
+markdown_link	README.md	docs/APPLICATION_INTEGRATION.md:80	PASS	Target exists
+markdown_link	README.md	docs/CODE_ARCHITECTURE.md:133	PASS	Target exists
+markdown_link	README.md	docs/DATA_SOURCES.md:84	PASS	Target exists
+markdown_link	README.md	docs/DEVELOPER_GUIDE.md:133	PASS	Target exists
+markdown_link	README.md	docs/ENVIRONMENT.md:112	PASS	Target exists
+markdown_link	README.md	docs/FULL_MODE.md:90	PASS	Target exists
+markdown_link	README.md	docs/METHODS.md:133	PASS	Target exists
+markdown_link	README.md	docs/METHODS.md:152	PASS	Target exists
+markdown_link	README.md	docs/METHODS.md:25	PASS	Target exists
+markdown_link	README.md	docs/PROVENANCE.md:84	PASS	Target exists
+markdown_link	README.md	docs/REFERENCES.md:133	PASS	Target exists
+markdown_link	README.md	docs/REPRODUCIBILITY.md:90	PASS	Target exists
+markdown_link	README.md	docs/RESULTS_GALLERY.md:152	PASS	Target exists
+markdown_link	README.md	docs/RESULTS_GALLERY.md:65	PASS	Target exists
+markdown_link	README.md	docs/figures/apps/README.md:47	PASS	Target exists
+markdown_link	README.md	docs/figures/apps/expression-state-live.png:43	PASS	Target exists
+markdown_link	README.md	docs/figures/apps/phenotype-live.png:35	PASS	Target exists
+markdown_link	README.md	docs/figures/gallery_family_jaccard.png:69	PASS	Target exists
+markdown_link	README.md	docs/figures/gallery_whole_body.png:69	PASS	Target exists
+markdown_link	README.md	docs/figures/project-architecture.svg:76	PASS	Target exists
+markdown_link	README.md	integrations/README.md:125	PASS	Target exists
+markdown_link	README.md	notebooks/Historeceptomics_Quickstart.ipynb:129	PASS	Target exists
+markdown_link	README.md	notebooks/README.md:129	PASS	Target exists
+markdown_link	README.md	optional/README.md:72	PASS	Target exists
+markdown_link	README.md	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:70	PASS	Target exists
+markdown_link	README.md	results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png:69	PASS	Target exists
+markdown_link	README.md	results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv:70	PASS	Target exists
+markdown_link	README.md	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:70	PASS	Target exists
 markdown_link	SECURITY.md	SUPPORT.md:21	PASS	Target exists
 markdown_link	SUPPORT.md	SECURITY.md:20	PASS	Target exists
 markdown_link	THIRD_PARTY_NOTICES.md	CITATION.bib:82	PASS	Target exists
@@ -787,6 +855,16 @@ markdown_link	THIRD_PARTY_NOTICES.md	PUBLIC_RELEASE_FILE_DECISIONS.tsv:17	PASS	T
 markdown_link	THIRD_PARTY_NOTICES.md	docs/REFERENCES.md:100	PASS	Target exists
 markdown_link	THIRD_PARTY_NOTICES.md	docs/REFERENCES.md:81	PASS	Target exists
 markdown_link	THIRD_PARTY_NOTICES.md	requirements-lock.txt:98	PASS	Target exists
+markdown_link	audits/INTEGRATION_REGRESSION_AUDIT.md	../docs/CI_METADATA_MAINTENANCE.md:58	PASS	Target exists
+markdown_link	audits/INTEGRATION_REGRESSION_AUDIT.md	INTEGRATION_REFERENCE_CHECKSUMS.tsv:10	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../DATA_LICENSE.md:23	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../EXTERNAL_INPUT_MANIFEST.tsv:14	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:13	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../SHA256SUMS.txt:16	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../docs/APPLICATION_INTEGRATION.md:107	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	../docs/figures/apps/README.md:97	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	INTEGRATION_REFERENCE_CHECKSUMS.tsv:18	PASS	Target exists
+markdown_link	audits/PROJECT_INTEGRATION_ASSESSMENT.md	SOURCE_SNAPSHOT_MANIFEST.tsv:15	PASS	Target exists
 markdown_link	audits/PUBLIC_SCIENTIFIC_EQUIVALENCE.md	../EXTERNAL_INPUT_MANIFEST.tsv:21	PASS	Target exists
 markdown_link	audits/PUBLIC_SCIENTIFIC_EQUIVALENCE.md	PUBLIC_SCIENTIFIC_EQUIVALENCE.tsv:9	PASS	Target exists
 markdown_link	audits/SOURCE_SELECTION_RECORD.md	SOURCE_SNAPSHOT_MANIFEST.tsv:6	PASS	Target exists
@@ -794,6 +872,8 @@ markdown_link	audits/UPSTREAM_REPRODUCIBILITY_BOUNDARIES.md	UPSTREAM_REPRODUCIBI
 markdown_link	data/fixtures/README.md	../../CURRENT_ANALYSIS_AUTHORITY_MANIFEST.csv:20	PASS	Target exists
 markdown_link	data/fixtures/README.md	../../docs/DATA_SOURCES.md:18	PASS	Target exists
 markdown_link	data/fixtures/README.md	../../docs/FULL_MODE.md:19	PASS	Target exists
+markdown_link	docs/APPLICATION_INTEGRATION.md	../audits/PROJECT_INTEGRATION_ASSESSMENT.md:8	PASS	Target exists
+markdown_link	docs/APPLICATION_INTEGRATION.md	../integrations/README.md:38	PASS	Target exists
 markdown_link	docs/CODE_ARCHITECTURE.md	../EXTERNAL_INPUT_MANIFEST.tsv:25	PASS	Target exists
 markdown_link	docs/CODE_ARCHITECTURE.md	DEVELOPER_GUIDE.md:251	PASS	Target exists
 markdown_link	docs/CODE_ARCHITECTURE.md	FULL_MODE.md:136	PASS	Target exists
@@ -804,6 +884,7 @@ markdown_link	docs/DATA_SOURCES.md	FULL_MODE.md:64	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:208	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:84	PASS	Target exists
 markdown_link	docs/DATA_SOURCES.md	REFERENCES.md:92	PASS	Target exists
+markdown_link	docs/DEVELOPER_GUIDE.md	CI_METADATA_MAINTENANCE.md:221	PASS	Target exists
 markdown_link	docs/DEVELOPER_GUIDE.md	CODE_ARCHITECTURE.md:41	PASS	Target exists
 markdown_link	docs/ENVIRONMENT.md	../requirements-lock.txt:37	PASS	Target exists
 markdown_link	docs/ENVIRONMENT.md	FULL_MODE.md:60	PASS	Target exists
@@ -825,9 +906,8 @@ markdown_link	docs/PROVENANCE.md	../EXTERNAL_INPUT_MANIFEST.tsv:19	PASS	Target e
 markdown_link	docs/PROVENANCE.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:18	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:216	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../THIRD_PARTY_NOTICES.md:219	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	../data/fixtures/:75	PASS	Target exists
+markdown_link	docs/PROVENANCE.md	../data/fixtures/README.md:75	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	../data/frozen/metadata/class_membership.csv:46	PASS	Target exists
-markdown_link	docs/PROVENANCE.md	../results/reference/:42	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	DATA_SOURCES.md:101	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	DATA_SOURCES.md:22	PASS	Target exists
 markdown_link	docs/PROVENANCE.md	METHODS.md:220	PASS	Target exists
@@ -844,20 +924,53 @@ markdown_link	docs/REPRODUCIBILITY.md	../EXTERNAL_INPUT_MANIFEST.tsv:78	PASS	Tar
 markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_FILE_DECISIONS.tsv:98	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	../PUBLIC_RELEASE_MANIFEST.tsv:238	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	../SHA256SUMS.txt:239	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../data/fixtures/:63	PASS	Target exists
+markdown_link	docs/REPRODUCIBILITY.md	../data/fixtures/README.md:63	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	../requirements-lock.txt:7	PASS	Target exists
-markdown_link	docs/REPRODUCIBILITY.md	../results/reference/:126	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	DATA_SOURCES.md:97	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	ENVIRONMENT.md:20	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	FULL_MODE.md:165	PASS	Target exists
 markdown_link	docs/REPRODUCIBILITY.md	PROVENANCE.md:264	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../DATA_LICENSE.md:62	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv:40	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/figure4/final/FINAL_FIGURE4_CARDOZO_BRIGHT_RIGHTLEGEND_600dpi.png:44	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/figure4/qc/NUMERICAL_QC.json:55	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/figure4/source_data/FROZEN_GLOBAL_FIXED_REFERENCE_PCA_SCORES.csv:54	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv:53	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/global/GLOBAL_MODEL_STATUS.csv:56	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p0001.csv:21	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	../results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv:19	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	METHODS.md:77	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	REPRODUCIBILITY.md:78	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	figures/gallery_family_jaccard.png:27	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	figures/gallery_provenance.json:8	PASS	Target exists
+markdown_link	docs/RESULTS_GALLERY.md	figures/gallery_whole_body.png:12	PASS	Target exists
+markdown_link	docs/figures/apps/README.md	../../../DATA_LICENSE.md:23	PASS	Target exists
+markdown_link	docs/figures/apps/README.md	../../../audits/PROJECT_INTEGRATION_ASSESSMENT.md:24	PASS	Target exists
+markdown_link	integrations/README.md	../DATA_LICENSE.md:110	PASS	Target exists
+markdown_link	integrations/README.md	../docs/APPLICATION_INTEGRATION.md:118	PASS	Target exists
+markdown_link	integrations/README.md	../src/cardozo_ketamine_hr/integration-v1.schema.json:4	PASS	Target exists
+markdown_link	integrations/README.md	../src/cardozo_ketamine_hr/integration.py:5	PASS	Target exists
+markdown_link	integrations/README.md	fixtures/synthetic-v1/manifest.json:96	PASS	Target exists
+markdown_link	integrations/README.md	read_example.py:75	PASS	Target exists
+markdown_link	notebooks/Historeceptomics_Quickstart.ipynb	../DATA_LICENSE.md:39	PASS	Target exists
+markdown_link	notebooks/Historeceptomics_Quickstart.ipynb	../docs/APPLICATION_INTEGRATION.md:37	PASS	Target exists
+markdown_link	notebooks/Historeceptomics_Quickstart.ipynb	../docs/REPRODUCIBILITY.md:35	PASS	Target exists
+markdown_link	notebooks/Historeceptomics_Quickstart.ipynb	README.md:7	PASS	Target exists
+markdown_link	notebooks/README.md	../DATA_LICENSE.md:31	PASS	Target exists
+markdown_link	notebooks/README.md	../docs/REPRODUCIBILITY.md:34	PASS	Target exists
+markdown_link	notebooks/README.md	Historeceptomics_Quickstart.ipynb:3	PASS	Target exists
 markdown_link	optional/README.md	../ANALYSIS_REPRODUCIBILITY_MATRIX.csv:45	PASS	Target exists
+module_docstring	integrations/generate_synthetic.py	module	PASS	Complete module contract
+module_docstring	integrations/read_example.py	module	PASS	Complete module contract
+module_docstring	notebooks/execute.py	module	PASS	Complete module contract
 module_docstring	scripts/audit_code_documentation.py	module	PASS	Complete module contract
 module_docstring	scripts/audit_distribution.py	module	PASS	Complete module contract
 module_docstring	scripts/audit_repository.py	module	PASS	Complete module contract
 module_docstring	scripts/build_release_manifests.py	module	PASS	Complete module contract
 module_docstring	scripts/build_repository_metadata.py	module	PASS	Complete module contract
 module_docstring	scripts/compare_executable_ast.py	module	PASS	Complete module contract
+module_docstring	scripts/refresh_public_metadata.py	module	PASS	Complete module contract
+module_docstring	scripts/render_results_gallery.py	module	PASS	Complete module contract
 module_docstring	scripts/stage_docs.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/__init__.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/__main__.py	module	PASS	Complete module contract
@@ -876,6 +989,7 @@ module_docstring	src/cardozo_ketamine_hr/gpu_backend.py	module	PASS	Complete mod
 module_docstring	src/cardozo_ketamine_hr/hr.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/identity.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/independent_validation.py	module	PASS	Complete module contract
+module_docstring	src/cardozo_ketamine_hr/integration.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/multivariate.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/nearest_reference.py	module	PASS	Complete module contract
 module_docstring	src/cardozo_ketamine_hr/packaging.py	module	PASS	Complete module contract
@@ -917,6 +1031,7 @@ module_docstring	tests/test_governance_statuses.py	module	PASS	Test purpose is d
 module_docstring	tests/test_heatmap_call_count.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_hr_construction.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_identity_resolution.py	module	PASS	Test purpose is documented
+module_docstring	tests/test_integration_contract.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_manuscript_alignment.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_multivariate_rank_handling.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_pairwise_metrics.py	module	PASS	Test purpose is documented
@@ -924,10 +1039,27 @@ module_docstring	tests/test_pipeline_orchestration_synthetic.py	module	PASS	Test
 module_docstring	tests/test_pooled_authority_counts.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_portable_release_outputs.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_public_figures_synthetic.py	module	PASS	Test purpose is documented
+module_docstring	tests/test_public_metadata_maintenance.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_public_utility_contracts.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_resource_limits.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_target_mapping.py	module	PASS	Test purpose is documented
 module_docstring	tests/test_upstream_parsing_synthetic.py	module	PASS	Test purpose is documented
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 10	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 12	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 14	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 16	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 2	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 4	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 6	PASS	Saved successful execution
+notebook_execution	notebooks/Historeceptomics_Quickstart.ipynb	cell 8	PASS	Saved successful execution
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 10	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 12	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 14	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 16	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 2	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 4	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 6	PASS	Python source parses
+notebook_python	notebooks/Historeceptomics_Quickstart.ipynb	cell 8	PASS	Python source parses
 powershell_failure_contract	launchers/Full.ps1	ErrorActionPreference	PASS	Native/script failures propagate
 powershell_failure_contract	launchers/Run.ps1	ErrorActionPreference	PASS	Native/script failures propagate
 powershell_failure_contract	launchers/Smoke.ps1	ErrorActionPreference	PASS	Native/script failures propagate
@@ -952,18 +1084,23 @@ powershell_help	launchers/run_reproduction.ps1	.SYNOPSIS	PASS	Present
 powershell_help	launchers/validate_release.ps1	.DESCRIPTION	PASS	Present
 powershell_help	launchers/validate_release.ps1	.EXAMPLE	PASS	Present
 powershell_help	launchers/validate_release.ps1	.SYNOPSIS	PASS	Present
+spdx	integrations/generate_synthetic.py	module	PASS	MIT SPDX header present
+spdx	integrations/read_example.py	module	PASS	MIT SPDX header present
 spdx	launchers/Full.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/Run.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/Smoke.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/Verify.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/run_reproduction.ps1	script	PASS	MIT SPDX header present
 spdx	launchers/validate_release.ps1	script	PASS	MIT SPDX header present
+spdx	notebooks/execute.py	module	PASS	MIT SPDX header present
 spdx	scripts/audit_code_documentation.py	module	PASS	MIT SPDX header present
 spdx	scripts/audit_distribution.py	module	PASS	MIT SPDX header present
 spdx	scripts/audit_repository.py	module	PASS	MIT SPDX header present
 spdx	scripts/build_release_manifests.py	module	PASS	MIT SPDX header present
 spdx	scripts/build_repository_metadata.py	module	PASS	MIT SPDX header present
 spdx	scripts/compare_executable_ast.py	module	PASS	MIT SPDX header present
+spdx	scripts/refresh_public_metadata.py	module	PASS	MIT SPDX header present
+spdx	scripts/render_results_gallery.py	module	PASS	MIT SPDX header present
 spdx	scripts/stage_docs.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/__init__.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/__main__.py	module	PASS	MIT SPDX header present
@@ -982,6 +1119,7 @@ spdx	src/cardozo_ketamine_hr/gpu_backend.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/hr.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/identity.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/independent_validation.py	module	PASS	MIT SPDX header present
+spdx	src/cardozo_ketamine_hr/integration.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/multivariate.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/nearest_reference.py	module	PASS	MIT SPDX header present
 spdx	src/cardozo_ketamine_hr/packaging.py	module	PASS	MIT SPDX header present
@@ -1023,6 +1161,7 @@ spdx	tests/test_governance_statuses.py	module	PASS	MIT SPDX header present
 spdx	tests/test_heatmap_call_count.py	module	PASS	MIT SPDX header present
 spdx	tests/test_hr_construction.py	module	PASS	MIT SPDX header present
 spdx	tests/test_identity_resolution.py	module	PASS	MIT SPDX header present
+spdx	tests/test_integration_contract.py	module	PASS	MIT SPDX header present
 spdx	tests/test_manuscript_alignment.py	module	PASS	MIT SPDX header present
 spdx	tests/test_multivariate_rank_handling.py	module	PASS	MIT SPDX header present
 spdx	tests/test_pairwise_metrics.py	module	PASS	MIT SPDX header present
@@ -1030,6 +1169,7 @@ spdx	tests/test_pipeline_orchestration_synthetic.py	module	PASS	MIT SPDX header 
 spdx	tests/test_pooled_authority_counts.py	module	PASS	MIT SPDX header present
 spdx	tests/test_portable_release_outputs.py	module	PASS	MIT SPDX header present
 spdx	tests/test_public_figures_synthetic.py	module	PASS	MIT SPDX header present
+spdx	tests/test_public_metadata_maintenance.py	module	PASS	MIT SPDX header present
 spdx	tests/test_public_utility_contracts.py	module	PASS	MIT SPDX header present
 spdx	tests/test_resource_limits.py	module	PASS	MIT SPDX header present
 spdx	tests/test_target_mapping.py	module	PASS	MIT SPDX header present
@@ -1050,6 +1190,7 @@ test_descriptor	tests/test_governance_statuses.py	module	PASS	Protected contract
 test_descriptor	tests/test_heatmap_call_count.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_hr_construction.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_identity_resolution.py	module	PASS	Protected contract documented
+test_descriptor	tests/test_integration_contract.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_manuscript_alignment.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_multivariate_rank_handling.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_pairwise_metrics.py	module	PASS	Protected contract documented
@@ -1057,6 +1198,7 @@ test_descriptor	tests/test_pipeline_orchestration_synthetic.py	module	PASS	Prote
 test_descriptor	tests/test_pooled_authority_counts.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_portable_release_outputs.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_public_figures_synthetic.py	module	PASS	Protected contract documented
+test_descriptor	tests/test_public_metadata_maintenance.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_public_utility_contracts.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_resource_limits.py	module	PASS	Protected contract documented
 test_descriptor	tests/test_target_mapping.py	module	PASS	Protected contract documented
@@ -1096,7 +1238,10 @@ unresolved_marker	SHA256SUMS.txt	file	PASS	No findings
 unresolved_marker	SUPPORT.md	file	PASS	No findings
 unresolved_marker	THIRD_PARTY_NOTICES.md	file	PASS	No findings
 unresolved_marker	audits/CODE_INVENTORY.csv	file	PASS	No findings
+unresolved_marker	audits/INTEGRATION_REFERENCE_CHECKSUMS.tsv	file	PASS	No findings
+unresolved_marker	audits/INTEGRATION_REGRESSION_AUDIT.md	file	PASS	No findings
 unresolved_marker	audits/OUTPUT_CODE_LINEAGE.csv	file	PASS	No findings
+unresolved_marker	audits/PROJECT_INTEGRATION_ASSESSMENT.md	file	PASS	No findings
 unresolved_marker	audits/PUBLIC_EXPOSURE_AUDIT.md	file	PASS	No findings
 unresolved_marker	audits/PUBLIC_EXPOSURE_FINDINGS.tsv	file	PASS	No findings
 unresolved_marker	audits/PUBLIC_SCIENTIFIC_EQUIVALENCE.md	file	PASS	No findings
@@ -1117,6 +1262,8 @@ unresolved_marker	data/fixtures/smoke_activity.csv	file	PASS	No findings
 unresolved_marker	data/fixtures/smoke_expression.csv	file	PASS	No findings
 unresolved_marker	data/fixtures/smoke_profiles.csv	file	PASS	No findings
 unresolved_marker	data/frozen/metadata/class_membership.csv	file	PASS	No findings
+unresolved_marker	docs/APPLICATION_INTEGRATION.md	file	PASS	No findings
+unresolved_marker	docs/CI_METADATA_MAINTENANCE.md	file	PASS	No findings
 unresolved_marker	docs/CODE_ARCHITECTURE.md	file	PASS	No findings
 unresolved_marker	docs/DATA_SOURCES.md	file	PASS	No findings
 unresolved_marker	docs/DEVELOPER_GUIDE.md	file	PASS	No findings
@@ -1126,7 +1273,15 @@ unresolved_marker	docs/METHODS.md	file	PASS	No findings
 unresolved_marker	docs/PROVENANCE.md	file	PASS	No findings
 unresolved_marker	docs/REFERENCES.md	file	PASS	No findings
 unresolved_marker	docs/REPRODUCIBILITY.md	file	PASS	No findings
+unresolved_marker	docs/RESULTS_GALLERY.md	file	PASS	No findings
+unresolved_marker	docs/figures/apps/README.md	file	PASS	No findings
+unresolved_marker	docs/figures/gallery_provenance.json	file	PASS	No findings
 unresolved_marker	environment.yml	file	PASS	No findings
+unresolved_marker	integrations/README.md	file	PASS	No findings
+unresolved_marker	integrations/fixtures/synthetic-v1/manifest.json	file	PASS	No findings
+unresolved_marker	integrations/fixtures/synthetic-v1/records.json	file	PASS	No findings
+unresolved_marker	integrations/generate_synthetic.py	file	PASS	No findings
+unresolved_marker	integrations/read_example.py	file	PASS	No findings
 unresolved_marker	launchers/Full.ps1	file	PASS	No findings
 unresolved_marker	launchers/Run.ps1	file	PASS	No findings
 unresolved_marker	launchers/Smoke.ps1	file	PASS	No findings
@@ -1134,11 +1289,17 @@ unresolved_marker	launchers/Verify.ps1	file	PASS	No findings
 unresolved_marker	launchers/run_reproduction.ps1	file	PASS	No findings
 unresolved_marker	launchers/validate_release.ps1	file	PASS	No findings
 unresolved_marker	mkdocs.yml	file	PASS	No findings
+unresolved_marker	notebooks/Historeceptomics_Quickstart.ipynb	file	PASS	No findings
+unresolved_marker	notebooks/README.md	file	PASS	No findings
+unresolved_marker	notebooks/execute.py	file	PASS	No findings
+unresolved_marker	notebooks/fixtures/activity.csv	file	PASS	No findings
+unresolved_marker	notebooks/fixtures/expression.csv	file	PASS	No findings
 unresolved_marker	optional/README.md	file	PASS	No findings
 unresolved_marker	pyproject.toml	file	PASS	No findings
 unresolved_marker	requirements-coverage.txt	file	PASS	No findings
 unresolved_marker	requirements-docs.txt	file	PASS	No findings
 unresolved_marker	requirements-lock.txt	file	PASS	No findings
+unresolved_marker	requirements-notebook.txt	file	PASS	No findings
 unresolved_marker	requirements-package.txt	file	PASS	No findings
 unresolved_marker	requirements.txt	file	PASS	No findings
 unresolved_marker	results/reference/FINAL_MODEL_STATUS.csv	file	PASS	No findings
@@ -1168,6 +1329,8 @@ unresolved_marker	results/reference/family/FAMILY_TARGET_LEVEL_PCA_LOADINGS.csv	
 unresolved_marker	results/reference/family/FAMILY_TARGET_LEVEL_PCA_SCORES.csv	file	PASS	No findings
 unresolved_marker	results/reference/family/FAMILY_WEIGHTED_MDS_COORDINATES.csv	file	PASS	No findings
 unresolved_marker	results/reference/family/KETAMINE_FAMILY_ALL_PAIR_METRICS_FINAL.csv	file	PASS	No findings
+unresolved_marker	results/reference/figure4/qc/NUMERICAL_QC.json	file	PASS	No findings
+unresolved_marker	results/reference/figure4/qc/VISUAL_LAYOUT_QC.json	file	PASS	No findings
 unresolved_marker	results/reference/figure4/source_data/FROZEN_GLOBAL_FIXED_REFERENCE_PCA_SCORES.csv	file	PASS	No findings
 unresolved_marker	results/reference/figure4/source_data/PALETTE_SPECIFICATION.csv	file	PASS	No findings
 unresolved_marker	results/reference/figure4/source_data/VALIDATED_FIGURE4_SOURCE_COORDINATES.csv	file	PASS	No findings
@@ -1191,13 +1354,17 @@ unresolved_marker	results/reference/global/GLOBAL_SPARSE_ALPHA001_PCA_SCORES.csv
 unresolved_marker	results/reference/global/GLOBAL_TARGET_LEVEL_PCA_LOADINGS.csv	file	PASS	No findings
 unresolved_marker	results/reference/global/GLOBAL_TARGET_LEVEL_PCA_SCORES.csv	file	PASS	No findings
 unresolved_marker	results/reference/global/GLOBAL_WEIGHTED_MDS_COORDINATES.csv	file	PASS	No findings
+unresolved_marker	results/reference/whole_body/CNS_SMOKE_TEST.json	file	PASS	No findings
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p0001.csv	file	PASS	No findings
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_ALPHA_0p001.csv	file	PASS	No findings
 unresolved_marker	results/reference/whole_body/KETAMINE_WHOLE_BODY_FINGERPRINT_SUMMARY_METRICS.csv	file	PASS	No findings
+unresolved_marker	results/reference/whole_body/QC_RESULTS.json	file	PASS	No findings
 unresolved_marker	scripts/audit_distribution.py	file	PASS	No findings
 unresolved_marker	scripts/build_release_manifests.py	file	PASS	No findings
 unresolved_marker	scripts/build_repository_metadata.py	file	PASS	No findings
 unresolved_marker	scripts/compare_executable_ast.py	file	PASS	No findings
+unresolved_marker	scripts/refresh_public_metadata.py	file	PASS	No findings
+unresolved_marker	scripts/render_results_gallery.py	file	PASS	No findings
 unresolved_marker	scripts/stage_docs.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/__init__.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/__main__.py	file	PASS	No findings
@@ -1216,6 +1383,8 @@ unresolved_marker	src/cardozo_ketamine_hr/gpu_backend.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/hr.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/identity.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/independent_validation.py	file	PASS	No findings
+unresolved_marker	src/cardozo_ketamine_hr/integration-v1.schema.json	file	PASS	No findings
+unresolved_marker	src/cardozo_ketamine_hr/integration.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/multivariate.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/nearest_reference.py	file	PASS	No findings
 unresolved_marker	src/cardozo_ketamine_hr/packaging.py	file	PASS	No findings
@@ -1257,6 +1426,7 @@ unresolved_marker	tests/test_governance_statuses.py	file	PASS	No findings
 unresolved_marker	tests/test_heatmap_call_count.py	file	PASS	No findings
 unresolved_marker	tests/test_hr_construction.py	file	PASS	No findings
 unresolved_marker	tests/test_identity_resolution.py	file	PASS	No findings
+unresolved_marker	tests/test_integration_contract.py	file	PASS	No findings
 unresolved_marker	tests/test_manuscript_alignment.py	file	PASS	No findings
 unresolved_marker	tests/test_multivariate_rank_handling.py	file	PASS	No findings
 unresolved_marker	tests/test_pairwise_metrics.py	file	PASS	No findings
@@ -1264,6 +1434,7 @@ unresolved_marker	tests/test_pipeline_orchestration_synthetic.py	file	PASS	No fi
 unresolved_marker	tests/test_pooled_authority_counts.py	file	PASS	No findings
 unresolved_marker	tests/test_portable_release_outputs.py	file	PASS	No findings
 unresolved_marker	tests/test_public_figures_synthetic.py	file	PASS	No findings
+unresolved_marker	tests/test_public_metadata_maintenance.py	file	PASS	No findings
 unresolved_marker	tests/test_public_utility_contracts.py	file	PASS	No findings
 unresolved_marker	tests/test_resource_limits.py	file	PASS	No findings
 unresolved_marker	tests/test_target_mapping.py	file	PASS	No findings

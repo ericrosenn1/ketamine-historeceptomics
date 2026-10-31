@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased — public project and application interface
+
+- Introduce the two independently maintained research applications with genuine
+  public-interface screenshots, an inspected integration assessment, and an
+  architecture diagram separating current flows from future adoption.
+- Add a versioned file-export/validation contract for approved whole-body calls,
+  explicit missingness/identity rules, synthetic fixtures, and consumer examples.
+- Add an executed synthetic method notebook and a three-figure gallery drawn
+  from accepted public results without numerical recomputation or refitting.
+- Add a staged-tree metadata refresh command and CI remediation patch, preserving
+  strict publication, security, scientific-integrity, and reproducibility gates.
+- Preserve v0.1.1, citation metadata, all 60 retained reference artifact bytes,
+  governed methods/configurations, and restricted-input exclusions. Neither
+  private application is modified, published, or connected to this new interface.
+
 All notable public changes are documented here.
 
 ## [Unreleased]
